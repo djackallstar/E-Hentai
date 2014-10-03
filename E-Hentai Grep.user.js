@@ -8,6 +8,11 @@
 
 var default_on = true
 var hotkey = 71 // http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
+var max_length = 60
+var blacklist = [
+    '22234', // Ask the Experts
+    '163637', // The Shared Free Shop
+]
 if(typeof grep_patterns == 'undefined')
 {
     var grep_patterns = [ // modify by yourself to suit your needs
@@ -60,6 +65,8 @@ var doc = wnd.document
 var loc = location
 var href = loc.href
 
+for(var i=0; i<blacklist.length; i++) { if(new RegExp('showtopic=' + blacklist[i] + '\\b').test(href)) { throw 'exit' } }
+
 var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
@@ -75,7 +82,7 @@ for(var i=0, len=posts.length; i<len; i++) {
     var lines = get_text($(posts[i], '.postcolor')).split('\n')
     var out = ''
     for(var j=0, len2=lines.length; j<len2; j++) {
-        var line = lines[j]
+        var line = lines[j].substring(0, max_length)
         for(var k=0, len3=grep_patterns.length; k<len3; k++) {
             if(grep_patterns[k].test(line)) { out = out + line + '\n'; break }
         }
