@@ -90,6 +90,7 @@ for(var i=0, len=posts.length; i<len; i++) {
     if(out) {
         var d = doc.createElement('DIV')
         d.className = 'result'
+        d.style.backgroundColor = 'white'
         d.appendChild($(posts[i], '.postdetails').cloneNode(true))
         var pre = doc.createElement('PRE')
         pre.appendChild(doc.createTextNode(out))
