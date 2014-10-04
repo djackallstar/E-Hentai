@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name            Equipment Highlighter for E-Hentai Forums
-// @description     Highlights Equipment and Items with Colors in the WTS/WTB Forums
+// @name            E-Hentai Grep
+// @description     Searches forum posts for lines that match given string patterns
 // @include         http://forums.e-hentai.org/index.php?*showtopic=*
 // ==/UserScript==
 
