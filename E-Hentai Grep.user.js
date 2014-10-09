@@ -88,7 +88,7 @@ var doc = wnd.document
 var loc = location
 var href = loc.href
 
-if(/&?\bst=/.test(href)) { throw 'exit' }
+if(/&?\bst=[^0]/.test(href)) { throw 'exit' }
 
 for(var i=0; i<blacklist.length; i++) { if(new RegExp('showtopic=' + blacklist[i] + '\\b').test(href)) { default_on = false } }
 
