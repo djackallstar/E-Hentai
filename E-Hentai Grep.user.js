@@ -152,9 +152,15 @@ else {
         for(var j=0, len2=lines.length; j<len2; j++) {
             var line = lines[j].substring(0, max_length)
             for(var k=0, len3=grep_patterns.length; k<len3; k++) {
+                var grepped = false
                 for(var m=0, len4=grep_patterns[k][0].length; m<len4; m++) {
-                    if(grep_patterns[k][0][m].test(line)) { out = out + line + '\n'; break }
+                    if(grep_patterns[k][0][m].test(line)) {
+                        grepped = true
+                        out = out + line + '\n'
+                        break
+                    }
                 }
+                if(grepped) { break }
             }
         }
         if(out) {
