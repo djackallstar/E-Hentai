@@ -95,7 +95,7 @@ for(var i=0; i<blacklist.length; i++) { if(new RegExp('showtopic=' + blacklist[i
 var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
-var get_text = function(e) { return e.innerHTML.replace(/<br\s*[^>]*>/g, '\n').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '') }
+var get_text = function(e) { return e.innerHTML.replace(/<br\s*[^>]*>/g, '\n').replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '') }
 var out = ''
 
 if(result_box_position == 'left') {
