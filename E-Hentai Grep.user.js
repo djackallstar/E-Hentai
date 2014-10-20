@@ -97,9 +97,12 @@ var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll
 
 var stockout = function(line) {
     var stockout_patterns = [
-        /[\(\[:x@]\s*[0x×]/i,
+        /[\(\[【（:x@]\s*[0x×]\D/i,
         /\b0\s*[x×]/i,
         /\(\/?\)/i,
+        /\[\/?\]/i,
+        /【\/?】/i,
+        /（\/?）/i,
     ]
     for(var i=0, len=stockout_patterns.length; i<len; i++) {
         if(stockout_patterns[i].test(line)) { return true }
