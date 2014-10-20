@@ -99,7 +99,7 @@ var stockout = function(line) {
     var stockout_patterns = [
         /[\(\[:x@]\s*[0x×]/,
         /\b0\s*x/,
-        /\(\/\)/,
+        /\(\/?\)/,
     ]
     for(var i=0, len=stockout_patterns.length; i<len; i++) {
         if(stockout_patterns[i].test(line)) { return true }
