@@ -95,6 +95,16 @@ for(var i=0; i<blacklist.length; i++) { if(new RegExp('showtopic=' + blacklist[i
 var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
+var stockout = function(line) {
+    var stockout_patterns = [
+        /[\(\[:x][0x]/,
+    ]
+    for(var i=0, len=stockout_patterns.length; i<len; i++) {
+        if(stockout_patterns[i].test(line)) { return true }
+    }
+    return false
+}
+
 var get_text = function(e) { return e.innerHTML.replace(/<br\s*[^>]*>/g, '\n').replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '') }
 var out = ''
 
@@ -109,6 +119,7 @@ if(result_box_position == 'left') {
         var out = ''
         for(var j=0, len2=lines.length; j<len2; j++) {
             var line = lines[j].substring(0, max_length)
+            if(stockout(line)) { continue }
             for(var k=0, len3=grep_patterns.length; k<len3; k++) {
                 for(var m=0, len4=grep_patterns[k][0].length; m<len4; m++) {
                     if(grep_patterns[k][0][m].test(line)) { out = out + line + '\n'; break }
@@ -151,6 +162,7 @@ else {
         var out = ''
         for(var j=0, len2=lines.length; j<len2; j++) {
             var line = lines[j].substring(0, max_length)
+            if(stockout(line)) { continue }
             for(var k=0, len3=grep_patterns.length; k<len3; k++) {
                 var grepped = false
                 for(var m=0, len4=grep_patterns[k][0].length; m<len4; m++) {
