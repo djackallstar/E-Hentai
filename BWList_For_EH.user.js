@@ -6,7 +6,7 @@
 
 /*** Settings ***/
 
-var hide_unread_threads = true
+var hide_unread_imgs = true
 var hide_closed_shops = true
 var highlight_auctions = true
 var highlight_shop_owners = true
@@ -45,7 +45,7 @@ if(!showforum) { throw 'exit' }
 showforum = showforum[1]
 
 // Hide unread imgs
-if(hide_unread_threads) {
+if(hide_unread_imgs) {
     var imgs = $$('img[src="style_images/ambience/newpost.gif"]')
     for(var i=0, len=imgs.length; i<len; i++) { imgs[i].style.display = 'none' }
     var imgs = $$('img[src="style_images/fusion/newpost.gif"]')
