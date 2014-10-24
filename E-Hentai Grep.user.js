@@ -112,7 +112,7 @@ var stockout = function(line) {
     return false
 }
 
-var get_text = function(e) { return e.innerHTML.replace(/<br\s*[^>]*>/g, '\n').replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '').replace(/&nbps;/g, ' ') }
+var get_text = function(e) { return e.innerHTML.replace(/<br\s*[^>]*>/g, '\n').replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '').replace(/&nbsp;/g, ' ') }
 var out = ''
 
 if(result_box_position == 'left') {
