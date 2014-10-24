@@ -105,6 +105,7 @@ var stockout = function(line) {
         /【\/?】/i,
         /（\/?）/i,
         /\bnot\s+available\b/i,
+        /\bnone\b/i,
     ]
     for(var i=0, len=stockout_patterns.length; i<len; i++) {
         if(stockout_patterns[i].test(line)) { return true }
@@ -112,7 +113,7 @@ var stockout = function(line) {
     return false
 }
 
-var get_text = function(e) { return e.innerHTML.replace(/<br\s*[^>]*>/g, '\n').replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '').replace(/&nbsp;/g, ' ') }
+var get_text = function(e) { return e.innerHTML.replace(/<br\s*[^>]*>/g, '\n').replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&') }
 var out = ''
 
 if(result_box_position == 'left') {
