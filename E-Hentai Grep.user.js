@@ -104,6 +104,7 @@ var stockout = function(line) {
         /\[\/?\]/i,
         /【\/?】/i,
         /（\/?）/i,
+        /\bnot\s+available\b/i,
     ]
     for(var i=0, len=stockout_patterns.length; i<len; i++) {
         if(stockout_patterns[i].test(line)) { return true }
