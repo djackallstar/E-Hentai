@@ -105,6 +105,7 @@ var stockout = function(line) {
         /【\/?】/i,
         /（\/?）/i,
         /\bnot\s+available\b/i,
+        /\bunavailable\b/i,
         /\bnone\b/i,
         /\[restocking\]/i,
         /\s+0\s*$/i,
