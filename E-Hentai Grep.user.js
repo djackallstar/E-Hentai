@@ -8,13 +8,14 @@
 var default_on = true
 var hotkey = 71 // http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 var max_length = 60
-var result_box_position = 'right' // where to show the result box ("left", "center" or "right")
+if(typeof result_box_position == 'undefined') {
+    var result_box_position = 'right' // where to show the result box ("left", "center" or "right")   
+}
 var blacklist = [
     '22234', // Ask the Experts
     '163637', // The Shared Free Shop
 ]
-if(typeof grep_patterns == 'undefined')
-{
+if(typeof grep_patterns == 'undefined') {
     var grep_patterns = [ // Add [[pattern_1, pattern_2, ... , pattern_n], color] to the array by yourself.
         // Items
         [
