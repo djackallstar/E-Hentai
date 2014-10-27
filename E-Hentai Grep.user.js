@@ -118,8 +118,8 @@ var stockout = function(line) {
 
 var get_text = function(e) {
     var s = e.innerHTML
-    s = s.replace(/<br\s*[^>]*>/g, '\n').replace(/<\/li>/g, '\n').replace(/<ul>/g, '\n').replace(/<\/blockquote>/g, '\n')
     s = s.replace(/<strike>.*<\/strike>/g, '')
+    s = s.replace(/<br\s*[^>]*>/g, '\n').replace(/<\/li>/g, '\n').replace(/<ul>/g, '\n').replace(/<\/blockquote>/g, '\n')
     s = s.replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '')
     s = s.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
     s = s.replace(/[ \t]+/g, ' ')
