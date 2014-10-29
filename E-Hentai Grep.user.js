@@ -136,6 +136,7 @@ if(result_box_position == 'left') {
         if((!poster) || (poster.textContent != $('.bigusername').textContent)) { continue } // skip threads that are not posted by the shop owner
 
         var lines = get_text($(posts[i], '.postcolor')).split('\n')
+        console.log(lines)
         var out = ''
         for(var j=0, len2=lines.length; j<len2; j++) {
             var line = lines[j].substring(0, max_length)
@@ -179,6 +180,7 @@ else {
         if((!poster) || (poster.textContent != $('.bigusername').textContent)) { continue } // skip threads that are not posted by the shop owner
 
         var lines = get_text($(posts[i], '.postcolor')).split('\n')
+        console.log(lines)
         var out = ''
         for(var j=0, len2=lines.length; j<len2; j++) {
             var line = lines[j].substring(0, max_length)
