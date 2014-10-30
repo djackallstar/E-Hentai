@@ -8,7 +8,7 @@
 var default_on = true
 var hotkey = 71 // http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 var max_length = 60
-var display_title_and_poster = false
+var display_title_and_poster = true
 if(typeof result_box_position == 'undefined') {
     var result_box_position = 'right' // where to show the result box ("left", "center" or "right")   
 }
