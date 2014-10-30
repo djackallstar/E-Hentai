@@ -8,6 +8,7 @@
 var default_on = true
 var hotkey = 71 // http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 var max_length = 60
+var display_title_and_poster = false
 if(typeof result_box_position == 'undefined') {
     var result_box_position = 'right' // where to show the result box ("left", "center" or "right")   
 }
@@ -148,6 +149,10 @@ if(result_box_position == 'left') {
             }
         }
         if(out) {
+            if(display_title_and_poster && (i==0)) {
+                var shop_title = $$('.maintitle>table>tbody>tr>td>div')[0].textContent
+                out = '[Title] ' + shop_title + '\n' + '[Poster] ' + poster
+            }
             var d = doc.createElement('DIV')
             d.className = 'result'
             d.style.cssText = 'background:rgba(237,235,223,1); color:#5C0D11'
@@ -198,6 +203,10 @@ else {
             }
         }
         if(out) {
+            if(display_title_and_poster && (i==0)) {
+                var shop_title = $$('.maintitle>table>tbody>tr>td>div')[0].textContent
+                out = '[Title] ' + shop_title + '\n' + '[Poster] ' + poster
+            }
             var d = doc.createElement('DIV')
             d.className = 'result'
             d.style.cssText = 'background:rgba(237,235,223,1); color:#5C0D11'
