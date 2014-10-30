@@ -8,9 +8,11 @@
 var default_on = true
 var hotkey = 71 // http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 var max_length = 60
-var display_title_and_poster = true
+var display_title_and_poster = false
+var remove_stockout_line = true
+var remove_strike_through_line = true
 if(typeof result_box_position == 'undefined') {
-    var result_box_position = 'right' // where to show the result box ("left", "center" or "right")   
+    var result_box_position = 'center' // where to show the result box ("left", "center" or "right")
 }
 var blacklist = [
     '22234', // Ask the Experts
@@ -18,67 +20,70 @@ var blacklist = [
 ]
 if(typeof grep_patterns == 'undefined') {
     var grep_patterns = [ // Add [[pattern_1, pattern_2, ... , pattern_n], color] to the array by yourself.
-        // Items
-        [
-            [   // Bindings
-                /binding.*(slaughter|protection|barrier|nimble|heimdall|ox|raccoon|cheetah|turtle|warding)/i,
-                /^\s*(slaughter|protection|barrier|nimble|heimdall|ox|raccoon|cheetah|turtle|warding)/i,
-                // Special forge materials
-                /\bmodulator\b/i,
-                /\bactuator\b/i,
-            ], 'cyan'
-        ],
-        [
+        [ // Items
             [
+                // Bindings
+                /binding.*(slaughter|nimble|balance)/i,
+                /^\s*(slaughter|nimble|balance)/i,
                 // Graded materials
-                /(grade|scrap)\s+(metals?|cloth)/i,
+                /mid.*grade.*metal/i,
+                /high.*grade.*(metal|cloth)/i,
+                /scrap.*(wood|metal|cloth)/i,
                 // Shard
-                /\bshards?/i,
+                /\b(shards?|voidseeker|aether|amnesia|featherweight)/i,
                 // Artifact
                 /\bartifacts?/i,
+                // ED
+                /\benergy\b/i,
+                // Happy Pills
+                /\bpills\b/i,
+                // Battle items
+                /\bscrolls?/i, /\binfusions?/i, /\bvase\b/i, /\bbubble\b/i, /\belixir\b/i,
+                // Trophy
+                /\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
             ], 'yellow'
         ],
-        // Equipments
-        [
-            [   // Rapier
-                /(Peerless|Leg|Mag)(\S+)? +(Ethereal|Hallowed|Demonic|Tempestuous) +Rapier.+(Slaughter)/i, // Mag+ good-prefixed rapier of slaughter
-                // Shield
-                /(Peerless|Leg)(\S+)?( +\S+)? +(\S)+ +Shield/i, // Leg+ shield
-                /(Mag)(\S+)?( +Mithril)? +Force +Shield/i, // Mag non-prefixed or Mithril-prefixed force shield
-                // Power of Slaughter
-                /(Peerless|Leg)(\S+)?( +\S+)? +Power.+(Slaughter)/i, // Leg+ power of slaughter
-                /(Mag)(\S+)?( +Savage)? +Power.+(Slaughter)/i, // Mag non-prefixed or Savage-prefixed power of slaughter
-                // Power/Plate of Protection
-                /(Peerless|Leg)(\S+)?( +\S+)? +(Power|Plate).+(Protection)/i, // Leg+ power of protection
-                // Shielding Plate
-                /(Peerless|Leg)(\S+)? +Shielding +Plate/i, // Leg+ shielding plate
+        [ // Equipments
+            [   // Rapier 1: Leg+ prefixed rapier of slaughter
+                /(Peerless|Leg)(\S+)? +(\S+) +Rapier.*Slaughter/i,
+                // Rapier 2: Mag good-prefixed rapier of slaughter
+                /(Mag)(\S+)? +(Ethereal|Hallowed|Demonic) +Rapier.*Slaughter/i,
+                // Rapier 3: ST-Ru
+                /(Peerless|Leg|Mag|Ex)(\S+)? +(Ethereal|Astral|Hallowed) +Rapier.*Battlecaster/i,
+                // Shield 1: Leg+ force shield
+                /(Peerless|Leg)(\S+)?.*Force +Shield/i,
+                // Shield 2: Mag force shield with good prefix & suffix
+                /(Mag)(\S+)? +(Mithril|Zircon|Onyx|Ruby) +Force +Shield.*(Protection|Warding|Dampening)/i,
+                // Shield 3: Mag force shield without prefix & with good suffix
+                /(Mag)(\S+)? +Force +Shield.*(Protection|Warding|Dampening)/i,
+                // Power of Slaughter: Mag+ power of slaughter
+                /(Peerless|Leg|Mag)(\S+)?( +\S+)? +Power.*Slaughter/i,
             ], 'darkred'
         ],
         [
-            [   // Power of Slaughter
-                /(Mag)(\S+)?( +\S+)? +Power.+(Slaughter)/i, // Mag prefixed power of slaughter
-                /(Exq)(\S+)?( +Savage)? +Power.+(Slaughter)/i, // Exq non-prefixed or Savage-prefixed power of slaughter
-            ], 'darkgreen'
-        ],
-        [
-            [   // Rapier
-                /(Peerless|Leg)(\S+)?( +\S+) +Rapier.+(Slaughter)/i, // Leg+ bad-prefixed rapier of slaughter
-                // Shield
-                /(Mag)(\S+)?( +\S+) +Force +Shield/i, // Mag prefixed force shield
-                /(Mag)(\S+)?( +\S+) +((Kite|Tower) +Shield).+(Protection|Warding)/i, // Mag prefixed kite/tower shield of protection/warding
-                /(Mag)(\S+)?( +\S+) +Buckler.+(Barrier|Nimble)/i, // Mag prefixed buckler of the barrier/nimble
-                // Power
-                /(Exq)(\S+)?( +\S+) +Power.+(Slaughter)/i, // Exq prefixed power of slaughter
-            ], 'darkblue'
-        ],
-        [
             [   // Toys
-                /(Exq)(\S+)? +(Ethereal|Hallowed) +Rapier.+(Slaughter)/i, // Exq good-prefixed rapier of slaughter
-            ], 'purple'
-        ],
-        [
-            [   // It's your turn to add patterns and color!
-            ], '#00FFFF' // You can find other color codes using this website: http://www.colourlovers.com/palettes/search
+                /(Peerless|Leg)(\S+)? +(Shielding|Mithril|Zircon|Onyx|Ruby) +Plate +(Cuirass|Greaves) +of +Protection/i, // Leg+ good plate
+                /(Peerless|Leg|Mag)(\S+)? +Agile +(Leather|Kevlar).*Protection/i, // Mag+ agile leather xxx of protection
+                /(Peerless|Leg|Mag|Ex)(\S+)? +Frugal +Cotton.*Protection/i, // Ex+ frugal cotton xxx of protection
+
+                // Obsolete stuff
+                /\b(Flimsy|Fine)/i, // quality
+                /\w \b(Gold|Silver|Bronze|Diamond|Emerald|Prism|Platinum|Steel|Titanium|Iron)/i, // prefix
+                /(trimmed|adorned|tipped)\b/i, // prefix amendment
+                /\b(Flimsy|Crude|Fair|Av|Fine|Sup|Ex|Mag|Leg|Peerless)([eqn][a-zA-Z]+)? +([a-zA-z]+)$/i, // suffix-less equip
+                /\b(Flimsy|Crude|Fair|Av|Fine|Sup|Ex|Mag|Leg|Peerless)([eqn][a-zA-Z]+)? +([a-zA-z]+)$/i, // suffix-less equip
+                /\b(Flimsy|Crude|Fair|Av|Fine|Sup|Ex|Mag|Leg|Peerless)([eqn][a-zA-Z]+)? +([^o][a-zA-z]+) +([a-zA-z]+)$/i, // suffix-less equip
+                /\b(Flimsy|Crude|Fair|Av|Fine|Sup|Ex|Mag|Leg|Peerless)([eqn][a-zA-Z]+)? +([^o][a-zA-z]+) +([^o][a-zA-z]+) +([a-zA-z]+)$/i, // suffix-less equip
+                /\b(Flimsy|Crude|Fair|Av|Fine|Sup|Ex|Mag|Leg|Peerless)([eqn][a-zA-Z]+)? +.*\b(Ox|Raccoon|Cheetah|Turtle|Fox|Owl)/i, // suffix
+                /\b(Flimsy|Crude|Fair|Av|Fine|Sup|Ex|Mag|Leg|Peerless)([eqn][a-zA-Z]+)? +.*\bAstral/i, // elemental prefix
+                /\b(Flimsy|Crude|Fair|Av|Fine|Sup|Ex|Mag|Leg|Peerless)([eqn][a-zA-Z]+)? +.*\b(Chucks|Ebony|Scythe|Dagger)/i, // weapon
+                /\b(Flimsy|Crude|Fair|Av|Fine|Sup|Ex|Mag|Leg|Peerless)([eqn][a-zA-Z]+)? +.*\b(Silk|Hide)/i, // armor
+                /\b(Flimsy|Crude|Fair|Av|Fine|Sup|Ex|Mag|Leg|Peerless)([eqn][a-zA-Z]+)? +Shield +/i, // shield armor
+                /\b(Flimsy|Crude|Fair|Av|Fine|Sup|Ex|Mag|Leg|Peerless)([eqn][a-zA-Z]+)? +.*\b(Hulk|Aura|Priestess|Stone-Skinned)/i, // armor suffix
+                /\b(Flimsy|Crude|Fair|Av|Fine|Sup|Ex|Mag|Leg|Peerless)([eqn][a-zA-Z]+)? +.*\b(Fire-eater|Frost-born|Thunder-child|Wind-waker|Thrice-blessed|Spirit-ward)/i, // armor suffix
+                /\b(Chainmail|Coif|Mitons|Hauberk|Chausses)/i, // heavy
+                /\b(Kevlar|Gossamer|Tower)/i, // light, cloth, shield
+            ], 'darkgreen'
         ],
     ]
 }
@@ -98,6 +103,7 @@ var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(cs
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
 var stockout = function(line) {
+    if(!remove_stockout_line) { return false }
     var stockout_patterns = [
         /[\|\(\[【（:x@]\s*[-0x×\/]+(\D|$)/i,
         /(^|\D)[-0x×\/]+\s*[@×x:）】\]\)\|]/i,
@@ -120,7 +126,7 @@ var stockout = function(line) {
 
 var get_text = function(e) {
     var s = e.innerHTML
-    s = s.replace(/<strike>.*?<\/strike>/g, '')
+    if(remove_strike_through_line) { s = s.replace(/<strike>.*?<\/strike>/g, '') }
     s = s.replace(/<br\s*[^>]*>/g, '\n').replace(/<\/li>/g, '\n').replace(/<ul>/g, '\n').replace(/<\/blockquote>/g, '\n')
     s = s.replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '')
     s = s.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
@@ -149,9 +155,9 @@ if(result_box_position == 'left') {
             }
         }
         if(out) {
-            if(display_title_and_poster && (i==0)) {
+            if(display_title_and_poster && (/#1/.test($(posts[i], '.postdetails').textContent))) {
                 var shop_title = $$('.maintitle>table>tbody>tr>td>div')[0].textContent
-                out = '[Title] ' + shop_title + '\n' + '[Poster] ' + poster
+                out = '[Title] ' + shop_title + '\n' + '[Poster] ' + poster.textContent + out
             }
             var d = doc.createElement('DIV')
             d.className = 'result'
@@ -203,9 +209,9 @@ else {
             }
         }
         if(out) {
-            if(display_title_and_poster && (i==0)) {
+            if(display_title_and_poster && (/#1/.test($(posts[i], '.postdetails').textContent))) {
                 var shop_title = $$('.maintitle>table>tbody>tr>td>div')[0].textContent
-                out = '[Title] ' + shop_title + '\n' + '[Poster] ' + poster
+                out = '[Title] ' + shop_title + '\n' + '[Poster] ' + poster.textContent + out
             }
             var d = doc.createElement('DIV')
             d.className = 'result'
