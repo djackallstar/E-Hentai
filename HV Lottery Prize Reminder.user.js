@@ -53,7 +53,7 @@ var display_prizes = function() { // Create a div to display the grand prizes of
     div.appendChild(doc.createElement('BR'))
     var a2 = doc.createElement('A')
     a2.id = 'a2'
-    a2.href = 'http://hentaiverse.org/?s=Bazaar&ss=lt'
+    a2.href = 'http://hentaiverse.org/?s=Bazaar&ss=la'
     a2.target = '_self'
     a2.textContent = GM_getValue('p2')
     div.appendChild(a2)
