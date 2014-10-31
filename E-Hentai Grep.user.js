@@ -8,7 +8,7 @@
 var default_on = true
 var hotkey = 71 // http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 var max_length = 60
-var display_title_and_poster = false
+var display_title_and_poster = true
 var remove_stockout_line = true
 var remove_strike_through_line = true
 if(typeof result_box_position == 'undefined') {
