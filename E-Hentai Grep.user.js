@@ -157,7 +157,7 @@ if(result_box_position == 'left') {
         if(out) {
             if(display_title_and_poster && (/#1/.test($(posts[i], '.postdetails').textContent))) {
                 var shop_title = $$('.maintitle>table>tbody>tr>td>div')[0].textContent
-                out = '[Title] ' + shop_title + '\n' + '[Poster] ' + poster.textContent + out
+                out = '[Title] ' + shop_title.substring(0, max_length) + '\n' + '[Poster] ' + poster.textContent.substring(0, max_length)+ '\n\n' + out
             }
             var d = doc.createElement('DIV')
             d.className = 'result'
@@ -211,7 +211,7 @@ else {
         if(out) {
             if(display_title_and_poster && (/#1/.test($(posts[i], '.postdetails').textContent))) {
                 var shop_title = $$('.maintitle>table>tbody>tr>td>div')[0].textContent
-                out = '[Title] ' + shop_title + '\n' + '[Poster] ' + poster.textContent + out
+                out = '[Title] ' + shop_title.substring(0, max_length) + '\n' + '[Poster] ' + poster.textContent.substring(0, max_length)+ '\n\n' + out
             }
             var d = doc.createElement('DIV')
             d.className = 'result'
