@@ -8,7 +8,7 @@
 var default_on = true
 var hotkey = 71 // http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 var max_length = 60
-var display_title_and_poster = false
+var display_title_and_poster = true
 var remove_stockout_line = true
 var remove_strike_through_line = true
 if(typeof result_box_position == 'undefined') {
@@ -157,7 +157,7 @@ if(result_box_position == 'left') {
         if(out) {
             if(display_title_and_poster && (/#1/.test($(posts[i], '.postdetails').textContent))) {
                 var shop_title = $$('.maintitle>table>tbody>tr>td>div')[0].textContent
-                out = '[Title] ' + shop_title.substring(0, max_length) + '\n' + '[Poster] ' + poster.textContent.substring(0, max_length)+ '\n\n' + out
+                out = '[Title]\t' + shop_title.substring(0, max_length) + '\n' + '[Poster] ' + poster.textContent.substring(0, max_length)+ '\n\n' + out
             }
             var d = doc.createElement('DIV')
             d.className = 'result'
@@ -211,7 +211,7 @@ else {
         if(out) {
             if(display_title_and_poster && (/#1/.test($(posts[i], '.postdetails').textContent))) {
                 var shop_title = $$('.maintitle>table>tbody>tr>td>div')[0].textContent
-                out = '[Title] ' + shop_title.substring(0, max_length) + '\n' + '[Poster] ' + poster.textContent.substring(0, max_length)+ '\n\n' + out
+                out = '[Title]\t' + shop_title.substring(0, max_length) + '\n' + '[Poster] ' + poster.textContent.substring(0, max_length)+ '\n\n' + out
             }
             var d = doc.createElement('DIV')
             d.className = 'result'
