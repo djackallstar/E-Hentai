@@ -126,9 +126,9 @@ var stockout = function(line) {
 
 var get_text = function(e) {
     var paras = $$(e, '.quotemain')
-    while(paras[0]) { try{ paras[0].parentNode.removeChild(paras[0]) } catch(e) {} }
+    for(var i=paras.length-1; i>=0; i--) { paras[i].parentNode.removeChild(paras[i]) }
     var paras = $$(e, '.quotetop')
-    while(paras[0]) { try{ paras[0].parentNode.removeChild(paras[0]) } catch(e) {} }
+    for(var i=paras.length-1; i>=0; i--) { paras[i].parentNode.removeChild(paras[i]) }
     var s = e.innerHTML
     if(remove_strike_through_line) { s = s.replace(/<strike>.*?<\/strike>/g, '') }
     s = s.replace(/<br\s*[^>]*>/g, '\n').replace(/<\/li>/g, '\n').replace(/<ul>/g, '\n').replace(/<\/blockquote>/g, '\n')
