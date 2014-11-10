@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name            Jenga's Special Offer
 // @description     Calculate the total value of trophies based on jenga201's buying prices
+// @include         http://hentaiverse.org/?s=Character&ss=in
 // @include         http://hentaiverse.org/?s=Bazaar&ss=is&filter=sp
 // ==/UserScript==
 
@@ -9,7 +10,7 @@ var doc = wnd.document
 var loc = location
 var href = loc.href
 
-var $ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
+var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
 var d = {
@@ -27,6 +28,30 @@ var d = {
     'Noodly Appendage': 0,
 }
 
+var display_total_value = function(sum) {
+    var out = 'Total value of trophies: ' + sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' credits'
+    console.log(out)
+    $('.clb').lastChild.appendChild(doc.createElement('BR'))
+    $('.clb').lastChild.appendChild(doc.createTextNode(out))
+    $('.clb').lastChild.appendChild(doc.createElement('BR'))
+}
+
+// Character -> Inventory
+var inv_item = $('#inv_item')
+if(inv_item) {
+    var items = $$('.id')
+    for(var i=items.length-1, sum=0; i>=0; i--) {
+        var k = items[i].textContent
+        var v = parseInt(d[k])
+        var supply = parseInt($(items[i].parentNode.parentNode, '.ii').textContent)
+        if( (!isNaN(v)) && (!isNaN(supply)) ) {
+            sum += (v*supply)
+        }
+    }
+    display_total_value(sum)
+}
+
+// Bazaar -> Item Shop -> Special
 var item_pane = $('#item_pane')
 if(item_pane) {
     var items = $$('.idp')
@@ -39,5 +64,5 @@ if(item_pane) {
             sum += (v*supply)
         }
     }
-    console.log('Total value of trophies: ' + sum + ' credits.')
+    display_total_value(sum)
 }
