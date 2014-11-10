@@ -2,7 +2,8 @@
 // @name            Jenga's Special Offer
 // @description     Calculate the total value of trophies based on jenga201's buying prices
 // @include         http://hentaiverse.org/?s=Character&ss=in
-// @include         http://hentaiverse.org/?s=Bazaar&ss=is&filter=sp
+// @include         http://hentaiverse.org/?s=Bazaar&ss=is
+// @include         http://hentaiverse.org/?s=Bazaar&ss=is&*
 // ==/UserScript==
 
 var wnd = window
@@ -39,7 +40,7 @@ var display_total_value = function(sum) {
 // Character -> Inventory
 var inv_item = $('#inv_item')
 if(inv_item) {
-    var items = $$('.id')
+    var items = $$(inv_item, '.id')
     for(var i=items.length-1, sum=0; i>=0; i--) {
         var k = items[i].textContent
         var v = parseInt(d[k])
@@ -51,10 +52,10 @@ if(inv_item) {
     display_total_value(sum)
 }
 
-// Bazaar -> Item Shop -> Special
+// Bazaar -> Item Shop -> All/Special
 var item_pane = $('#item_pane')
 if(item_pane) {
-    var items = $$('.idp')
+    var items = $$(item_pane, '.idp')
     var supplies = $$(item_pane, '.ii')
     for(var i=items.length-1, sum=0; i>=0; i--) {
         var k = items[i].textContent
