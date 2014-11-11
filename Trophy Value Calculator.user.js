@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name            Jenga's Special Offer
+// @name            Trophy Value Calculator
 // @description     Calculate the total value of trophies based on jenga201's buying prices
 // @include         http://hentaiverse.org/?s=Character&ss=in
 // @include         http://hentaiverse.org/?s=Bazaar&ss=is
