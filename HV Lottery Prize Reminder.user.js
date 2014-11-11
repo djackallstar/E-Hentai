@@ -59,7 +59,9 @@ var display_prizes = function() { // Create a div to display the grand prizes of
     div.appendChild(a2)
     div.appendChild(doc.createElement('BR'))
 
-    $('.clb').lastChild.appendChild(div)
+    var left = $('.clb')
+    div.style.cssText = $(left, '.cit .fd4 > div').style.cssText + 'margin-right: 8px;'
+    left.appendChild(div)
 }
 
 if(/&ss=lt\b/.test(href)) { // Weapon lottery
@@ -70,4 +72,7 @@ else if(/&ss=la\b/.test(href)) { // Armor lottery
     try{ GM_setValue('p2', $('#equipment').previousSibling.textContent) } catch(e) {}
     addEventListener('DOMContentLoaded', function() { update_p1(); display_prizes() }, false)
 }
-else { update_p1(); update_p2(); display_prizes() }
+else {
+    if(href == 'http://hentaiverse.org/') { update_p1(); update_p2(); }
+    display_prizes()
+}
