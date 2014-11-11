@@ -32,9 +32,14 @@ var d = {
 var display_total_value = function(sum) {
     var out = 'Total value of trophies: ' + sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' credits'
     console.log(out)
-    $('.clb').lastChild.appendChild(doc.createElement('BR'))
-    $('.clb').lastChild.appendChild(doc.createTextNode(out))
-    $('.clb').lastChild.appendChild(doc.createElement('BR'))
+
+    var div = doc.createElement('DIV')
+    div.appendChild(doc.createElement('BR'))
+    div.appendChild(doc.createTextNode(out))
+
+    var left = $('.clb')
+    div.style.cssText = $(left, '.cit .fd4 > div').style.cssText + 'margin-right: 8px;'
+    left.appendChild(div)
 }
 
 // Character -> Inventory
