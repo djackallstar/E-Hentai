@@ -24,9 +24,13 @@ var d = {
     'Hinamatsuri Doll': 1000,
     'Broken Glasses': 1000,
     'Black T-Shirt': 5000,
-    'Sapling': 5000,
+    'Sapling': 3000,
     'Unicorn Horn': 6000,
-    'Noodly Appendage': 0,
+    'Noodly Appendage': 32000,
+    'Platinum Ticket': 0,
+    'Golden Ticket': 0,
+    'Silver Ticket': 0,
+    'Bronze Ticket': 0,
 }
 
 var display_total_value = function(sum) {
