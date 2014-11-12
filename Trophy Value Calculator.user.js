@@ -27,10 +27,10 @@ var d = {
     'Sapling': 3000,
     'Unicorn Horn': 6000,
     'Noodly Appendage': 32000,
-    'Platinum Ticket': 0,
-    'Golden Ticket': 0,
-    'Silver Ticket': 0,
-    'Bronze Ticket': 0,
+    'Platinum Ticket': 30000,
+    'Golden Ticket': 4000,
+    'Silver Ticket': 1000,
+    'Bronze Ticket': 500,
 }
 
 var display_total_value = function(sum) {
