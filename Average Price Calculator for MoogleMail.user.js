@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            Average Price Calculator for MoogleMail
-// @description     Calculates the average price of items attached to a letter
+// @description     Shows the average price of items attached to a letter at the bottom of the body section
 // @include         http://hentaiverse.org/?s=Bazaar&ss=mm&filter=*
 // ==/UserScript==
 
