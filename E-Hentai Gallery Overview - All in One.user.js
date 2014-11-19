@@ -12,7 +12,6 @@ var href = loc.href
 var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
-var t = 0
 var add_iframe = function(url) {
     var homebox = $('.homebox')
     var stuffbox = $('.stuffbox')
@@ -29,10 +28,7 @@ var add_iframe = function(url) {
             //var tbl = $(frmdoc, 'BODY>DIV>TABLE')
             var tbl = $(frmdoc, 'BODY>DIV')
         }
-        setTimeout(function() {
-            homebox.parentNode.insertBefore(tbl.cloneNode(true), homebox.nextSibling)
-        }, t)
-        t = t + 100
+        homebox.parentNode.insertBefore(tbl.cloneNode(true), homebox.nextSibling)
         this.parentElement.removeChild(this)
     }, false)
 
