@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name            E-Hentai Gallery - My Home All in One
+// @name            E-Hentai Gallery Overview - All in One
 // @description     Appends "Hath/GP Exchange" and "Credit Log" to "Overview" under the "My Home" tab
 // @include         http://g.e-hentai.org/home.php
 // ==/UserScript==
