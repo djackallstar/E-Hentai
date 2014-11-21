@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name            Average Calculator for MoogleMail
+// @name            Average Price Calculator for MoogleMail
 // @description     Calculates the price of
 // @include         http://hentaiverse.org/?s=Bazaar&ss=mm&filter=*
 // ==/UserScript==
