@@ -14,7 +14,8 @@ var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll
 
 var body_section = $('#leftpane').children[1]
 var s = body_section.textContent.replace(/>/g, '')
-var m = s.match(/(?:(?:Originally attached item was: )|(?:Attached item removed: ))(?:([0-9]+)x )?([^\(]+)\(.+, CoD was ([0-9]+)C/i)
+var m = s.match(/(?:Attached item removed: )(?:([0-9]+)x )?([^\(]+)\(.+, CoD was ([0-9]+)C/i)
+//var m = s.match(/(?:(?:Originally attached item was: )|(?:Attached item removed: ))(?:([0-9]+)x )?([^\(]+)\(.+, CoD was ([0-9]+)C/i)
 console.log(m)
 if(m) {
     var quantity = parseInt(m[1])
