@@ -42,9 +42,9 @@ var get_info_1 = function() {
         console.log('Credits: ' + credits)
         console.log('Hath: ' + hath)
         console.log('Rate: ' + exchange_rate)
-        cell1.textContent = 'Credits: ' + credits
-        cell2.textContent = 'Hath: ' + hath
-        cell4.textContent = 'Rate: ' + exchange_rate
+        if(credits != '0') { cell1.textContent = 'Credits: ' + credits }
+        if(hath != '0') { cell2.textContent = 'Hath: ' + hath }
+        if(exchange_rate != '0') { cell4.textContent = 'Rate: ' + exchange_rate }
         this.parentElement.removeChild(this)
     }, false)
     doc.body.appendChild(frm)
@@ -61,7 +61,7 @@ var get_info_2 = function() {
         gp = parseInt(gp.replace(/,/g, '')) * 1000
         gp = gp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         console.log('GP: ' + gp)
-        cell3.textContent = 'GP: ' + gp
+        if(gp != '0') { cell3.textContent = 'GP: ' + gp }
         this.parentElement.removeChild(this)
     }, false)
     doc.body.appendChild(frm)
