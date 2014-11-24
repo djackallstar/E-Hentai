@@ -4,6 +4,14 @@
 // @include         http://hentaiverse.org/?s=Bazaar&ss=is*
 // ==/UserScript==
 
+/*** Settings ***/
+if(typeof blist == 'undefined') {
+    var blist = [ // Blacklist. Items on the list are hidden.
+        // /Mid-Grade Cloth/i,
+    ]
+}
+/*** End of Settings ***/
+
 var wnd = window
 var doc = wnd.document
 var loc = location
@@ -20,6 +28,11 @@ if(/&ss=is/.test(href)) {
         for(var i=0, len=items.length; i<len; i++) {
             if(isNaN(parseInt(supplies[i].textContent))) {
                 items[i].parentNode.parentNode.style.display = 'none'
+            }
+            for(var j=0, len2=blist.length; j<len2; j++) {
+                if(blist[j].test(items[i].textContent)) {
+                    items[i].parentNode.parentNode.style.display = 'none'
+                }
             }
         }
     }
