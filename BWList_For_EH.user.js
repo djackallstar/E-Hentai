@@ -11,7 +11,7 @@ var hide_closed_shops = true
 var highlight_auctions = true
 var highlight_shop_owners = true
 if(typeof do_not_hide == 'undefined') {
-    var do_not_hide = ['danixxx', 'djackallstar']
+    var do_not_hide = ['danixxx', 'djackallstar', 'Kyoko Hori']
 }
 if(typeof wts_shop_owners_to_highlight == 'undefined') {
     var wts_shop_owners_to_highlight = ['boulay', 'djackallstar', 'Mantra64', 'Pickled Cow', 'spicepie', 'ST-Ru', 'Teana Lanster', 'tychocelchu', 'VriskaSerket', 'wannaf', 'Zack_CN']
