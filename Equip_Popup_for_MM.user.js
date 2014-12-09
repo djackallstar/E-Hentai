@@ -3,6 +3,7 @@
 // @description     Press "c" to open the equipment popup of the attached equipment in a new tab.
 // @include         http://hentaiverse.org/?s=Bazaar&ss=mm*
 // @grant           GM_openInTab
+// @grant           unsafeWindow
 // ==/UserScript==
 
 /*** Settings ***/
@@ -24,5 +25,16 @@ if(m) {
     var eid = m[1]
     var key = m[2]
     var equip_url = 'http://hentaiverse.org/pages/showequip.php?eid=' + eid + '&key=' + key
-    addEventListener('keydown', function(evt) { if((evt.target.tagName!='INPUT') && (evt.target.tagName!='TEXTAREA') && (evt.keyCode == hotkey)) { GM_openInTab(equip_url) } }, false)
+    addEventListener('keydown', function(evt) {
+        if((evt.target.tagName!='INPUT') && (evt.target.tagName!='TEXTAREA') && (evt.keyCode == hotkey)) {
+            if(typeof GM_openInTab != 'undefined') {
+                GM_openInTab(equip_url)
+            }
+            else {
+                window.open(equip_url, '_blank')
+            }
+        }
+    }, false)
+    var body_section = $('#leftpane').children[1]
+    body_section.innerHTML += '<HR>' + equip_url
 }
