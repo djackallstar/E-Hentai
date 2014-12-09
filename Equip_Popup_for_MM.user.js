@@ -3,7 +3,6 @@
 // @description     Press "c" to open the equipment popup of the attached equipment in a new tab.
 // @include         http://hentaiverse.org/?s=Bazaar&ss=mm*
 // @grant           GM_openInTab
-// @grant           unsafeWindow
 // ==/UserScript==
 
 /*** Settings ***/
@@ -12,7 +11,7 @@ var hotkey = 67 // Default: 67 (The "c" key)
 
 /*** End of Settings ***/
 
-var wnd = unsafeWindow
+var wnd = window
 var doc = wnd.document
 var loc = location
 var href = loc.href
