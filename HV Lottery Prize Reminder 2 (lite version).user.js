@@ -15,7 +15,7 @@ var href = loc.href
 var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
-if(href == 'http://hentaiverse.org/') {
+if((href == 'http://hentaiverse.org/') || (href == 'http://hentaiverse.org/?s=Character&ss=ch')) {
     var div = doc.createElement('DIV')
     div.appendChild(doc.createElement('BR'))
     var a1 = doc.createElement('A')
