@@ -11,6 +11,7 @@ var max_length = 60
 var display_title_and_poster = false
 var remove_stockout_line = true
 var remove_strike_through_line = true
+var remove_quoted_text = true
 if(typeof result_box_position == 'undefined') {
     var result_box_position = 'center' // where to show the result box ("left", "center" or "right")
 }
@@ -125,10 +126,12 @@ var stockout = function(line) {
 }
 
 var get_text = function(e) {
-    var paras = $$(e, '.quotemain')
-    for(var i=paras.length-1; i>=0; i--) { paras[i].parentNode.removeChild(paras[i]) }
-    var paras = $$(e, '.quotetop')
-    for(var i=paras.length-1; i>=0; i--) { paras[i].parentNode.removeChild(paras[i]) }
+    if(remove_quoted_text){
+        var paras = $$(e, '.quotemain')
+        for(var i=paras.length-1; i>=0; i--) { paras[i].parentNode.removeChild(paras[i]) }
+        var paras = $$(e, '.quotetop')
+        for(var i=paras.length-1; i>=0; i--) { paras[i].parentNode.removeChild(paras[i]) }
+    }
     var s = e.innerHTML
     if(remove_strike_through_line) { s = s.replace(/<strike>.*?<\/strike>/g, '') }
     s = s.replace(/<br\s*[^>]*>/g, '\n').replace(/<\/li>/g, '\n').replace(/<ul>/g, '\n').replace(/<\/blockquote>/g, '\n')
