@@ -57,7 +57,7 @@ if(hide_closed_shops) {
     if(showforum == '77' || showforum == '78') {
         var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
         for(var i=0, len=lnks.length; i<len; i++) {
-            if(/\bauction\b/i.test(lnks[i].textContent)) { continue }
+            if(/\b(auction|lottery|free)\b/i.test(lnks[i].textContent)) { continue }
             var owner = $(lnks[i].parentNode.parentNode.parentNode.parentNode, 'td.row2 > a[href*="showuser"]')
             if(do_not_hide.indexOf(owner.textContent) != -1){ continue }
             if(/\b(close|shut|delete|done|end)/i.test(lnks[i].textContent)) {
@@ -76,7 +76,7 @@ if(highlight_auctions) {
     if(showforum == '77') {
         var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
         for(var i=0, len=lnks.length; i<len; i++) {
-            if(/\bauction\b/i.test(lnks[i].textContent)) {
+            if(/\b(auction|lottery|free)\b/i.test(lnks[i].textContent)) {
                 var owner = $(lnks[i].parentNode.parentNode.parentNode.parentNode, 'td.row2 > a[href*="showuser"]')
                 if(owner.style.color == '') { owner.style.color = 'blue'}
             }
