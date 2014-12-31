@@ -126,13 +126,10 @@ var stockout = function(line) {
 }
 
 var get_text = function(e) {
-    if(remove_quoted_text){
-        var paras = $$(e, '.quotemain')
-        for(var i=paras.length-1; i>=0; i--) { paras[i].parentNode.removeChild(paras[i]) }
-        var paras = $$(e, '.quotetop')
-        for(var i=paras.length-1; i>=0; i--) { paras[i].parentNode.removeChild(paras[i]) }
-    }
     var s = e.innerHTML
+    if(remove_quoted_text){
+        s = s.replace(/<div class=.quotemain.>.+?<!--QuoteEnd--><\/div><!--QuoteEEnd-->/gi, '')
+    }
     if(remove_strike_through_line) { s = s.replace(/<strike>.*?<\/strike>/g, '') }
     s = s.replace(/<br\s*[^>]*>/g, '\n').replace(/<\/li>/g, '\n').replace(/<ul>/g, '\n').replace(/<\/blockquote>/g, '\n')
     s = s.replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '')
