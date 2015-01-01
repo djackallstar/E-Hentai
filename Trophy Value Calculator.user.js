@@ -15,10 +15,10 @@ var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(cs
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
 var d = {
-    'ManBearPig Tail': 500,
-    'Holy Hand Grenade of Antioch': 500,
-    'Mithra\'s Flower': 500,
-    'Dalek Voicebox': 500,
+    'ManBearPig Tail': 450,
+    'Holy Hand Grenade of Antioch': 450,
+    'Mithra\'s Flower': 450,
+    'Dalek Voicebox': 450,
     'Lock of Blue Hair': 700,
     'Bunny-Girl Costume': 900,
     'Hinamatsuri Doll': 900,
@@ -26,11 +26,15 @@ var d = {
     'Black T-Shirt': 3000,
     'Sapling': 3000,
     'Unicorn Horn': 6000,
-    'Noodly Appendage': 0,
-    'Platinum Ticket': 30000,
-    'Golden Ticket': 4000,
-    'Silver Ticket': 1000,
     'Bronze Ticket': 500,
+    'Silver Ticket': 1000,
+    'Golden Ticket': 4000,
+    'Platinum Ticket': 30000,
+    'Noodly Appendage': 0,
+    'Crystal Snowman': 0,
+    'Stocking Stuffers': 0,
+    'Reindeer Antlers':300000,
+    'Tenbora\'s Box': 1000000,
 }
 
 var display_total_value = function(sum) {
