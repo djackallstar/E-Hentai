@@ -107,7 +107,7 @@ var stockout = function(line) {
     if(!remove_stockout_line) { return false }
     var stockout_patterns = [
         /[\|\(\[【（:x@]\s*[-0x×\/]+(\D|$)/i,
-        /(^|\D)[-0x×\/]+\s*[@×x:）】\]\)\|]/i,
+        // /(^|\D)[-0x×\/]+\s*[@×x:）】\]\)\|]/i,
         /\b0+\s*[x×]/i,
         /\(\/?\)/i,
         /\[\/?\]/i,
