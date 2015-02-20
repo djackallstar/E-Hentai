@@ -60,11 +60,11 @@ if(hide_closed_shops) {
             if(/\b(auction|lottery|free)\b/i.test(lnks[i].textContent)) { continue }
             var owner = $(lnks[i].parentNode.parentNode.parentNode.parentNode, 'td.row2 > a[href*="showuser"]')
             if(do_not_hide.indexOf(owner.textContent) != -1){ continue }
-            if(/\b(close|shut|delete|done|end)/i.test(lnks[i].textContent)) {
+            if(/\b(close|shut|delete|done|end|none|complete)/i.test(lnks[i].textContent)) {
                 lnks[i].parentNode.parentNode.parentNode.parentNode.style.display = 'none'
             }
             var desc = $(lnks[i].parentNode.parentNode, 'span#tid-desc-'+lnks[i].id.match(/(\d+)/)[1])
-            if(/\b(closed?|shut|delete|done|end)\b/i.test(desc.textContent)) {
+            if(/\b(closed?|shut|delete|done|end|none|complete)\b/i.test(desc.textContent)) {
                 desc.parentNode.parentNode.parentNode.parentNode.style.display = 'none'
             }
         }
