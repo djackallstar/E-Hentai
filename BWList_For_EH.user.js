@@ -11,22 +11,38 @@ var hide_closed_shops = true
 var highlight_auctions = true
 var highlight_shop_owners = true
 if(typeof do_not_hide == 'undefined') {
-    var do_not_hide = ['danixxx', 'djackallstar', 'Kyoko Hori']
+    var do_not_hide = [ // user IDs
+        1988471,
+    ]
 }
 if(typeof wts_shop_owners_to_highlight == 'undefined') {
-    var wts_shop_owners_to_highlight = ['boulay', 'djackallstar', 'Mantra64', 'Pickled Cow', 'spicepie', 'ST-Ru', 'Teana Lanster', 'tychocelchu', 'VriskaSerket', 'wannaf', 'Zack_CN']
+    var wts_shop_owners_to_highlight = [ // user IDs
+        1988471,
+    ]
 }
 if(typeof wtb_shop_owners_to_highlight == 'undefined') {
-    var wtb_shop_owners_to_highlight = ['Apoly', 'atomicpuppy', 'Cats Lover', 'cwx', 'danixxx', 'djackallstar', 'dongchun', 'frankmelody', 'gc00018', 'Kyoko Hori', 'morineko', 'piyin', 'raisarakun', 'SinBear', 'TCPG', 'warachiasion']
+    var wtb_shop_owners_to_highlight = [ // user IDs
+        1988471,
+    ]
 }
-if(typeof wts_blist == 'undefined') {
-    var wts_blist = [72877, 31783, 96543, 51688, 85197, 105670, 163637, 171583, 162125, 171591]
+if(typeof wts_thread_blist == 'undefined') {
+    var wts_thread_blist = [ // thread IDs
+        163637, // The Shared Free Shop
+    ]
 }
-if(typeof wtb_blist == 'undefined') {
-    var wtb_blist = [105668, 94876, 166903]
+if(typeof wtb_thread_blist == 'undefined') {
+    var wtb_thread_blist = [ // thread IDs
+    ]
 }
-if(typeof chat_wlist == 'undefined') {
-    var chat_wlist = [20466, 22234, 29703, 65126]
+if(typeof chat_thread_wlist == 'undefined') {
+    var chat_thread_wlist = [ // thread IDs
+        20466, // The Equipment Thread
+        65126, // Script Thread
+    ]
+}
+if(typeof user_blist == 'undefined') {
+    var user_blist = [ // user IDs
+    ]
 }
 
 /*** End of Settings ***/
@@ -91,31 +107,50 @@ if(highlight_shop_owners) {
     else if(showforum == '78') { fav = wtb_shop_owners_to_highlight } // WTB
     var owner = $$('td.row2 > a[href*="showuser"]')
     for(var i=0, len=owner.length; i<len; i++) {
-        if((fav.indexOf(owner[i].textContent) != -1) && (owner[i].style.color == '')) { owner[i].style.color = 'red' }
+        //if((fav.indexOf(owner[i].textContent) != -1) && (owner[i].style.color == '')) { owner[i].style.color = 'red' }
+        for(var j=0, len_j=fav.length; j<len_j; j++) {
+            if((new RegExp('showuser='+fav[j]+'\\b').test(owner[i].href)) && (owner[i].style.color == '')) {
+                owner[i].style.color = 'red'
+                break
+            }
+        }
     }
 }
 
 // Hide specified forum threads
-var blist = wlist = []
-if(showforum == '76')      { wlist = chat_wlist } // Chat
-else if(showforum == '77') { blist = wts_blist } // WTS
-else if(showforum == '78') { blist = wtb_blist } // WTB
-if(blist.length) {
-    for(var i=0, len=blist.length; i<len; i++) {
+var thread_blist = thread_wlist = []
+if(showforum == '76')      { thread_wlist = chat_thread_wlist } // Chat
+else if(showforum == '77') { thread_blist = wts_thread_blist } // WTS
+else if(showforum == '78') { thread_blist = wtb_thread_blist } // WTB
+if(thread_blist.length) {
+    for(var i=0, len=thread_blist.length; i<len; i++) {
         try {
-            $('#tid-link-'+blist[i]).parentNode.parentNode.parentNode.parentNode.style.display = 'none'
+            $('#tid-link-'+thread_blist[i]).parentNode.parentNode.parentNode.parentNode.style.display = 'none'
         } catch(e) {}
     }
 }
-else if(wlist.length) {
+else if(thread_wlist.length) {
     var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
     for(var i=0, len=lnks.length; i<len; i++) {
         if(!/^tid-link-/.test(lnks[i].id)) { continue }
         var tid = parseInt(lnks[i].id.match(/tid-link-(\d+)/)[1])
-        if(wlist.indexOf(tid)==-1) {
+        if(thread_wlist.indexOf(tid)==-1) {
             try {
                 lnks[i].parentNode.parentNode.parentNode.parentNode.style.display = 'none'
             } catch(e) {}
+        }
+    }
+}
+
+// Hide threads made by specific users
+if(user_blist.length) {
+    var users = $$('td.row2 > a[href*="showuser"]')
+    for(var i=0, len=users.length; i<len; i++) {
+        for(var j=0, len_j=user_blist.length; j<len_j; j++) {
+            if((new RegExp('showuser='+user_blist[j]+'\\b').test(users[i].href)) && (users[i].style.color == '')) {
+                users[i].parentNode.parentNode.style.display = 'none'
+                break
+            }
         }
     }
 }
