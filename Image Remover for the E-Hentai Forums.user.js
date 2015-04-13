@@ -14,6 +14,7 @@ var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll
 
 var p = [
     /\bstyle_emoticons\//,
+    /\/folder_post_icons\//,
 ]
 var imgs = $$('IMG')
 for(var i=imgs.length-1; i>=0; i--) {
