@@ -23,7 +23,7 @@ var href = loc.href
 var $ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
-if(/&ss=is/.test(href)) {
+if(/&ss=is&?/.test(href)) {
     if(/&filter=all/.test(href) || (!/&filter=/.test(href))) {
         var shop_pane = $('#shop_pane')
         var items = $$(shop_pane, '.idp')
