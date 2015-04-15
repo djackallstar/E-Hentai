@@ -57,99 +57,100 @@ var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll
 
 var showforum = href.match(/showforum=(\d+)/)
 if(!showforum) { showforum = href.match(/&?\bf=(\d+)/) }
-if(!showforum) { throw 'exit' }
-showforum = showforum[1]
+if(showforum) {
+    showforum = showforum[1]
 
-// Hide unread imgs
-if(hide_unread_imgs) {
-    var imgs = $$('img[src="style_images/ambience/newpost.gif"]')
-    for(var i=0, len=imgs.length; i<len; i++) { imgs[i].style.display = 'none' }
-    var imgs = $$('img[src="style_images/fusion/newpost.gif"]')
-    for(var i=0, len=imgs.length; i<len; i++) { imgs[i].style.display = 'none' }
-}
-
-// Hide closed shops
-if(hide_closed_shops) {
-    if(showforum == '77' || showforum == '78') {
-        var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
-        for(var i=0, len=lnks.length; i<len; i++) {
-            if(/\b(auction|lottery|free)\b/i.test(lnks[i].textContent)) { continue }
-            var owner = $(lnks[i].parentNode.parentNode.parentNode.parentNode, 'td.row2 > a[href*="showuser"]')
-            if(do_not_hide.indexOf(owner.textContent) != -1){ continue }
-            if(/\b(close|closed|complete|delete|done|end|none|nothing|shut)/i.test(lnks[i].textContent)) {
-                lnks[i].parentNode.parentNode.parentNode.parentNode.style.display = 'none'
-            }
-            var desc = $(lnks[i].parentNode.parentNode, 'span#tid-desc-'+lnks[i].id.match(/(\d+)/)[1])
-            if(/\b(close|closed|complete|delete|done|end|none|nothing|shut)\b/i.test(desc.textContent)) {
-                desc.parentNode.parentNode.parentNode.parentNode.style.display = 'none'
-            }
-        }
+    // Hide unread imgs
+    if(hide_unread_imgs) {
+        var imgs = $$('img[src="style_images/ambience/newpost.gif"]')
+        for(var i=0, len=imgs.length; i<len; i++) { imgs[i].style.display = 'none' }
+        var imgs = $$('img[src="style_images/fusion/newpost.gif"]')
+        for(var i=0, len=imgs.length; i<len; i++) { imgs[i].style.display = 'none' }
     }
-}
 
-// Highlight auctions
-if(highlight_auctions) {
-    if(showforum == '77') {
-        var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
-        for(var i=0, len=lnks.length; i<len; i++) {
-            if(/\b(auction|lottery|free)\b/i.test(lnks[i].textContent)) {
+    // Hide closed shops
+    if(hide_closed_shops) {
+        if(showforum == '77' || showforum == '78') {
+            var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
+            for(var i=0, len=lnks.length; i<len; i++) {
+                if(/\b(auction|lottery|free)\b/i.test(lnks[i].textContent)) { continue }
                 var owner = $(lnks[i].parentNode.parentNode.parentNode.parentNode, 'td.row2 > a[href*="showuser"]')
-                if(owner.style.color == '') { owner.style.color = 'blue'}
+                if(do_not_hide.indexOf(owner.textContent) != -1){ continue }
+                if(/\b(close|closed|complete|delete|done|end|none|nothing|shut)/i.test(lnks[i].textContent)) {
+                    lnks[i].parentNode.parentNode.parentNode.parentNode.style.display = 'none'
+                }
+                var desc = $(lnks[i].parentNode.parentNode, 'span#tid-desc-'+lnks[i].id.match(/(\d+)/)[1])
+                if(/\b(close|closed|complete|delete|done|end|none|nothing|shut)\b/i.test(desc.textContent)) {
+                    desc.parentNode.parentNode.parentNode.parentNode.style.display = 'none'
+                }
             }
         }
     }
-}
 
-// Highlight shop owners
-if(highlight_shop_owners) {
-    var fav = []
-    if(showforum == '77') { fav = wts_shop_owners_to_highlight } // WTS
-    else if(showforum == '78') { fav = wtb_shop_owners_to_highlight } // WTB
-    var owner = $$('td.row2 > a[href*="showuser"]')
-    for(var i=0, len=owner.length; i<len; i++) {
-        //if((fav.indexOf(owner[i].textContent) != -1) && (owner[i].style.color == '')) { owner[i].style.color = 'red' }
-        for(var j=0, len_j=fav.length; j<len_j; j++) {
-            if((new RegExp('showuser='+fav[j]+'\\b').test(owner[i].href)) && (owner[i].style.color == '')) {
-                owner[i].style.color = 'red'
-                break
+    // Highlight auctions
+    if(highlight_auctions) {
+        if(showforum == '77') {
+            var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
+            for(var i=0, len=lnks.length; i<len; i++) {
+                if(/\b(auction|lottery|free)\b/i.test(lnks[i].textContent)) {
+                    var owner = $(lnks[i].parentNode.parentNode.parentNode.parentNode, 'td.row2 > a[href*="showuser"]')
+                    if(owner.style.color == '') { owner.style.color = 'blue'}
+                }
             }
         }
     }
-}
 
-// Hide specified forum threads
-var thread_blist = thread_wlist = []
-if(showforum == '76')      { thread_wlist = chat_thread_wlist } // Chat
-else if(showforum == '77') { thread_blist = wts_thread_blist } // WTS
-else if(showforum == '78') { thread_blist = wtb_thread_blist } // WTB
-if(thread_blist.length) {
-    for(var i=0, len=thread_blist.length; i<len; i++) {
-        try {
-            $('#tid-link-'+thread_blist[i]).parentNode.parentNode.parentNode.parentNode.style.display = 'none'
-        } catch(e) {}
+    // Highlight shop owners
+    if(highlight_shop_owners) {
+        var fav = []
+        if(showforum == '77') { fav = wts_shop_owners_to_highlight } // WTS
+        else if(showforum == '78') { fav = wtb_shop_owners_to_highlight } // WTB
+        var owner = $$('td.row2 > a[href*="showuser"]')
+        for(var i=0, len=owner.length; i<len; i++) {
+            //if((fav.indexOf(owner[i].textContent) != -1) && (owner[i].style.color == '')) { owner[i].style.color = 'red' }
+            for(var j=0, len_j=fav.length; j<len_j; j++) {
+                if((new RegExp('showuser='+fav[j]+'\\b').test(owner[i].href)) && (owner[i].style.color == '')) {
+                    owner[i].style.color = 'red'
+                    break
+                }
+            }
+        }
     }
-}
-else if(thread_wlist.length) {
-    var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
-    for(var i=0, len=lnks.length; i<len; i++) {
-        if(!/^tid-link-/.test(lnks[i].id)) { continue }
-        var tid = parseInt(lnks[i].id.match(/tid-link-(\d+)/)[1])
-        if(thread_wlist.indexOf(tid)==-1) {
+
+    // Hide specified forum threads
+    var thread_blist = thread_wlist = []
+    if(showforum == '76')      { thread_wlist = chat_thread_wlist } // Chat
+    else if(showforum == '77') { thread_blist = wts_thread_blist } // WTS
+    else if(showforum == '78') { thread_blist = wtb_thread_blist } // WTB
+    if(thread_blist.length) {
+        for(var i=0, len=thread_blist.length; i<len; i++) {
             try {
-                lnks[i].parentNode.parentNode.parentNode.parentNode.style.display = 'none'
+                $('#tid-link-'+thread_blist[i]).parentNode.parentNode.parentNode.parentNode.style.display = 'none'
             } catch(e) {}
         }
     }
-}
+    else if(thread_wlist.length) {
+        var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
+        for(var i=0, len=lnks.length; i<len; i++) {
+            if(!/^tid-link-/.test(lnks[i].id)) { continue }
+            var tid = parseInt(lnks[i].id.match(/tid-link-(\d+)/)[1])
+            if(thread_wlist.indexOf(tid)==-1) {
+                try {
+                    lnks[i].parentNode.parentNode.parentNode.parentNode.style.display = 'none'
+                } catch(e) {}
+            }
+        }
+    }
 
-// Hide threads made by specific users
-if(user_blist.length) {
-    var users = $$('td.row2 > a[href*="showuser"]')
-    for(var i=0, len=users.length; i<len; i++) {
-        for(var j=0, len_j=user_blist.length; j<len_j; j++) {
-            if((new RegExp('showuser='+user_blist[j]+'\\b').test(users[i].href)) && (users[i].style.color == '')) {
-                users[i].parentNode.parentNode.style.display = 'none'
-                break
+    // Hide threads made by specific users
+    if(user_blist.length) {
+        var users = $$('td.row2 > a[href*="showuser"]')
+        for(var i=0, len=users.length; i<len; i++) {
+            for(var j=0, len_j=user_blist.length; j<len_j; j++) {
+                if((new RegExp('showuser='+user_blist[j]+'\\b').test(users[i].href)) && (users[i].style.color == '')) {
+                    users[i].parentNode.parentNode.style.display = 'none'
+                    break
+                }
             }
         }
     }
