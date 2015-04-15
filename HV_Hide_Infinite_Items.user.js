@@ -6,8 +6,11 @@
 
 /*** Settings ***/
 if(typeof blist == 'undefined') {
-    var blist = [ // Blacklist. Items on the list are hidden.
-        // /Mid-Grade Cloth/i,
+    var blist = [ // Items on the list are hidden. Edit it to suit your own needs.
+        /Featherweight|Voidseeker/i,
+        /(Low|Mid)-Grade/i,
+        /High-Grade (Metals|Leather)/i,
+        /Scroll of (Shadows|Absorption|Life|(the Gods))/i,
     ]
 }
 /*** End of Settings ***/
