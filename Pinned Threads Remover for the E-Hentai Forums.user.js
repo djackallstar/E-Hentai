@@ -5,4 +5,7 @@
 // ==/UserScript==
 
 var divs = document.querySelectorAll('tr>td.row1>div')
-for(var i=divs.length-1; i>=0; i--) { if(/Pinned:/.test(divs[i].textContent)) { divs[i].parentNode.parentNode.style.display = 'none' } }
+if(divs) {
+    for(var i=divs.length-1; i>=0; i--) { if(/Pinned:/.test(divs[i].textContent)) { divs[i].parentNode.parentNode.style.display = 'none' } }
+}
+
