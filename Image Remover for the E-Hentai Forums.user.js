@@ -12,7 +12,6 @@ var href = loc.href
 var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
-
 var imgs = $$('IMG')
 if(imgs) {
     var p = [
