@@ -43,10 +43,7 @@ if(typeof grep_patterns == 'undefined') {
         ],
         [ // Holy Gear
             [
-                ///(Peerless|Leg|Mag).*Hallowed.*Katalox.*(Destruction|Heimdall|Heaven-sent)/i,
-                ///(Peerless|Leg|Mag).*Hallowed.*Oak.*Heimdall/i,
-                /(Peerless|Leg|Mag).*Phase.*Heimdall/i,
-                /(Peerless|Leg).*(Cotton|Gossamer).*Heaven-sent/i,
+                /Mag.*Phase.*Heimdall/i,
                 /Mag.*(Charged|Frugal).*(Cotton|Gossamer).*Heaven-sent/i,
             ], 'darkred'
         ],
