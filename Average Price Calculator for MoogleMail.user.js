@@ -12,7 +12,7 @@ var href = loc.href
 var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
-if(/&?\bmid=/.test(href)) {
+if(/&mid=/.test(href)) {
     var body_section = $('#leftpane').children[1]
     var s = body_section.textContent.replace(/>/g, '')
     var m = s.match(/(?:Attached item removed: )(?:([0-9]+)x )?([^\(]+)\(.+, CoD was ([0-9]+)C/i)
