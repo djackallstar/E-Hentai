@@ -19,21 +19,23 @@ var href = loc.href
 var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
-var m = doc.body.innerHTML.match(/equips.set\((.+?),\s*['"](.+?)['"]\)/)
-if(m) {
-    var eid = m[1]
-    var key = m[2]
-    var equip_url = 'http://hentaiverse.org/pages/showequip.php?eid=' + eid + '&key=' + key
-    addEventListener('keydown', function(evt) {
-        if((evt.target.tagName!='INPUT') && (evt.target.tagName!='TEXTAREA') && (evt.keyCode == hotkey)) {
-            if(typeof GM_openInTab != 'undefined') {
-                GM_openInTab(equip_url)
+if(/&mid=/.test(href)) {
+    var m = doc.body.innerHTML.match(/equips.set\((.+?),\s*['"](.+?)['"]\)/)
+    if(m) {
+        var eid = m[1]
+        var key = m[2]
+        var equip_url = 'http://hentaiverse.org/pages/showequip.php?eid=' + eid + '&key=' + key
+        addEventListener('keydown', function(evt) {
+            if((evt.target.tagName!='INPUT') && (evt.target.tagName!='TEXTAREA') && (evt.keyCode == hotkey)) {
+                if(typeof GM_openInTab != 'undefined') {
+                    GM_openInTab(equip_url)
+                }
+                else {
+                    window.open(equip_url, '_blank')
+                }
             }
-            else {
-                window.open(equip_url, '_blank')
-            }
-        }
-    }, false)
-    var body_section = $('#leftpane').children[1]
-    body_section.innerHTML += '<HR>' + equip_url
+        }, false)
+        var body_section = $('#leftpane').children[1]
+        body_section.innerHTML += '<HR>' + equip_url
+    }
 }
