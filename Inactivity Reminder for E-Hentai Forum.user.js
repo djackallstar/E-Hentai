@@ -4,6 +4,8 @@
 // @include     http://forums.e-hentai.org/*
 // ==/UserScript==
 
+(function() {
+
 /*** Setting ***/
 var time_difference = 86400 // when the difference btwn current time and the time last post was made is greater than this, ID becomes red. in second.
 
@@ -49,3 +51,5 @@ var update_timer = function() {
     setTimeout(update_timer, 1000)
 }
 update_timer()
+
+})()
