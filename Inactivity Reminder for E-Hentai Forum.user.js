@@ -1,8 +1,13 @@
 // ==UserScript==
-// @name        Daily Post Reminder for E-Hentai Forum
+// @name        Inactivity Reminder for E-Hentai Forum
 // @updateURL   about:blank
 // @include     http://forums.e-hentai.org/*
 // ==/UserScript==
+
+/*** Setting ***/
+var time_difference = 86400 // when the difference btwn current time and the time last post was made is greater than this, ID becomes red. in second.
+
+/*** End of Setting ***/
 
 var wnd = window
 var doc = wnd.document
@@ -38,7 +43,7 @@ var update_timer = function() {
     var last_topic = get_cookie('last_topic')
     if(last_topic) {
         var now = Math.floor(new Date().getTime()/1000)
-        if(now - last_topic <= 86400) { is_active = true } else { del_cookie('last_topic') }
+        if(now - last_topic <= time_difference) { is_active = true } else { del_cookie('last_topic') }
     }
     if(!is_active) { $('#userlinks a[href^="http://forums.e-hentai.org/index.php?showuser="]').style.color = 'red' }
     setTimeout(update_timer, 1000)
