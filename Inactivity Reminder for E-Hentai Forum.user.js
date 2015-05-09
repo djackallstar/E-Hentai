@@ -40,7 +40,7 @@ if(btn_add_reply) {
 
 var update_timer = function() {
     var is_active = false
-    var last_topic = get_cookie('last_topic')
+    var last_topic = unescape(get_cookie('last_topic'))
     if(last_topic) {
         var now = Math.floor(new Date().getTime()/1000)
         if(now - last_topic <= time_difference) { is_active = true } else { del_cookie('last_topic') }
