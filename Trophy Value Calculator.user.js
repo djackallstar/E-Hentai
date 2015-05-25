@@ -15,11 +15,11 @@ var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(cs
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
 var d = {
-    'ManBearPig Tail': 450,
-    'Holy Hand Grenade of Antioch': 450,
-    'Mithra\'s Flower': 450,
-    'Dalek Voicebox': 450,
-    'Lock of Blue Hair': 700,
+    'ManBearPig Tail': 500,
+    'Holy Hand Grenade of Antioch': 500,
+    'Mithra\'s Flower': 500,
+    'Dalek Voicebox': 500,
+    'Lock of Blue Hair': 750,
     'Bunny-Girl Costume': 1000,
     'Hinamatsuri Doll': 1000,
     'Broken Glasses': 1000,
