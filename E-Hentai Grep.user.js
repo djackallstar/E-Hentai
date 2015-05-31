@@ -140,7 +140,11 @@ if(!/&?\bst=[^0]/.test(href)) {
                 var d = doc.createElement('DIV')
                 d.className = 'result'
                 d.style.cssText = 'background:rgba(237,235,223,1); color:#5C0D11'
-                d.appendChild($(posts[i], '.postdetails').cloneNode(true))
+                //d.appendChild($(posts[i], '.postdetails').cloneNode(true))
+                var anchor = doc.createElement('A')
+                anchor.text = $(posts[i], '.postdetails').textContent
+                anchor.href = href.replace(loc.hash, '') + '#' + $(posts[i], '*[id^="post-main-"]').id
+                d.appendChild(anchor)
                 var pre = doc.createElement('PRE')
                 pre.appendChild(doc.createTextNode(out))
                 d.appendChild(pre)
@@ -194,7 +198,11 @@ if(!/&?\bst=[^0]/.test(href)) {
                 var d = doc.createElement('DIV')
                 d.className = 'result'
                 d.style.cssText = 'background:rgba(237,235,223,1); color:#5C0D11'
-                d.appendChild($(posts[i], '.postdetails').cloneNode(true))
+                //d.appendChild($(posts[i], '.postdetails').cloneNode(true))
+                var anchor = doc.createElement('A')
+                anchor.text = $(posts[i], '.postdetails').textContent
+                anchor.href = href.replace(loc.hash, '') + '#' + $(posts[i], '*[id^="post-main-"]').id
+                d.appendChild(anchor)
                 var pre = doc.createElement('PRE')
                 pre.appendChild(doc.createTextNode(out))
                 d.appendChild(pre)
