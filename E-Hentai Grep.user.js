@@ -26,17 +26,22 @@ if(typeof grep_patterns == 'undefined') {
             [
                 // Rare materials
                 /\bphazon\b/i,
-                // Bindings
+                // Bindings for staff
+                /binding.*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|fox|owl)/i,
+                /^\s*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|fox|owl)/i,
+                // Bindings for phase
                 /binding.*(balance|focus|protection|warding|fleet|negation|heimdall|cheetah|fox|owl|heaven-sent)/i,
                 /^\s*(balance|focus|protection|warding|fleet|negation|heimdall|cheetah|fox|owl|heaven-sent)/i,
                 // Graded materials
-                /(low|mid|high).*grade.*cloth/i,
-                /(lg|mg|hg).?cloth/i,
+                /(low|mid|high).*grade.*(cloth|wood)/i,
+                /(lg|mg|hg).?(cloth|wood)/i,
                 /scrap.*(cloth|wood)/i,
                 // ED
                 /\b(energy|drink)\b/i,
                 // Shards
                 /\bamnesia\b/i,
+                // Potions
+                /\bmana\b/i,
                 //// Trophy
                 ///\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
             ], 'purple'
