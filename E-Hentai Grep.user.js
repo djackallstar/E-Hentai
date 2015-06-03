@@ -48,10 +48,10 @@ if(typeof grep_patterns == 'undefined') {
         ],
         [ // Holy Gear
             [
-                /Mag.*Hallowed*Katalox*Staff*of*Destruction/i,
-                /Mag.*Hallowed*Oak*Staff*of*Heimdall/i,
+                /Mag.*Hallowed.*Katalox.*Staff.*of.*Destruction/i,
+                /Mag.*Hallowed.*Oak.*Staff.*of.*Heimdall/i,
                 /Mag.*Phase.*Heimdall/i,
-                /Mag.*(Charged|Frugal).*(Cotton|Gossamer).*Heaven-sent/i,
+                /Leg.*(Charged|Frugal).*(Cotton|Gossamer).*Heaven-sent/i,
             ], 'darkred'
         ],
         [ // Toys
