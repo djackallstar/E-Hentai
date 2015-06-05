@@ -51,7 +51,7 @@ if(typeof grep_patterns == 'undefined') {
                 /Mag.*Hallowed.*Katalox.*Staff.*of.*Destruction/i,
                 /Mag.*Hallowed.*Oak.*Staff.*of.*Heimdall/i,
                 /Mag.*Phase.*Heimdall/i,
-                /Leg.*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Protection|Warding)/i,
+                /Leg.*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Earth-walker|Protection|Warding)/i,
             ], 'darkred'
         ],
         [ // Toys
