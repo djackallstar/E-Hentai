@@ -48,10 +48,10 @@ if(typeof grep_patterns == 'undefined') {
         ],
         [ // Holy Gear
             [
-                /(Leg|Mag).*(Hallowed|Astral).*Katalox.*Staff.*of.*Destruction/i,
-                /(Leg|Mag).*(Hallowed|Astral).*Oak.*Staff.*of.*Heimdall/i,
-                /(Leg|Mag).*Phase.*Heimdall/i,
-                /Leg.*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Earth-walker|Protection|Warding)/i,
+                /(Peer|Leg|Mag).*(Hallowed|Astral).*Katalox.*Staff.*of.*Destruction/i,
+                /(Peer|Leg|Mag).*(Hallowed|Astral).*Oak.*Staff.*of.*Heimdall/i,
+                /(Peer|Leg|Mag).*Phase.*Heimdall/i,
+                /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Earth-walker|Protection|Warding)/i,
             ], 'darkred'
         ],
         [ // Toys
