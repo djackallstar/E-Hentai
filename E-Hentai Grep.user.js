@@ -35,7 +35,8 @@ if(typeof grep_patterns == 'undefined') {
                 // Graded materials
                 /(low|mid|high).*grade.*(cloth|wood)/i,
                 /(lg|mg|hg).?(cloth|wood)/i,
-                /scrap.*(cloth|wood)/i,
+                /scrap.*(cloth|wood).*@/i,
+                /scrap.*(cloth|wood).*\bc\b/i,
                 // ED
                 /\b(energy|drink)\b/i,
                 // Shards
