@@ -19,6 +19,8 @@ if(typeof result_box_position == 'undefined') {
 var blacklist = [
     '22234', // Ask the Experts
     '163637', // The Shared Free Shop
+    '169987',
+    '170830',
 ]
 if(typeof grep_patterns == 'undefined') {
     var grep_patterns = [ // Add [[pattern_1, pattern_2, ... , pattern_n], 'color'] to the array by yourself.
