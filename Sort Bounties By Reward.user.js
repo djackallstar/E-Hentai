@@ -8,7 +8,7 @@
 
 /*** Settings ***/
 
-var hath_to_credits = 7400
+var hath_to_credits = 6000
 var sort_from_small_to_big = true
 
 /*** End of Settings ***/
