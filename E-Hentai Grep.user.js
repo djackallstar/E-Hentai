@@ -47,6 +47,8 @@ if(typeof grep_patterns == 'undefined') {
                 // Potions
                 /health.*elixir/i,
                 /(mana|spirit).*(potion|elixir)/i,
+                // Artifact
+                /artifact/i,
                 //// Trophy
                 ///\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
             ], 'purple'
