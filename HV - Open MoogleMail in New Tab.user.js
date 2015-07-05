@@ -11,6 +11,7 @@
 
 var auto_take_attachment = true
 var auto_recall = false // only used in the sentbox
+var auto_close_mail_without_attachment = false
 
 /*** End of Settings ***/
 
@@ -42,5 +43,10 @@ if(auto_recall) {
 if(auto_take_attachment) {
     if(/&?\bmid=/.test(href)) {
         if($('img[src="http://ehgt.org/v/mooglemail/takeattacheditem.png"]')) { unsafeWindow.mooglemail.remove_attachment() }
+    }
+}
+if(auto_close_mail_without_attachment) {
+    if(/&?\bmid=/.test(href)) {
+        if(!$('img[src="http://ehgt.org/v/mooglemail/recallmail.png"]') && !$('img[src="http://ehgt.org/v/mooglemail/takeattacheditem.png"]') && $('img[src="http://ehgt.org/v/mooglemail/closemail.png"]')) { unsafeWindow.close() }
     }
 }
