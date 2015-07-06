@@ -4,6 +4,7 @@
 // @grant       unsafeWindow
 // @grant       GM_openInTab
 // @include     http://hentaiverse.org/?s=Bazaar&ss=mm&filter=inbox*
+// @include     http://hentaiverse.org/?s=Bazaar&ss=mm&filter=read*
 // @include     http://hentaiverse.org/?s=Bazaar&ss=mm&filter=sent*
 // ==/UserScript==
 
@@ -28,6 +29,7 @@ for(var i=0, len=letters.length; i<len; i++) {
     (function() {
         var url = ''
         if(/&filter=inbox/.test(href)) { url = 'http://hentaiverse.org/?s=Bazaar&ss=mm&filter=inbox&mid=' }
+        else if(/&filter=read/.test(href)) { url = 'http://hentaiverse.org/?s=Bazaar&ss=mm&filter=read&mid=' }
         else if(/&filter=sent/.test(href)) { url = 'http://hentaiverse.org/?s=Bazaar&ss=mm&filter=sent&mid=' }
         url += letters[i].onclick.toString().match(/&?\bmid=(\d+)/)[1]
         letters[i].onclick = function() {
