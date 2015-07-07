@@ -65,7 +65,7 @@ if(typeof grep_patterns == 'undefined') {
         [ // Toys
             [
                 /\bPeerless\b/i,
-                /\bRadiant\b/i,
+                /(Peer|Leg|Mag).*Radiant/i,
             ], 'darkgreen'
         ],
     ]
