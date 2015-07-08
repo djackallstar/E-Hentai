@@ -10,7 +10,7 @@ if(typeof blist == 'undefined') {
         /Featherweight|Voidseeker/i,
         /(Low|Mid)-Grade/i,
         /High-Grade (Metals|Leather)/i,
-        /Scroll of (Shadows|Absorption|Life|(the Gods))/i,
+        /Scroll of (Swiftness|Shadows|Absorption|Life|(the Gods))/i,
     ]
 }
 /*** End of Settings ***/
