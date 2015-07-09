@@ -38,10 +38,12 @@ if(typeof grep_patterns == 'undefined') {
                 /(low|mid|high).*grade.*(cloth|wood)/i,
                 /(lg|mg|hg).?(cloth|wood)/i,
                 /scrap.*(cloth|wood).*@/i,
-                /scrap.*(cloth|wood).*\d *\bc\b/i,
+                /scrap.*(cloth|wood).*\d *c\b/i,
+                /scrap.*(cloth|wood).*\b\d{2}\b/i,
                 // ED
                 /(energy|drink).*[@0]/i,
                 /(energy|drink).*\d *k\b/i,
+                /(energy|drink).*\b\d{5}\b/i,
                 // Shards
                 /amnesia/i,
                 // Potions
