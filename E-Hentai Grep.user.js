@@ -43,7 +43,7 @@ if(typeof grep_patterns == 'undefined') {
                 // ED
                 /(energy|drink).*[@0]/i,
                 /(energy|drink).*\d *k\b/i,
-                /(energy|drink).*\b\d{5}\b/i,
+                /(energy|drink).* *[\d,]+/i,
                 // Shards
                 /amnesia/i,
                 // Potions
