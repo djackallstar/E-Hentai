@@ -59,7 +59,8 @@ if(typeof grep_patterns == 'undefined') {
             [
                 /(Peer|Leg|Mag).*(Hallowed|Astral).*Katalox.*Staff.*of.*Destruction/i,
                 /(Peer|Leg|Mag).*(Hallowed|Astral).*Oak.*Staff.*of.*Heimdall/i,
-                /(Peer|Leg|Mag).*Phase.*Heimdall/i,
+                /(Peer|Leg).*Phase.*Heimdall/i,
+                /Mag.*(Radiant|Mystic|Charged|Frugal).*Heimdall/i,
                 /Ex.*Radiant.*Heimdall/i,
                 /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Protection)/i,
             ], 'darkred'
