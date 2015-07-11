@@ -41,9 +41,9 @@ if(typeof grep_patterns == 'undefined') {
                 /scrap.*(cloth|wood).*\d *c\b/i,
                 /scrap.*(cloth|wood).*\b\d{2}\b/i,
                 // ED & artifact
-                /(energy|drink|artifact).*[@0]/i,
-                /(energy|drink|artifact).*\d *k\b/i,
-                /(energy|drink|artifact).* *[\d,]+/i,
+                /(energy|drink|precursor).*[@0]/i,
+                /(energy|drink|precursor).*\d *k\b/i,
+                /(energy|drink|precursor).* *[\d,]+/i,
                 // Shards
                 /amnesia/i,
                 // Potions
