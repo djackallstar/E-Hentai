@@ -47,7 +47,6 @@ if(typeof grep_patterns == 'undefined') {
                 // Shards
                 /amnesia/i,
                 // Potions
-                /health.*elixir/i,
                 /(mana|spirit).*(potion|elixir)/i,
                 //// Trophy
                 ///\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
@@ -59,8 +58,7 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg|Mag).*(Hallowed|Astral).*Oak.*Staff.*of.*Heimdall/i,
                 /(Peer|Leg).*Phase.*Heimdall/i,
                 /Mag.*(Radiant|Mystic|Charged|Frugal).*Heimdall/i,
-                /Ex.*Radiant.*Heimdall/i,
-                /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Protection)/i,
+                /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*Heaven-sent/i,
             ], 'darkred'
         ],
         [ // Toys
