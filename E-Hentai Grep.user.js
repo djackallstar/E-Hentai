@@ -40,17 +40,15 @@ if(typeof grep_patterns == 'undefined') {
                 /scrap.*(cloth|wood).*@/i,
                 /scrap.*(cloth|wood).*\d *c\b/i,
                 /scrap.*(cloth|wood).*\b\d{2}\b/i,
-                // ED
-                /(energy|drink).*[@0]/i,
-                /(energy|drink).*\d *k\b/i,
-                /(energy|drink).* *[\d,]+/i,
+                // ED & artifact
+                /(energy|drink|artifact).*[@0]/i,
+                /(energy|drink|artifact).*\d *k\b/i,
+                /(energy|drink|artifact).* *[\d,]+/i,
                 // Shards
                 /amnesia/i,
                 // Potions
                 /health.*elixir/i,
                 /(mana|spirit).*(potion|elixir)/i,
-                // Artifact
-                /artifact/i,
                 //// Trophy
                 ///\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
             ], 'purple'
