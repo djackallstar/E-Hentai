@@ -39,7 +39,7 @@ if(typeof wtb_thread_blist == 'undefined') {
 }
 if(typeof chat_thread_wlist == 'undefined') {
     var chat_thread_wlist = [ // thread IDs
-        20466, // The Equipment Thread
+        178483, // The Legendary Equipment Thread
         65126, // Script Thread
     ]
 }
