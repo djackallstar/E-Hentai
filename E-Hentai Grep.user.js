@@ -48,6 +48,8 @@ if(typeof grep_patterns == 'undefined') {
                 /amnesia/i,
                 // Potions
                 /(mana|spirit).*(potion|elixir)/i,
+                // Scrolls
+                /Scroll of (Life|(the Gods))/i,
                 //// Trophy
                 ///\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
             ], 'purple'
