@@ -17,6 +17,7 @@ if(imgs) {
     var p = [
         /\bstyle_emoticons\//,
         /\/folder_post_icons\//,
+        /\/ehgt\/cm\//,
     ]
     for(var i=imgs.length-1; i>=0; i--) {
         for(var a=0, len=p.length; a<len; a++) {
