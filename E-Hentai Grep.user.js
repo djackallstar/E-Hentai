@@ -49,7 +49,7 @@ if(typeof grep_patterns == 'undefined') {
                 // Shards
                 /amnesia/i,
                 // Potions
-                /health elixir/i,
+                /(health|last).*elixir/i,
                 /(mana|spirit).*(potion|elixir)/i,
                 // Scrolls
                 /Scroll of (Life|(the Gods))/i,
