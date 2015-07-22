@@ -53,8 +53,8 @@ if(typeof grep_patterns == 'undefined') {
                 /(mana|spirit).*(potion|elixir)/i,
                 // Scrolls
                 /Scroll of (Life|(the Gods))/i,
-                //// Trophy
-                ///\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
+                // Trophies
+                /\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
             ], 'purple'
         ],
         [ // Holy Gear
