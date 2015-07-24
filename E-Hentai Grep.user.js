@@ -120,7 +120,7 @@ if(!/&?\bst=[^0]/.test(href)) {
             s = s.replace(/<div class=.quotemain.>.+?<!--QuoteEnd--><\/div><!--QuoteEEnd-->/gi, '')
         }
         if(remove_strike_through_line) { s = s.replace(/<strike>.*?<\/strike>/g, '') }
-        s = s.replace(/<br\s*[^>]*>/g, '\n').replace(/<\/li>/g, '\n').replace(/<ul>/g, '\n').replace(/<\/blockquote>/g, '\n')
+        s = s.replace(/<br\s*[^>]*>/g, '\n').replace(/<\/li>/g, '\n').replace(/<ul>/g, '\n').replace(/<\/?blockquote>/g, '\n')
         s = s.replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '')
         s = s.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
         s = s.replace(/[ \t]+/g, ' ')
