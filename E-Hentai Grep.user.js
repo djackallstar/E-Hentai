@@ -106,6 +106,7 @@ if(!/&?\bst=[^0]/.test(href)) {
             /\bnone\b/i,
             /\[restocking\]/i,
             /\s+0\s*$/i,
+            / 0 /i,
             /out of stock/i,
         ]
         for(var i=0, len=stockout_patterns.length; i<len; i++) {
