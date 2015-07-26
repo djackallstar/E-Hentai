@@ -44,7 +44,6 @@ if(/&ss=is&?/.test(href)) {
                 if(isNaN(parseInt(supplies[i].textContent))) { // Items with infinite stock
                     var hidden = true
                     for(var j=0, len2=wlist.length; j<len2; j++) {
-                        //alert(wlist[j] + ', ' + items[i].textContent)
                         if(wlist[j].test(items[i].textContent)) { hidden = false; break }
                     }
                     if(hidden) { items[i].parentNode.parentNode.style.display = 'none' }
