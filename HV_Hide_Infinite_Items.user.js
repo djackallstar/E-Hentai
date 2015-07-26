@@ -37,20 +37,26 @@ if(/&ss=is&?/.test(href)) {
     if(/&filter=all/.test(href) || (!/&filter=/.test(href))) {
         var shop_pane = $('#shop_pane')
         var items = $$(shop_pane, '.idp')
+        //var items = $$(shop_pane, '*[id]')
         var supplies = $$(shop_pane, '.ii')
         for(var i=0, len=items.length; i<len; i++) {
-            if(isNaN(parseInt(supplies[i].textContent))) { // Items with infinite stock
-                for(var j=0, len2=wlist.length; j<len2; j++) {
-                    if(!wlist[j].test(items[i].textContent)) {
-                        items[i].parentNode.parentNode.style.display = 'none'
+            (function(){
+                if(isNaN(parseInt(supplies[i].textContent))) { // Items with infinite stock
+                    var hidden = true
+                    for(var j=0, len2=wlist.length; j<len2; j++) {
+                        //alert(wlist[j] + ', ' + items[i].textContent)
+                        if(wlist[j].test(items[i].textContent)) { hidden = false; break }
                     }
+                    if(hidden) { items[i].parentNode.parentNode.style.display = 'none' }
                 }
-            }
-            for(var j=0, len2=blist.length; j<len2; j++) { // Items with finite stock
-                if(blist[j].test(items[i].textContent)) {
-                    items[i].parentNode.parentNode.style.display = 'none'
+                else { // Items with finite stock
+                    var hidden = false
+                    for(var j=0, len2=blist.length; j<len2; j++) {
+                        if(blist[j].test(items[i].textContent)) { hidden = true; break }
+                    }
+                    if(hidden) { items[i].parentNode.parentNode.style.display = 'none' }
                 }
-            }
+            })()
         }
     }
 }
