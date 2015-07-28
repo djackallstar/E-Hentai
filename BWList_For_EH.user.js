@@ -152,7 +152,7 @@ if(showforum) {
             for(var j=0, len_j=user_blist.length; j<len_j; j++) {
                 //if((new RegExp('showuser='+user_blist[j]+'\\b').test(users[i].href)) && (users[i].style.color == '')) {
                 if(new RegExp('showuser='+user_blist[j]+'\\b').test(users[i].href)) {
-                    if(!/\bauction\b/i.test($$('td.row2 > a[href*="showuser"]')[0].parentNode.parentNode.querySelectorAll('.row1')[2].textContent)) {
+                    if(!/\bauction\b/i.test(users[i].parentNode.parentNode.querySelectorAll('.row1')[2].textContent)) {
                         users[i].parentNode.parentNode.style.display = 'none'
                     }
                     break
