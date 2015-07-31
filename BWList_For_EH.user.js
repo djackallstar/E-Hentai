@@ -86,7 +86,7 @@ if(showforum) {
                     continue
                 }
                 var desc = $(lnks[i].parentNode.parentNode, 'span#tid-desc-'+lnks[i].id.match(/(\d+)/)[1])
-                if(/\b(close|closed|complete|delete|done|end|none|nothing|shut)\b/i.test(desc.textContent)) {
+                if(/\b(close|closed|complete|delete|done|end|none|nothing|shut)/i.test(desc.textContent)) {
                     desc.parentNode.parentNode.parentNode.parentNode.style.display = 'none'
                     continue
                 }
