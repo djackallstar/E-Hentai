@@ -16,10 +16,12 @@ if(typeof wlist == 'undefined') {
 
 if(typeof blist == 'undefined') {
     var blist = [ // Finite items on the list are hidden. Edit it to suit your own needs.
-        /Featherweight|Voidseeker/i,
+        /Last Elixir/i,
+        /Infusion/i,
+        /Scroll of (Swiftness|Shadows|Absorption|Life|(the Gods))/i,
         /(Low|Mid)-Grade/i,
         /High-Grade (Metals|Leather)/i,
-        /Scroll of (Swiftness|Shadows|Absorption|Life|(the Gods))/i,
+        /Voidseeker|Aether|Featherweight/i,
     ]
 }
 
