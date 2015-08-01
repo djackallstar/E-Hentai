@@ -41,7 +41,7 @@ if(typeof grep_patterns == 'undefined') {
                 /scrap.*(cloth|wood).*\d *c\b/i,
                 /scrap.*(cloth|wood).*\b\d{2}\b/i,
                 // Catalysts
-                /catalyst/,
+                /catalyst/i,
                 // ED & artifact
                 /(energy|drink|precursor).*[@0]/i,
                 /(energy|drink|precursor).*\d *k\b/i,
