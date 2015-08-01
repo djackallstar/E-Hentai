@@ -56,6 +56,8 @@ if(typeof grep_patterns == 'undefined') {
                 // Trophies
                 /\bnoodl/i,
                 ///\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
+                // Monster Foods
+                /crystal|chow|edible|cuisine|pill/i,
                 // Misc
                 /\b(vase|bubble)/i,
             ], 'purple'
