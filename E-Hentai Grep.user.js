@@ -112,6 +112,7 @@ if(!/&?\bst=[^0]/.test(href)) {
             /\s+0\s*$/i,
             / 0 /i,
             /out of stock/i,
+            /This post has been edited by/i,
         ]
         for(var i=0, len=stockout_patterns.length; i<len; i++) {
             if(stockout_patterns[i].test(line)) { return true }
