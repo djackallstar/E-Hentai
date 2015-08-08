@@ -51,8 +51,9 @@ if(typeof grep_patterns == 'undefined') {
                 // Potions
                 /(health|last).*elixir/i,
                 /(mana|spirit).*(potion|elixir)/i,
-                // Scrolls
-                /Scroll of (Life|(the Gods))/i,
+                // Infusions and Scrolls
+                /Infusion|Scroll/i,
+                ///Scroll of (Life|(the Gods))/i,
                 // Trophies
                 /\bnoodl/i,
                 ///\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
