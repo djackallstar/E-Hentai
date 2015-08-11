@@ -75,18 +75,19 @@ if(showforum) {
     if(hide_closed_shops) {
         if(showforum == '77' || showforum == '78') {
             var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
+            var closed_patterns = /\b(close|closed|complete|delete|done|end|last|none|nothing|shut|sorry)/i
             for(var i=0, len=lnks.length; i<len; i++) {
                 if(!/&st=/.test(href)) { // (probably) on the first page
                     if(/\b(auction|lottery|free)\b/i.test(lnks[i].textContent)) { continue }
                 }
                 var owner = $(lnks[i].parentNode.parentNode.parentNode.parentNode, 'td.row2 > a[href*="showuser"]')
                 if(do_not_hide.indexOf(parseInt(owner.href.match(/showuser=(\d+)/)[1])) != -1){ continue }
-                if(/\b(close|closed|complete|delete|done|end|none|nothing|shut)/i.test(lnks[i].textContent)) {
+                if(closed_patterns.test(lnks[i].textContent)) {
                     lnks[i].parentNode.parentNode.parentNode.parentNode.style.display = 'none'
                     continue
                 }
                 var desc = $(lnks[i].parentNode.parentNode, 'span#tid-desc-'+lnks[i].id.match(/(\d+)/)[1])
-                if(/\b(close|closed|complete|delete|done|end|none|nothing|shut)/i.test(desc.textContent)) {
+                if(closed_patterns.test(desc.textContent)) {
                     desc.parentNode.parentNode.parentNode.parentNode.style.display = 'none'
                     continue
                 }
