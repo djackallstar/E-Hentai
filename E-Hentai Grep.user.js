@@ -68,7 +68,7 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg|Mag).*(Hallowed|Astral).*Katalox.*(Destruction|Heimdall|Heaven-sent|Focus)/i,
                 /(Peer|Leg).*(Hallowed|Astral).*Oak.*(Heimdall|Focus)/i,
                 /(Peer|Leg|Mag).*(Radiant|Mystic|Charged|Frugal).*Heimdall/i,
-                /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*Heaven-sent/i,
+                /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Protection)/i,
             ], 'darkred'
         ],
         [ // Toys
