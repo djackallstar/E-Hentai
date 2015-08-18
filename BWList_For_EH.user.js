@@ -75,8 +75,8 @@ if(showforum) {
     if(hide_closed_shops) {
         if(showforum == '77' || showforum == '78') {
             var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
-            //var closed_patterns = /\b(close|closed|complete|delete|done|end|last|none|nothing|shut|sorry)/i
-            var closed_patterns = /\b(close|closed|complete|delete|done|end|last|none|nothing|shut|sorry|auction|lottery|lotto|free)/i
+            //var closed_patterns = /\b(close|closed|complete|(delete|del\b)|done|end|last|none|nothing|shut|sorry)/i
+            var closed_patterns = /\b(close|closed|complete|(delete|del\b)|done|end|last|none|nothing|shut|sorry|auction|lottery|lotto|free)/i
             for(var i=0, len=lnks.length; i<len; i++) {
                 if(!/&st=/.test(href)) { // (probably) on the first page
                     if(/\b(auction|lottery|lotto|free)\b/i.test(lnks[i].textContent)) { continue }
