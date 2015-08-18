@@ -79,7 +79,7 @@ if(showforum) {
             var closed_patterns = /\b(close|closed|complete|delete|done|end|last|none|nothing|shut|sorry|auction|lottery|lotto|free)/i
             for(var i=0, len=lnks.length; i<len; i++) {
                 if(!/&st=/.test(href)) { // (probably) on the first page
-                    if(/\b(auction|lottery|free)\b/i.test(lnks[i].textContent)) { continue }
+                    if(/\b(auction|lottery|lotto|free)\b/i.test(lnks[i].textContent)) { continue }
                 }
                 var owner = $(lnks[i].parentNode.parentNode.parentNode.parentNode, 'td.row2 > a[href*="showuser"]')
                 if(do_not_hide.indexOf(parseInt(owner.href.match(/showuser=(\d+)/)[1])) != -1){ continue }
