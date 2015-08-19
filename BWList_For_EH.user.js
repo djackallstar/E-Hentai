@@ -78,7 +78,7 @@ if(showforum) {
             //var closed_patterns = /\b(close|closed|complete|(delete|del\b)|done|end|last|none|nothing|shut|sorry)/i
             var closed_patterns = /\b(close|closed|complete|(delete|del\b)|done|end|last|none|nothing|shut|sorry|auction|lottery|lotto)/i
             for(var i=0, len=lnks.length; i<len; i++) {
-                if(!/&st=/.test(href)) { // (probably) on the first page
+                if((!/&st=/.test(href)) || (/&st=0/.test(href)) { // (probably) on the first page
                     if(/\b(auction|lottery|lotto)\b/i.test(lnks[i].textContent)) { continue }
                 }
                 var owner = $(lnks[i].parentNode.parentNode.parentNode.parentNode, 'td.row2 > a[href*="showuser"]')
