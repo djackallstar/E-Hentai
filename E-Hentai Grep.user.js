@@ -65,7 +65,8 @@ if(typeof grep_patterns == 'undefined') {
         ],
         [ // Holy Gear
             [
-                /(Peer|Leg|Mag).*(Hallowed|Astral).*Katalox.*(Destruction|Heimdall|Heaven-sent)/i,
+                /(Peer|Leg).*(Hallowed|Astral).*Katalox.*(Destruction|Heimdall|Heaven-sent)/i,
+                /Mag.*(Hallowed|Astral).*Katalox.*Destruction/i,
                 /(Peer|Leg).*(Hallowed|Astral).*Oak.*Heimdall/i,
                 /(Peer|Leg).*(Radiant|Mystic|Charged|Frugal).*Heimdall/i,
                 /Mag.*Radiant.*Heimdall/i,
