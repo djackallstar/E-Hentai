@@ -74,6 +74,7 @@ if(typeof grep_patterns == 'undefined') {
         ],
         [ // Toys
             [
+                /Peerless/i,
             ], 'darkgreen'
         ],
     ]
