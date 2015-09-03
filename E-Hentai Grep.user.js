@@ -50,7 +50,8 @@ if(typeof grep_patterns == 'undefined') {
                 /amnesia/i,
                 // Potions
                 /(health|last).*elixir/i,
-                /(mana|spirit).*(draught|potion|elixir)/i,
+                /(mana|spirit).*(potion|elixir)/i,
+                /spirit.*draught/i,
                 // Infusions and Scrolls
                 /Infusion|Scroll/i,
                 ///Scroll of (Life|(the Gods))/i,
