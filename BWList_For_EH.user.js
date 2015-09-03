@@ -31,6 +31,7 @@ if(typeof wtb_shop_owners_to_highlight == 'undefined') {
 if(typeof wts_thread_blist == 'undefined') {
     var wts_thread_blist = [ // thread IDs
         163637, // The Shared Free Shop
+        183055,
     ]
 }
 if(typeof wtb_thread_blist == 'undefined') {
