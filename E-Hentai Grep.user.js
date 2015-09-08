@@ -62,7 +62,7 @@ if(typeof grep_patterns == 'undefined') {
                 /crystal|chow|edible|cuisine|pill/i,
                 // Misc
                 /\b(vase|bubble)/i,
-            ], 'purple'
+            ], 'purple', ''
         ],
         [ // Holy Gear
             [
@@ -72,11 +72,11 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg).*(Radiant|Mystic|Charged|Frugal).*Heimdall/i,
                 /Mag.*Radiant.*Heimdall/i,
                 ///(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Protection)/i,
-            ], 'darkred'
+            ], 'darkred', ''
         ],
         [ // Toys
             [
-            ], 'darkgreen'
+            ], 'darkgreen', ''
         ],
     ]
 }
@@ -263,6 +263,7 @@ if(!/&?\bst=[^0]/.test(href)) {
                         }
                         lnks[j].style.color = 'white'
                         lnks[j].style.backgroundColor = grep_patterns[k][1]
+                        lnks[j].style.cssText = grep_patterns[k][2]
                         break
                     }
                 } if(highlighted) { break }
