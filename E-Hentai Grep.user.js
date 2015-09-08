@@ -263,7 +263,8 @@ if(!/&?\bst=[^0]/.test(href)) {
                         }
                         lnks[j].style.color = 'white'
                         lnks[j].style.backgroundColor = grep_patterns[k][1]
-                        lnks[j].style.cssText = grep_patterns[k][2]
+                        if(grep_patterns[k][2] != '') { lnks[j].style.cssText = grep_patterns[k][2] }
+                        
                         break
                     }
                 } if(highlighted) { break }
