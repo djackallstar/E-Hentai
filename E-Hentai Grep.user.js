@@ -32,8 +32,8 @@ if(typeof grep_patterns == 'undefined') {
                 ///\bbinding.*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 ///^\s*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 // Bindings for armor
-                /\bbinding.*(balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
-                /^\s*(balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
+                /\bbinding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
+                /^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
                 // Graded materials
                 /\b(low|mid|high).*grade.*(cloth|wood)/i,
                 /\b(lg|mg|hg).?(cloth|wood)/i,
