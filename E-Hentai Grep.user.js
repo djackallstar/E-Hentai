@@ -66,15 +66,16 @@ if(typeof grep_patterns == 'undefined') {
         [ // Holy Gear
             [
                 /(Peer|Leg).*(Hallowed|Astral).*Katalox.*(Destruction|Heimdall|Heaven-sent)/i,
-                /Mag.*(Hallowed|Astral).*Katalox.*Destruction/i,
                 /(Peer|Leg).*(Hallowed|Astral).*Oak.*Heimdall/i,
-                /(Peer|Leg).*(Radiant|Mystic|Charged|Frugal).*Heimdall/i,
-                /Mag.*Radiant.*Heimdall/i,
-                ///(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Protection)/i,
+                /Peer.*Phase.*Heimdall/i,
+                /Leg.*(Radiant|Mystic|Charged|Frugal).*Heimdall/i,
+                /Leg.*Phase.*Cap.*Heimdall/i,
             ], 'darkred', ''
         ],
         [ // Toys
             [
+                /Peer.*Cotton.*(Protection|Heaven-sent)/i,
+                /Leg.*Gossamer.*(Protection|Heaven-sent)/i,
             ], 'darkgreen', ''
         ],
     ]
