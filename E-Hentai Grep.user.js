@@ -76,6 +76,7 @@ if(typeof grep_patterns == 'undefined') {
             [
                 /Peer.*Cotton.*(Protection|Heaven-sent)/i,
                 /Leg.*Gossamer.*(Protection|Heaven-sent)/i,
+                /(Leg|Mag).*(Fox|Owl)/i,
             ], 'darkgreen', ''
         ],
     ]
