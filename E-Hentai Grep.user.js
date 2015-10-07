@@ -77,6 +77,9 @@ if(typeof grep_patterns == 'undefined') {
                 /Peer.*Cotton.*(Protection|Heaven-sent)/i,
                 /Leg.*Gossamer.*(Protection|Heaven-sent)/i,
                 /(Leg|Mag).*(Fox|Owl)/i,
+                /Leg.*Dagger/i,
+                /(Peer|Leg).*Hallowed.*(Waki|Rapier|Shortsword).*(Battlecaster|Nimble)/i,
+                /(Peer|Leg).*Buckler.*(Barrier|Battlecaster)/i,
             ], 'darkgreen', ''
         ],
     ]
