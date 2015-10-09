@@ -113,8 +113,7 @@ if(!/&?\bst=[^0]/.test(href)) {
             /\bunavailable\b/i,
             /\bnone\b/i,
             /\[restocking\]/i,
-            /\s+0\s*$/i,
-            / 0 /i,
+            /(^|\s+)0+\s+/i,
             /out of stock/i,
             /This post has been edited by/i,
         ]
