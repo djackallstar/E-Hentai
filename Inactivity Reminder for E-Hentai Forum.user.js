@@ -5,7 +5,7 @@
 // ==/UserScript==
 
 /*** Setting ***/
-var time_difference = 86400 // when the difference btwn current time and the time last post was made is greater than this, ID becomes red. in second.
+var time_difference = 604800 // when the difference btwn current time and the time last post was made is greater than this, ID becomes red. in seconds.
 
 /*** End of Setting ***/
 
