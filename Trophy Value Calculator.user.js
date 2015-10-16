@@ -23,17 +23,14 @@ var d = {
     'Bunny-Girl Costume': 1100,
     'Hinamatsuri Doll': 1100,
     'Broken Glasses': 1100,
-    'Black T-Shirt': 3000,
-    'Sapling': 3000,
+    'Black T-Shirt': 3100,
+    'Sapling': 3100,
     'Unicorn Horn': 6000,
+    'Noodly Appendage': 25000,
     'Bronze Coupon': 600,
     'Silver Coupon': 1100,
     'Golden Coupon': 30000,
     'Platinum Coupon': 100000,
-    'Noodly Appendage': 30000,
-    'Stocking Stuffers': 0,
-    'Reindeer Antlers': 0,
-    'Tenbora\'s Box': 0,
 }
 
 var display_total_value = function(sum) {
