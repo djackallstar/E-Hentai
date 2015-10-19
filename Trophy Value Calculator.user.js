@@ -35,7 +35,7 @@ var href = loc.href
 var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
 var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
-if(!$('#togpane_log')) {
+if(!$('#togpane_log') && !$('#riddlemaster')) {
     var display_total_value = function(sum) {
         var out = 'Total value of trophies: ' + sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' credits'
         console.log(out)
