@@ -6,14 +6,7 @@
 // @include         http://hentaiverse.org/?s=Bazaar&ss=is&*
 // ==/UserScript==
 
-var wnd = window
-var doc = wnd.document
-var loc = location
-var href = loc.href
-
-var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
-var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
-
+/*** Settings ***/
 var d = {
     'ManBearPig Tail': 500,
     'Holy Hand Grenade of Antioch': 500,
@@ -32,47 +25,58 @@ var d = {
     'Golden Coupon': 30000,
     'Platinum Coupon': 100000,
 }
+/*** End of Settings ***/
 
-var display_total_value = function(sum) {
-    var out = 'Total value of trophies: ' + sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' credits'
-    console.log(out)
+var wnd = window
+var doc = wnd.document
+var loc = location
+var href = loc.href
 
-    var div = doc.createElement('DIV')
-    div.appendChild(doc.createElement('BR'))
-    div.appendChild(doc.createTextNode(out))
+var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
+var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll(css) }
 
-    var left = $('.clb')
-    div.style.cssText = $(left, '.cit .fd4 > div').style.cssText + 'margin-right: 8px;'
-    left.appendChild(div)
-}
+if(!$('#togpane_log')) {
+    var display_total_value = function(sum) {
+        var out = 'Total value of trophies: ' + sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' credits'
+        console.log(out)
 
-// Character -> Inventory
-var inv_item = $('#inv_item')
-if(inv_item) {
-    var items = $$(inv_item, '.id')
-    for(var i=items.length-1, sum=0; i>=0; i--) {
-        var k = items[i].textContent
-        var v = parseInt(d[k])
-        var supply = parseInt($(items[i].parentNode.parentNode, '.ii').textContent)
-        if( (!isNaN(v)) && (!isNaN(supply)) ) {
-            sum += (v*supply)
-        }
+        var div = doc.createElement('DIV')
+        div.appendChild(doc.createElement('BR'))
+        div.appendChild(doc.createTextNode(out))
+
+        var left = $('.clb')
+        div.style.cssText = $(left, '.cit .fd4 > div').style.cssText + 'margin-right: 8px;'
+        left.appendChild(div)
     }
-    display_total_value(sum)
-}
 
-// Bazaar -> Item Shop -> All/Special
-var item_pane = $('#item_pane')
-if(item_pane) {
-    var items = $$(item_pane, '.idp')
-    var supplies = $$(item_pane, '.ii')
-    for(var i=items.length-1, sum=0; i>=0; i--) {
-        var k = items[i].textContent
-        var v = parseInt(d[k])
-        var supply = parseInt(supplies[i].textContent)
-        if( (!isNaN(v)) && (!isNaN(supply)) ) {
-            sum += (v*supply)
+    // Character -> Inventory
+    var inv_item = $('#inv_item')
+    if(inv_item) {
+        var items = $$(inv_item, '.id')
+        for(var i=items.length-1, sum=0; i>=0; i--) {
+            var k = items[i].textContent
+            var v = parseInt(d[k])
+            var supply = parseInt($(items[i].parentNode.parentNode, '.ii').textContent)
+            if( (!isNaN(v)) && (!isNaN(supply)) ) {
+                sum += (v*supply)
+            }
         }
+        display_total_value(sum)
     }
-    display_total_value(sum)
+
+    // Bazaar -> Item Shop -> All/Special
+    var item_pane = $('#item_pane')
+    if(item_pane) {
+        var items = $$(item_pane, '.idp')
+        var supplies = $$(item_pane, '.ii')
+        for(var i=items.length-1, sum=0; i>=0; i--) {
+            var k = items[i].textContent
+            var v = parseInt(d[k])
+            var supply = parseInt(supplies[i].textContent)
+            if( (!isNaN(v)) && (!isNaN(supply)) ) {
+                sum += (v*supply)
+            }
+        }
+        display_total_value(sum)
+    }
 }
