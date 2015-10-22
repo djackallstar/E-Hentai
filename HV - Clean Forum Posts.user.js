@@ -27,9 +27,6 @@ var hide_cutie_marks = true
 
 /*** End of Settings ***/
 
-console.log(uid_blist)
-console.log(uname_blist)
-
 var borderwrap = $$('.borderwrap')
 for(var i=0, len=borderwrap.length; i<len; i++) {
     var is_post = ($(borderwrap[i], '.postcolor') != null)
