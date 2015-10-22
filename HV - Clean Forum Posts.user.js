@@ -24,6 +24,7 @@ if(typeof uname_blist == 'undefined') {
     ]
 }
 var hide_cutie_marks = true
+var hide_warn_level = true
 
 /*** End of Settings ***/
 
@@ -63,4 +64,18 @@ for(var i=0, len=postcolor.length; i<len; i++) {
 if(hide_cutie_marks) {
     var div = $$('DIV[style*="url(http://forums.e-hentai.org/ehgt/cm/"]')
     for(var i=0, len=div.length; i<len; i++) { div[i].style.display = 'none' }
+}
+
+if(hide_warn_level) {
+    var w = $$('img[src*="style_images/ambience/warn"]')
+    for(var i=0, len=w.length; i<len; i++) {
+        w[i].style.display = 'none'
+        w[i].previousSibling.textContent = ''
+        w[i].previousSibling.previousSibling.textContent = ''
+        w[i].previousSibling.previousSibling.previousSibling.textContent = ''
+    }
+    var spacer = $$('img[src*="style_images/ambience/spacer."]')
+    for(var i=0, len=spacer.length; i<len; i++) {
+        spacer[i].style.display = 'none'
+    }
 }
