@@ -14,13 +14,13 @@ var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll
 
 /*** Settings ***/
 if(typeof uid_blist == 'undefined') {
-    uid_blist = [ // hide posts by them
-        11328,
+    uid_blist = [ // hide posts by uid (integer)
+        ,
     ]
 }
 if(typeof uname_blist == 'undefined') {
-    uname_blist = [ // hide quotes by them
-        'Scremaz',
+    uname_blist = [ // hide quotes by username (string)
+        '',
     ]
 }
 var hide_cutie_marks = true
