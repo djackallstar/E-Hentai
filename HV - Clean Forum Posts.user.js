@@ -81,9 +81,10 @@ if(hide_warn_levels) {
         w[i].previousSibling.textContent = ''
         w[i].previousSibling.previousSibling.textContent = ''
         w[i].previousSibling.previousSibling.previousSibling.textContent = ''
-    }
-    var spacer = $$('img[src*="style_images/ambience/spacer."]')
-    for(var i=0, len=spacer.length; i<len; i++) {
-        spacer[i].style.display = 'none'
+
+        var spacer = w[i].parentNode.parentNode.querySelectorAll('img[src*="style_images/ambience/spacer."]')
+        for(var j=0, len2=spacer.length; j<len2; j++) {
+            spacer[j].style.display = 'none'
+        }
     }
 }
