@@ -7,7 +7,7 @@
 // @include     /^https?://forums\.e-hentai\.org/index\.php\?.*result_type=posts/
 // ==/UserScript==
 
-var wnd = unsafeWindow
+var wnd = (typeof unsafeWindow != 'undefined' ? unsafeWindow : window)
 var doc = wnd.document
 var loc = location
 var href = loc.href
