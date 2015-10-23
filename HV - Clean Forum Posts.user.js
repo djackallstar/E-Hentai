@@ -3,7 +3,6 @@
 // @updateURL   about:blank
 // @grant       unsafeWindow
 // @include     http://forums.e-hentai.org/index.php?showtopic=*
-// @include     http://act=Search&CODE=show*
 // @include     /^https?://forums\.e-hentai\.org/index\.php\?.*result_type=posts/
 // ==/UserScript==
 
