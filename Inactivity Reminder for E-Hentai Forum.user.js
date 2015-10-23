@@ -46,6 +46,6 @@ var update_timer = function() {
         if(now - last_topic <= time_difference) { is_active = true } else { del_cookie('last_topic') }
     }
     if(!is_active) { $('#userlinks a[href^="http://forums.e-hentai.org/index.php?showuser="]').style.color = 'red' }
-    setTimeout(update_timer, 1000)
+    setTimeout(update_timer, 60000)
 }
 update_timer()
