@@ -18,12 +18,12 @@ var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll
 /*** Settings ***/
 if(typeof wnd.uid_blist == 'undefined') {
     var uid_blist = [ // hide posts by uid (integer)
-        11328,
+        -12345,
     ]
 } else { var uid_blist = wnd.uid_blist }
 if(typeof wnd.uname_blist == 'undefined') {
     var uname_blist = [ // hide quotes by username (string)
-        'Scremaz',
+        '',
     ]
 } else { var uname_blist = wnd.uname_blist }
 var hide_cutie_marks = true
