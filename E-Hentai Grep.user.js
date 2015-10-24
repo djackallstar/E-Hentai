@@ -27,40 +27,40 @@ if(typeof grep_patterns == 'undefined') {
         [ // Items
             [
                 // Rare materials
-                /\bphazon/i,
+                /(\b|x)phazon/i,
                 // Bindings for staff
-                ///\bbinding.*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
+                ///(\b|x)binding.*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 ///^\s*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 // Bindings for armor
-                /\bbinding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
+                /(\b|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
                 /^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
                 // Graded materials
-                /\b(low|mid|high).*grade.*(cloth|wood)/i,
-                /\b(lg|mg|hg).?(cloth|wood)/i,
-                /\bscrap.*(cloth|wood).*@/i,
-                /\bscrap.*(cloth|wood).*\d *c\b/i,
-                /\bscrap.*(cloth|wood).*\b\d{2}\b/i,
+                /(\b|x)(low|mid|high).*grade.*(cloth|wood)/i,
+                /(\b|x)(lg|mg|hg).?(cloth|wood)/i,
+                /(\b|x)scrap.*(cloth|wood).*@/i,
+                /(\b|x)scrap.*(cloth|wood).*\d *c\b/i,
+                /(\b|x)scrap.*(cloth|wood).*\b\d{2}\b/i,
                 // Catalysts
-                /\bcatalyst/i,
+                /(\b|x)catalyst/i,
                 // ED & artifact
-                /\b(energy|drink|precursor).*[@0]/i,
-                /\b(energy|drink|precursor).*\d *k\b/i,
-                /\b(energy|drink|precursor).* *[\d,]+/i,
+                /(\b|x)(energy|drink|precursor).*[@0]/i,
+                /(\b|x)(energy|drink|precursor).*\d *k\b/i,
+                /(\b|x)(energy|drink|precursor).* *[\d,]+/i,
                 // Shards
-                /\bamnesia/i,
+                /(\b|x)amnesia/i,
                 // Potions
-                /\b(health|last).*elixir/i,
-                /\b(mana|spirit).*(potion|elixir)/i,
-                /\bspirit.*draught/i,
+                /(\b|x)(health|last).*elixir/i,
+                /(\b|x)(mana|spirit).*(potion|elixir)/i,
+                /(\b|x)spirit.*draught/i,
                 // Infusions and Scrolls
-                /\b(infusion|scroll)/i,
+                /(\b|x)(infusion|scroll)/i,
                 // Trophies
-                /\bnoodl/i,
+                /(\b|x)noodl/i,
                 ///\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
                 // Monster Foods
-                /\b(crystal|chow|edible|cuisine|pill)/i,
+                /(\b|x)(crystal|chow|edible|cuisine|pill)/i,
                 // Misc
-                /\b(vase|bubble)/i,
+                /(\b|x)(vase|bubble)/i,
             ], 'purple', ''
         ],
         [ // Holy Gear
