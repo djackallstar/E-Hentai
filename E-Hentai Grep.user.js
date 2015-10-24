@@ -70,12 +70,13 @@ if(typeof grep_patterns == 'undefined') {
                 /Peer.*Phase.*Heimdall/i,
                 /Leg.*(Radiant|Mystic|Charged|Frugal).*Heimdall/i,
                 /Leg.*Phase.*Cap.*Heimdall/i,
+                /Peer.*Cotton.*(Protection|Heaven-sent)/i,
+                /Leg.*(Charged|Frugal).*Cotton.*(Protection|Heaven-sent)/i,
+                /Leg.*Gossamer.*(Protection|Heaven-sent)/i,
             ], 'darkred', ''
         ],
         [ // Toys
             [
-                /Peer.*Cotton.*(Protection|Heaven-sent)/i,
-                /Leg.*Gossamer.*(Protection|Heaven-sent)/i,
                 /(Leg|Mag).*(Fox|Owl)/i,
                 /Leg.*Dagger/i,
                 /(Peer|Leg).*Hallowed.*(Waki|Rapier|Shortsword).*(Battlecaster|Nimble)/i,
