@@ -70,7 +70,7 @@ if(typeof grep_patterns == 'undefined') {
                 /Peer.*Phase.*Heimdall/i,
                 /Leg.*(Radiant|Mystic|Charged|Frugal).*Heimdall/i,
                 /Leg.*Phase.*Cap.*Heimdall/i,
-                /Peer.*Cotton.*(Protection|Heaven-sent)/i,
+                /Peer.*Cotton.*(Protection|Heaven-sent|Curse-weaver)/i,
                 /Leg.*(Charged|Frugal).*Cotton.*(Protection|Heaven-sent|Curse-weaver)/i,
                 /Leg.*Gossamer.*(Protection|Heaven-sent|Curse-weaver)/i,
             ], 'darkred', ''
