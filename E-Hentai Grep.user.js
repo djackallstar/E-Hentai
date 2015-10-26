@@ -69,17 +69,14 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg).*(Hallowed|Astral).*Oak.*Heimdall/i,
                 /Peer.*Phase.*Heimdall/i,
                 /Leg.*(Radiant|Mystic|Charged|Frugal).*Heimdall/i,
-                /Leg.*Phase.*Cap.*Heimdall/i,
-                /Peer.*Cotton.*(Protection|Heaven-sent|Curse-weaver)/i,
-                /Leg.*(Charged|Frugal).*Cotton.*(Protection|Heaven-sent|Curse-weaver)/i,
-                /Leg.*Gossamer.*(Protection|Heaven-sent|Curse-weaver)/i,
+                /Peer.*Cotton.*Heaven-sent/i,
+                /Leg.*(Charged|Frugal).*Cotton.*Heaven-sent/i,
             ], 'darkred', ''
         ],
         [ // Toys
             [
-                /(Leg|Mag).*(Fox|Owl)/i,
                 /Leg.*Dagger/i,
-                /(Peer|Leg).*Hallowed.*(Waki|Rapier|Shortsword).*(Battlecaster|Nimble)/i,
+                /(Peer|Leg).*Hallowed.*Waki.*(Battlecaster|Nimble)/i,
                 /(Peer|Leg).*Buckler.*(Barrier|Battlecaster)/i,
             ], 'darkgreen', ''
         ],
