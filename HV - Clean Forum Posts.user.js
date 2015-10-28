@@ -2,9 +2,10 @@
 // @name        HV - Clean Forum Posts
 // @updateURL   about:blank
 // @grant       unsafeWindow
-// @include     http://forums.e-hentai.org/index.php?showtopic=*
-// @include     http://act=Search&CODE=show*
-// @include     /^https?://forums\.e-hentai\.org/index\.php\?.*result_type=posts/
+// @include     /^https?://forums\.e-hentai\.org\/index\.php\?.*\bshowtopic=.*/
+// @include     /^https?://forums\.e-hentai\.org/index\.php\?.*\bresult_type=posts/
+// @include     /^https?://forums\.e-hentai\.org\/index\.php\?act=[Pp]ost/
+// @include     http://forums.e-hentai.org/index.php?showuser=*
 // ==/UserScript==
 
 var wnd = (typeof unsafeWindow != 'undefined' ? unsafeWindow : window)
@@ -32,20 +33,32 @@ var hide_bottom_area = true
 
 /*** End of Settings ***/
 
-// Hide posts
-var borderwrap = $$('.borderwrap')
-for(var i=0, len=borderwrap.length; i<len; i++) {
-    var is_post = ($(borderwrap[i], '.postcolor') != null)
-    if(is_post) {
-        var uid = $(borderwrap[i], 'a[href^="http://forums.e-hentai.org/index.php?showuser="]')
-        //var uid = $(borderwrap[i], '.post1 a[href^="http://forums.e-hentai.org/index.php?showuser="]')
-        //if(!uid) { uid = $(borderwrap[i], '.post2 a[href^="http://forums.e-hentai.org/index.php?showuser="]') }
-        if(uid) {
-            uid = parseInt(uid.href.match(/\?showuser=(\d+)/)[1])
-            if(uid_blist.indexOf(uid) != -1) {
-                borderwrap[i].style.display = 'none'
-                try { borderwrap[i].previousSibling.previousSibling.style.display = 'none' } catch(e) {}
-                try { borderwrap[i].nextSibling.nextSibling.style.display = 'none' } catch(e) {}
+if(/act=post/i.test(href)) {
+    var ids = $$('.row2:first-child')
+    for(var i=0, len=ids.length; i<len; i++) {
+        if(uname_blist.indexOf(ids[i].textContent) != -1) {
+            ids[i].parentNode.style.display = 'none'
+            try { ids[i].parentNode.nextSibling.style.display = 'none' } catch(e) {}
+            try { ids[i].parentNode.nextSibling.nextSibling.style.display = 'none' } catch(e) {}
+        }
+    }
+}
+else {
+    // Hide posts
+    var borderwrap = $$('.borderwrap')
+    for(var i=0, len=borderwrap.length; i<len; i++) {
+        var is_post = ($(borderwrap[i], '.postcolor') != null)
+        if(is_post) {
+            var uid = $(borderwrap[i], 'a[href^="http://forums.e-hentai.org/index.php?showuser="]')
+            //var uid = $(borderwrap[i], '.post1 a[href^="http://forums.e-hentai.org/index.php?showuser="]')
+            //if(!uid) { uid = $(borderwrap[i], '.post2 a[href^="http://forums.e-hentai.org/index.php?showuser="]') }
+            if(uid) {
+                uid = parseInt(uid.href.match(/\?showuser=(\d+)/)[1])
+                if(uid_blist.indexOf(uid) != -1) {
+                    borderwrap[i].style.display = 'none'
+                    try { borderwrap[i].previousSibling.previousSibling.style.display = 'none' } catch(e) {}
+                    try { borderwrap[i].nextSibling.nextSibling.style.display = 'none' } catch(e) {}
+                }
             }
         }
     }
