@@ -4,7 +4,7 @@
 // @grant       unsafeWindow
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?.*\bshowtopic=.*/
 // @include     /^https?://forums\.e-hentai\.org/index\.php\?.*\bresult_type=posts/
-// @include     /^https?://forums\.e-hentai\.org\/index\.php\?act=[Pp]ost/
+// @include     /^https?://forums\.e-hentai\.org\/index\.php\?act=([Pp]ost|ST)&/
 // @include     http://forums.e-hentai.org/index.php?showuser=*
 // ==/UserScript==
 
@@ -19,7 +19,7 @@ var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll
 /*** Settings ***/
 if(typeof wnd.uid_blist == 'undefined') {
     var uid_blist = [ // hide posts by uid (integer)
-        -12345,
+        0,
     ]
 } else { var uid_blist = wnd.uid_blist }
 if(typeof wnd.uname_blist == 'undefined') {
