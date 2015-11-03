@@ -73,12 +73,23 @@ if(typeof grep_patterns == 'undefined') {
                 /Leg.*(Charged|Frugal).*Cotton.*Heaven-sent/i,
             ], 'darkred', ''
         ],
+        [ // Wind/Elec Gear
+            [
+                /(Peer|Leg).*(Tempestuous|Shocking).*Willow.*(Destruction|Focus)/i,
+                /(Peer|Leg).*Tempestuous.*(Redwood|Ebony).*(Destruction|Freyr|Elementalist|Focus)/i,
+                /(Peer|Leg).*Shocking.*(Redwood|Ebony).*(Destruction|Mjolnir|Elementalist|Focus)/i,
+                /Peer.*Phase.*(Freyr|Mjolnir)/i,
+                /Leg.*(Radiant|Mystic|Charged|Frugal).*(Freyr|Mjolnir)/i,
+                /Peer.*Cotton.*Elementalist/i,
+                /Leg.*(Charged|Frugal).*Cotton.*Elementalist/i,
+            ], 'darkgreen', ''
+        ],
         [ // Toys
             [
                 /Leg.*Dagger/i,
-                /(Peer|Leg).*Hallowed.*Waki.*(Battlecaster|Nimble)/i,
+                /(Peer|Leg).*(Hallowed|Tempestuous).*Waki.*(Battlecaster|Nimble)/i,
                 /(Peer|Leg).*Buckler.*(Barrier|Battlecaster)/i,
-            ], 'darkgreen', ''
+            ], 'darkblue', ''
         ],
     ]
 }
