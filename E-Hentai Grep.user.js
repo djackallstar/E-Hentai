@@ -69,19 +69,12 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg).*(Hallowed|Astral).*Oak.*Heimdall/i,
                 /Peer.*Phase.*Heimdall/i,
                 /Leg.*(Radiant|Mystic|Charged|Frugal).*Heimdall/i,
-                /Peer.*Cotton.*Heaven-sent/i,
-                /Leg.*(Charged|Frugal).*Cotton.*Heaven-sent/i,
             ], 'darkred', ''
         ],
-        [ // Wind/Elec Gear
+        [ // Holy Gear (prof armor)
             [
-                /(Peer|Leg).*(Tempestuous|Shocking).*Willow.*(Destruction|Focus)/i,
-                /(Peer|Leg).*Tempestuous.*(Redwood|Ebony).*(Destruction|Freyr|Elementalist|Focus)/i,
-                /(Peer|Leg).*Shocking.*(Redwood|Ebony).*(Destruction|Mjolnir|Elementalist|Focus)/i,
-                /Peer.*Phase.*(Freyr|Mjolnir)/i,
-                /Leg.*(Radiant|Mystic|Charged|Frugal).*(Freyr|Mjolnir)/i,
-                /Peer.*Cotton.*Elementalist/i,
-                /Leg.*(Charged|Frugal).*Cotton.*Elementalist/i,
+                /Peer.*Cotton.*Heaven-sent/i,
+                /Leg.*(Charged|Frugal).*(Cotton|Gossamer).*Heaven-sent/i,
             ], 'darkgreen', ''
         ],
         [ // Toys
