@@ -80,7 +80,7 @@ if(typeof grep_patterns == 'undefined') {
         [ // Toys
             [
                 /Leg.*Dagger/i,
-                /(Peer|Leg).*(Hallowed|Tempestuous|Shocking).*Waki.*(Battlecaster|Nimble)/i,
+                /(Peer|Leg).*Hallowed.*Waki.*(Battlecaster|Nimble)/i,
                 /(Peer|Leg).*Buckler.*(Barrier|Battlecaster)/i,
             ], 'darkblue', ''
         ],
