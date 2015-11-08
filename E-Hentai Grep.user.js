@@ -43,9 +43,9 @@ if(typeof grep_patterns == 'undefined') {
                 // Catalysts
                 /(\b|x)catalyst/i,
                 // ED & artifact
-                /(\b|x)(energy|drink|precursor).*[@0]/i,
-                /(\b|x)(energy|drink|precursor).*\d *k\b/i,
-                /(\b|x)(energy|drink|precursor).* *[\d,]+/i,
+                /(\b|x)(energy|drink|(artifact|artefact)).*[@0]/i,
+                /(\b|x)(energy|drink|(artifact|artefact)).*\d *k\b/i,
+                /(\b|x)(energy|drink|(artifact|artefact)).* *[\d,]+/i,
                 // Shards
                 /(\b|x)amnesia/i,
                 // Potions
