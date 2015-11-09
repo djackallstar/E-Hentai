@@ -67,14 +67,13 @@ if(typeof grep_patterns == 'undefined') {
             [
                 /(Peer|Leg).*(Hallowed|Astral).*Katalox.*(Destruction|Heimdall|Heaven-sent)/i,
                 /(Peer|Leg).*(Hallowed|Astral).*Oak.*Heimdall/i,
-                /Peer.*Phase.*Heimdall/i,
-                /Leg.*(Radiant|Mystic|Charged|Frugal).*Heimdall/i,
+                /(Peer|Leg).*Radiant.*Heimdall/i,
             ], 'darkred', ''
         ],
         [ // Holy Gear (prof armor)
             [
-                /Peer.*Cotton.*Heaven-sent/i,
-                /Leg.*(Charged|Frugal).*(Cotton|Gossamer).*Heaven-sent/i,
+                /Peer.*(Charged|Frugal).*Cotton.*(Heaven-sent|Curse-weaver)/i,
+                /Leg.*Frugal.*(Cotton|Gossamer).*(Heaven-sent|Curse-weaver)/i,
             ], 'darkgreen', ''
         ],
         [ // Toys
