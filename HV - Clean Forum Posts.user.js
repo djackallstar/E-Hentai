@@ -91,7 +91,7 @@ if(hide_cutie_marks) {
 // Hide post counts
 if(hide_post_count) {
     var a = $$('a[onclick^="link_to_post("]')
-    for(var i=0, len=a.length; i<len; i++) { a[i].text = '###' }
+    for(var i=0, len=a.length; i<len; i++) { a[i].text = '#' }
 }
 
 // Hide warn levels
