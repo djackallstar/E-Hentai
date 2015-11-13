@@ -53,7 +53,7 @@ if(typeof grep_patterns == 'undefined') {
                 /(\b|x)(mana|spirit).*(potion|elixir)/i,
                 /(\b|x)spirit.*draught/i,
                 // Infusions and Scrolls
-                /(\b|x)(infusion|scroll)/i,
+                /(\b|x)(infusion|(scroll of))/i,
                 // Trophies
                 /(\b|x)noodl/i,
                 ///\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
