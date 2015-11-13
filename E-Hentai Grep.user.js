@@ -127,8 +127,10 @@ if(!/&?\bst=[^0]/.test(href)) {
 
     var get_text = function(e) {
         var s = e.innerHTML
+        s = s.replace(/<!--.*?-->/gi, '')
         if(remove_quoted_text){
-            s = s.replace(/<div class=.quotemain.>.+?<!--QuoteEnd--><\/div><!--QuoteEEnd-->/gi, '')
+            s = s.replace(/<div [^>].*class=.quotetop.>.*?<\/div>/gi, '')
+            s = s.replace(/<div [^>].*class=.quotemain.>.*?<\/div>/gi, '')
         }
         if(remove_strike_through_line) { s = s.replace(/<strike>.*?<\/strike>/g, '') }
         s = s.replace(/<br\s*[^>]*>/g, '\n').replace(/<\/li>/g, '\n').replace(/<ul>/g, '\n').replace(/<\/?blockquote>/g, '\n')
@@ -269,7 +271,7 @@ if(!/&?\bst=[^0]/.test(href)) {
                         lnks[j].style.color = 'white'
                         lnks[j].style.backgroundColor = grep_patterns[k][1]
                         if(grep_patterns[k][2] != '') { lnks[j].style.cssText = grep_patterns[k][2] }
-                        
+
                         break
                     }
                 } if(highlighted) { break }
