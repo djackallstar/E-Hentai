@@ -70,8 +70,9 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg).*Radiant.*Heimdall/i,
             ], 'darkred', ''
         ],
-        [ // Holy Gear (prof armor)
+        [ // Holy Gear (frugal mode)
             [
+                /(Peer|Leg).*(Hallowed|Astral).*(Katalox|Oak).*Focus/i,
                 /Peer.*(Charged|Frugal).*Cotton.*(Heaven-sent|Curse-weaver)/i,
                 /Leg.*Frugal.*(Cotton|Gossamer).*(Heaven-sent|Curse-weaver)/i,
             ], 'darkgreen', ''
