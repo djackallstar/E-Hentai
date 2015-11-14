@@ -27,6 +27,9 @@ if(typeof wnd.uname_blist == 'undefined') {
         '',
     ]
 } else { var uname_blist = wnd.uname_blist }
+var dont_clean = [ // topic id
+    169987,
+]
 var hide_cutie_marks = true
 var hide_post_count = true
 var hide_warn_levels = true
@@ -46,19 +49,23 @@ if(/act=post/i.test(href)) {
 }
 else {
     // Hide posts
-    var borderwrap = $$('.borderwrap')
-    for(var i=0, len=borderwrap.length; i<len; i++) {
-        var is_post = ($(borderwrap[i], '.postcolor') != null)
-        if(is_post) {
-            var uid = $(borderwrap[i], 'a[href^="http://forums.e-hentai.org/index.php?showuser="]')
-            //var uid = $(borderwrap[i], '.post1 a[href^="http://forums.e-hentai.org/index.php?showuser="]')
-            //if(!uid) { uid = $(borderwrap[i], '.post2 a[href^="http://forums.e-hentai.org/index.php?showuser="]') }
-            if(uid) {
-                uid = parseInt(uid.href.match(/\?showuser=(\d+)/)[1])
-                if(uid_blist.indexOf(uid) != -1) {
-                    borderwrap[i].style.display = 'none'
-                    try { borderwrap[i].previousSibling.previousSibling.style.display = 'none' } catch(e) {}
-                    try { borderwrap[i].nextSibling.nextSibling.style.display = 'none' } catch(e) {}
+    var hide_this = true
+    if(/showtopic=\d+/.test(href) && (dont_clean.indexOf(parseInt(href.match(/showtopic=(\d+)/)[1])) != -1)) { hide_this = false }
+    if(hide_this) {
+        var borderwrap = $$('.borderwrap')
+        for(var i=0, len=borderwrap.length; i<len; i++) {
+            var is_post = ($(borderwrap[i], '.postcolor') != null)
+            if(is_post) {
+                var uid = $(borderwrap[i], 'a[href^="http://forums.e-hentai.org/index.php?showuser="]')
+                //var uid = $(borderwrap[i], '.post1 a[href^="http://forums.e-hentai.org/index.php?showuser="]')
+                //if(!uid) { uid = $(borderwrap[i], '.post2 a[href^="http://forums.e-hentai.org/index.php?showuser="]') }
+                if(uid) {
+                    uid = parseInt(uid.href.match(/\?showuser=(\d+)/)[1])
+                    if(uid_blist.indexOf(uid) != -1) {
+                        borderwrap[i].style.display = 'none'
+                        try { borderwrap[i].previousSibling.previousSibling.style.display = 'none' } catch(e) {}
+                        try { borderwrap[i].nextSibling.nextSibling.style.display = 'none' } catch(e) {}
+                    }
                 }
             }
         }
