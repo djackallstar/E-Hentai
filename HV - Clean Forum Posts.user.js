@@ -6,6 +6,7 @@
 // @include     /^https?://forums\.e-hentai\.org/index\.php\?.*\bresult_type=posts/
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?act=([Pp]ost|ST)&/
 // @include     http://forums.e-hentai.org/index.php?showuser=*
+// @include     http://forums.e-hentai.org/index.php?showforum=*
 // ==/UserScript==
 
 var wnd = (typeof unsafeWindow != 'undefined' ? unsafeWindow : window)
@@ -34,6 +35,7 @@ var hide_cutie_marks = true
 var hide_post_count = true
 var hide_warn_levels = true
 var hide_bottom_area = true
+var hide_last_posts = true
 
 /*** End of Settings ***/
 
@@ -126,4 +128,12 @@ if(hide_bottom_area) {
     try { $('.copyright').style.display = 'none' } catch(e) {}
     try { $$('img[src*="style_images/ambience/expand_main_table."]')[0].parentNode.parentNode.style.display = 'none' } catch(e) {}
     try { $$('img[src*="style_images/ambience/expand_main_table."]')[1].parentNode.parentNode.style.display = 'none' } catch(e) {}
+}
+
+// Hide last posts
+if(hide_last_posts) {
+    if(/showforum=/.test(href)) {
+        var a = $$('span.lastaction a[href^="http://forums.e-hentai.org/index.php?showuser="]')
+        for(var i=0, len=a.length; i<len; i++) { a[i].style.display = 'none' }
+    }
 }
