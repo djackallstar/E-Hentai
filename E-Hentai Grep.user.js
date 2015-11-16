@@ -70,11 +70,10 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg).*Radiant.*Heimdall/i,
             ], 'darkred', ''
         ],
-        [ // Holy Gear (frugal mode)
+        [ // Cotton
             [
-                /(Peer|Leg).*(Hallowed|Astral).*(Katalox|Oak).*Focus/i,
-                /Peer.*(Charged|Frugal).*Cotton.*(Heaven-sent|Curse-weaver)/i,
-                /Leg.*Frugal.*(Cotton|Gossamer).*(Heaven-sent|Curse-weaver)/i,
+                /Peer.*(Charged|Frugal).*Cotton.*(Heaven-sent|Elementalist|Curse-weaver)/i,
+                /Leg.*Frugal.*(Cotton|Gossamer).*(Heaven-sent|Elementalist|Curse-weaver)/i,
             ], 'darkgreen', ''
         ],
         [ // Toys
