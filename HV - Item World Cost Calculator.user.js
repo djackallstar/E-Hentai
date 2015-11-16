@@ -59,7 +59,7 @@ if(m) {
         console.log('The quality of the equipment = ' + q)
 
         // Number of rounds in one run
-        var round = 75 * Math.pow(q, 3)
+        var round = Math.ceil(75 * Math.pow(q, 3))
         console.log('Number of rounds in one run = ' + round)
 
         // PXP per run
