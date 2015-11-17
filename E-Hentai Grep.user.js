@@ -72,7 +72,7 @@ if(typeof grep_patterns == 'undefined') {
         ],
         [ // Cotton
             [
-                /(Peer|Leg).*(Charged|Frugal).*Cotton.*(Heaven-sent|Elementalist|Curse-weaver)/i,
+                /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Elementalist|Curse-weaver)/i,
             ], 'darkgreen', ''
         ],
         [ // Toys
