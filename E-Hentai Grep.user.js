@@ -27,40 +27,40 @@ if(typeof grep_patterns == 'undefined') {
         [ // Items
             [
                 // Rare materials
-                /(\b|x)phazon/i,
+                /(((^|\s)\b)|x)phazon/i,
                 // Bindings for staff
-                ///(\b|x)binding.*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
+                ///(((^|\s)\b)|x)binding.*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 ///^\s*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 // Bindings for armor
-                /(\b|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
+                /(((^|\s)\b)|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
                 /^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
                 // Graded materials
-                /(\b|x)(low|mid|high).*grade.*(cloth|wood)/i,
-                /(\b|x)(lg|mg|hg).?(cloth|wood)/i,
-                /(\b|x)scrap.*(cloth|wood).*@/i,
-                /(\b|x)scrap.*(cloth|wood).*\d *c\b/i,
-                /(\b|x)scrap.*(cloth|wood).*\b\d{2}\b/i,
+                /(((^|\s)\b)|x)(low|mid|high).*grade.*(cloth|wood)/i,
+                /(((^|\s)\b)|x)(lg|mg|hg).?(cloth|wood)/i,
+                /(((^|\s)\b)|x)scrap.*(cloth|wood).*@/i,
+                /(((^|\s)\b)|x)scrap.*(cloth|wood).*\d *c\b/i,
+                /(((^|\s)\b)|x)scrap.*(cloth|wood).*\b\d{2}\b/i,
                 // Catalysts
-                /(\b|x)catalyst/i,
+                /(((^|\s)\b)|x)catalyst/i,
                 // ED & artifact
-                /(\b|x)(energy|drink|(artifact|artefact)).*[@0]/i,
-                /(\b|x)(energy|drink|(artifact|artefact)).*\d *k\b/i,
-                /(\b|x)(energy|drink|(artifact|artefact)).* *[\d,]+/i,
+                /(((^|\s)\b)|x)(energy|drink|(artifact|artefact)).*[@0]/i,
+                /(((^|\s)\b)|x)(energy|drink|(artifact|artefact)).*\d *k\b/i,
+                /(((^|\s)\b)|x)(energy|drink|(artifact|artefact)).* *\d+/i,
                 // Shards
-                /(\b|x)amnesia/i,
+                /(((^|\s)\b)|x)amnesia/i,
                 // Potions
-                /(\b|x)(health|last).*elixir/i,
-                /(\b|x)(mana|spirit).*(potion|elixir)/i,
-                /(\b|x)spirit.*draught/i,
+                /(((^|\s)\b)|x)(health|last).*elixir/i,
+                /(((^|\s)\b)|x)(mana|spirit).*(potion|elixir)/i,
+                /(((^|\s)\b)|x)spirit.*draught/i,
                 // Infusions and Scrolls
-                /(\b|x)(infusion|(scroll of))/i,
+                /(((^|\s)\b)|x)(infusion|(scroll of))/i,
                 // Trophies
-                /(\b|x)noodl/i,
-                ///\b(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
+                /(((^|\s)\b)|x)noodl/i,
+                ///((^|\s)\b)(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
                 // Monster Foods
-                /(\b|x)(crystal|chow|edible|cuisine|pill)/i,
+                /(((^|\s)\b)|x)(crystal|chow|edible|cuisine|pill)/i,
                 // Misc
-                /(\b|x)(vase|bubble)/i,
+                /(((^|\s)\b)|x)(vase|bubble)/i,
             ], 'purple', ''
         ],
         [ // Holy Gear
@@ -105,36 +105,56 @@ if(!/&?\bst=[^0]/.test(href)) {
             // /(^|\D)[-0x×\/]+\s*[@×x:）】\]\)\|]/i,
             /(^|\D)[-0×\/]+\s*[@×:）】\]\)\|]/i,
             /(^|[^,])\b0+\s*[x×]/i,
-            /\(\/?\)/i,
-            /\[\/?\]/i,
-            /【\/?】/i,
-            /（\/?）/i,
+            /(^|\s+)0+\s+/i,
+            /out of stock/i,
+            /This post has been edited by/i,
+
+            // Misc
             /\bnot\s+available\b/i,
             /\bunavailable\b/i,
             /\bnone\b/i,
             /\[restocking\]/i,
-            /(^|\s+)0+\s+/i,
-            /out of stock/i,
-            /This post has been edited by/i,
+            /-\*0 /i,
+            /qty=0/i,
+            /_0_/i,
+            /^0+ /i,
+            /\(\/?\)/i,
+            /\[\/?\]/i,
+            /【\/?】/i,
+            /（\/?）/i,
+            /\[\*\]/i,
         ]
         for(var i=0, len=stockout_patterns.length; i<len; i++) {
-            if(stockout_patterns[i].test(line)) { return true }
+            if(stockout_patterns[i].test(line)) {
+                //console.log(stockout_patterns[i], line)
+                return true
+            }
         }
         return false
+    }
+
+    var remove_quotes = function(s) {
+        var p = [
+            /<div [^>]*class=.quotetop.>.*?<\/div>/gi,
+            /<div [^>]*class=.quotemain.>.*?<\/div>/gi,
+        ]
+        while(p[0].test(s) || p[1].test(s)) {
+            s = s.replace(p[0], '')
+            s = s.replace(p[1], '')
+        }
+        return s
     }
 
     var get_text = function(e) {
         var s = e.innerHTML
         s = s.replace(/<!--.*?-->/gi, '')
-        if(remove_quoted_text){
-            s = s.replace(/<div [^>].*class=.quotetop.>.*?<\/div>/gi, '')
-            s = s.replace(/<div [^>].*class=.quotemain.>.*?<\/div>/gi, '')
-        }
+        if(remove_quoted_text){ s = remove_quotes(s) }
         if(remove_strike_through_line) { s = s.replace(/<strike>.*?<\/strike>/g, '') }
         s = s.replace(/<br\s*[^>]*>/g, '\n').replace(/<\/li>/g, '\n').replace(/<ul>/g, '\n').replace(/<\/?blockquote>/g, '\n')
         s = s.replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '')
         s = s.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
         s = s.replace(/[ \t]+/g, ' ')
+        //console.log('='.repeat(150)); console.log(s)
         return s
     }
     var out = ''
@@ -147,14 +167,13 @@ if(!/&?\bst=[^0]/.test(href)) {
             if((!poster) || (poster.textContent != $('.bigusername').textContent)) { continue } // skip threads that are not posted by the shop owner
 
             var lines = get_text($(posts[i], '.postcolor')).split('\n')
-            //console.log(lines)
             var out = ''
             for(var j=0, len2=lines.length; j<len2; j++) {
-                var line = lines[j].substring(0, max_length)
+                var line = lines[j]
                 if(stockout(line)) { continue }
                 for(var k=0, len3=grep_patterns.length; k<len3; k++) {
                     for(var m=0, len4=grep_patterns[k][0].length; m<len4; m++) {
-                        if(grep_patterns[k][0][m].test(line)) { out = out + line + '\n'; break }
+                        if(grep_patterns[k][0][m].test(line)) { out = out + line.substring(0, max_length) + '\n'; break }
                     }
                 }
             }
@@ -199,17 +218,16 @@ if(!/&?\bst=[^0]/.test(href)) {
             if((!poster) || (poster.textContent != $('.bigusername').textContent)) { continue } // skip threads that are not posted by the shop owner
 
             var lines = get_text($(posts[i], '.postcolor')).split('\n')
-            //console.log(lines)
             var out = ''
             for(var j=0, len2=lines.length; j<len2; j++) {
-                var line = lines[j].substring(0, max_length)
+                var line = lines[j]
                 if(stockout(line)) { continue }
                 for(var k=0, len3=grep_patterns.length; k<len3; k++) {
                     var grepped = false
                     for(var m=0, len4=grep_patterns[k][0].length; m<len4; m++) {
                         if(grep_patterns[k][0][m].test(line)) {
                             grepped = true
-                            out = out + line + '\n'
+                            out = out + line.substring(0, max_length) + '\n'
                             break
                         }
                     }
