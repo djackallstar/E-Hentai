@@ -5,8 +5,8 @@
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?.*\bshowtopic=.*/
 // @include     /^https?://forums\.e-hentai\.org/index\.php\?.*\bresult_type=posts/
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?act=([Pp]ost|ST)&/
-// @include     http://forums.e-hentai.org/index.php?showuser=*
-// @include     http://forums.e-hentai.org/index.php?showforum=*
+// @include     /^https?://forums\.e-hentai\.org\/index\.php\?showuser=.*/
+// @include     /^https?://forums\.e-hentai\.org\/index\.php\?showforum=.*/
 // ==/UserScript==
 
 var wnd = (typeof unsafeWindow != 'undefined' ? unsafeWindow : window)
@@ -58,9 +58,7 @@ else {
         for(var i=0, len=borderwrap.length; i<len; i++) {
             var is_post = ($(borderwrap[i], '.postcolor') != null)
             if(is_post) {
-                var uid = $(borderwrap[i], 'a[href^="http://forums.e-hentai.org/index.php?showuser="]')
-                //var uid = $(borderwrap[i], '.post1 a[href^="http://forums.e-hentai.org/index.php?showuser="]')
-                //if(!uid) { uid = $(borderwrap[i], '.post2 a[href^="http://forums.e-hentai.org/index.php?showuser="]') }
+                var uid = $(borderwrap[i], 'a[href^="http://forums.e-hentai.org/index.php?showuser="], a[href^="https://forums.e-hentai.org/index.php?showuser="]')
                 if(uid) {
                     uid = parseInt(uid.href.match(/\?showuser=(\d+)/)[1])
                     if(uid_blist.indexOf(uid) != -1) {
@@ -93,7 +91,7 @@ for(var i=0, len=postcolor.length; i<len; i++) {
 
 // Hide cutie marks
 if(hide_cutie_marks) {
-    var div = $$('DIV[style*="url(http://forums.e-hentai.org/ehgt/cm/"]')
+    var div = $$('DIV[style*="url(http://forums.e-hentai.org/ehgt/cm/"], DIV[style*="url(https://forums.e-hentai.org/ehgt/cm/"]')
     for(var i=0, len=div.length; i<len; i++) { div[i].style.display = 'none' }
 }
 
@@ -134,7 +132,7 @@ if(hide_bottom_area) {
 if(hide_last_posts) {
     if(/showforum=/.test(href)) {
         var f_hide_last_posts = function() {
-            var a = $$('span.lastaction a[href^="http://forums.e-hentai.org/index.php?showuser="]')
+            var a = $$('span.lastaction a[href^="http://forums.e-hentai.org/index.php?showuser="], span.lastaction a[href^="https://forums.e-hentai.org/index.php?showuser="]')
             for(var i=0, len=a.length; i<len; i++) { a[i].style.display = 'none' }
         }
         f_hide_last_posts()
