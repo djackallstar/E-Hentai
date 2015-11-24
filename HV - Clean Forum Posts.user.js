@@ -133,7 +133,15 @@ if(hide_bottom_area) {
 // Hide last posts
 if(hide_last_posts) {
     if(/showforum=/.test(href)) {
-        var a = $$('span.lastaction a[href^="http://forums.e-hentai.org/index.php?showuser="]')
-        for(var i=0, len=a.length; i<len; i++) { a[i].style.display = 'none' }
+        var f_hide_last_posts = function() {
+            var a = $$('span.lastaction a[href^="http://forums.e-hentai.org/index.php?showuser="]')
+            for(var i=0, len=a.length; i<len; i++) { a[i].style.display = 'none' }
+        }
+        f_hide_last_posts()
+        setTimeout(f_hide_last_posts, 1000)
+        setTimeout(f_hide_last_posts, 2000)
+        setTimeout(f_hide_last_posts, 3000)
+        setTimeout(f_hide_last_posts, 4000)
+        setTimeout(f_hide_last_posts, 5000)
     }
 }
