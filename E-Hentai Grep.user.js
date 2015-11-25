@@ -63,7 +63,7 @@ if(typeof grep_patterns == 'undefined') {
                 /(((^|\s)\b)|x)(vase|bubble)/i,
             ], 'purple', ''
         ],
-        [ // Holy Gear
+        [ // Holy
             [
                 /(Peer|Leg).*(Hallowed|Astral).*Katalox.*(Destruction|Heimdall|Heaven-sent)/i,
                 /(Peer|Leg).*(Hallowed|Astral).*Oak.*Heimdall/i,
@@ -75,12 +75,23 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Elementalist|Curse-weaver)/i,
             ], 'darkgreen', ''
         ],
-        [ // Toys
+        [ // Hybrid
             [
                 /Leg.*Dagger/i,
-                /(Peer|Leg).*Hallowed.*Waki.*(Battlecaster|Nimble)/i,
+                /(Peer|Leg).*Waki.*(Nimble|Battlecaster)/i,
                 /(Peer|Leg).*Buckler.*(Barrier|Battlecaster)/i,
             ], 'darkblue', ''
+        ],
+        [ // Elemental
+            [
+                /(Peer|Leg).*(Tempestuous|Shocking).*Willow.*Destruction/i,
+                /(Peer|Leg).*(Tempestuous|Shocking|Arctic|Fiery).*(Redwood|Ebony).*(Destruction|Elementalist)/i,
+                /(Peer|Leg).*Tempestuous.*(Redwood|Ebony).*Freyr/i,
+                /(Peer|Leg).*Shocking.*(Redwood|Ebony).*Mjolnir/i,
+                /(Peer|Leg).*Arctic.*(Redwood|Ebony).*Niflheim/i,
+                /(Peer|Leg).*Fiery.*(Redwood|Ebony).*Surtr/i,
+                /(Peer|Leg).*(Radiant|Mystic|Charged|Frugal).*Phase.*(Freyr|Mjolnir|Niflheim|Surtr)/i,
+            ], 'yellow', ''
         ],
     ]
 }
