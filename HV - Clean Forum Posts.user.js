@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        HV - Clean Forum Posts
 // @updateURL   about:blank
-// @grant       unsafeWindow
+// @grant       none
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?.*\bshowtopic=.*/
 // @include     /^https?://forums\.e-hentai\.org/index\.php\?.*\bresult_type=posts/
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?act=([Pp]ost|ST)&/
@@ -9,9 +9,9 @@
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?showforum=.*/
 // ==/UserScript==
 
-var wnd = (typeof unsafeWindow != 'undefined' ? unsafeWindow : window)
+var wnd = window
 var doc = wnd.document
-var loc = location
+var loc = wnd.location
 var href = loc.href
 
 var $  = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelector(css) }
