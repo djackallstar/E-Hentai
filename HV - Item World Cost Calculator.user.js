@@ -6,7 +6,7 @@
 // ==/UserScript==
 
 /*** Settings ***/
-var price_per_pxp = 14
+var price_per_pxp = 13
 var pxp_multiplier = 16.0
 
 /*** Enf of Settings ***/
