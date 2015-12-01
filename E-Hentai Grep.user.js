@@ -58,7 +58,7 @@ if(typeof grep_patterns == 'undefined') {
                 /(((^|\s)\b)|x)noodl/i,
                 ///((^|\s)\b)(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
                 // Monster Foods
-                /(((^|\s)\b)|x)(crystal|chow|edible|cuisine|pill)/i,
+                /(((^|\s)\b)|x)(crystals?\b|chow|edible|cuisine|pill)/i,
                 // Misc
                 /(((^|\s)\b)|x)(vase|bubble)/i,
             ], 'purple', ''
