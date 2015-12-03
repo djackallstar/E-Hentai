@@ -7,6 +7,7 @@
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?act=([Pp]ost|ST)&/
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?showuser=.*/
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?showforum=.*/
+// @include     http://hentaiverse.org/?s=Bazaar&ss=mm*
 // ==/UserScript==
 
 var wnd = window
@@ -49,7 +50,7 @@ if(/act=post/i.test(href)) {
         }
     }
 }
-else {
+else if(/:\/\/forums\./.test(href)) {
     // Hide posts
     var hide_this = true
     if(/showtopic=\d+/.test(href) && (dont_clean.indexOf(parseInt(href.match(/showtopic=(\d+)/)[1])) != -1)) { hide_this = false }
@@ -71,61 +72,79 @@ else {
         }
     }
 }
+else if(/&ss=mm$/.test(href) || /&filter=inbox/.test(href)) {
+    var letters = $$('#mainpane tr[onclick]')
+    for(var i=0, len=letters.length; i<len; i++) {
+        if(uname_blist.indexOf(letters[i].querySelector('td').textContent) != -1) {
+            letters[i].style.display = 'none'
+        }
+    }
+}
 
 // Hide quotes
-var p = new RegExp('^QUOTE\\((' + uname_blist.join('|') + ') @', 'i')
-var postcolor = $$('.postcolor')
-for(var i=0, len=postcolor.length; i<len; i++) {
-    var quotetop = $$(postcolor[i], '.quotetop')
-    for(var j=0, len2=quotetop.length; j<len2; j++) {
-        if(p.test(quotetop[j].textContent)) {
-            quotetop[j].style.display = 'none'
-            try { quotetop[j].nextSibling.style.display = 'none' } catch(e) {}
-            try { if(quotetop[j].nextSibling.nextSibling.tagName == 'BR') { quotetop[j].nextSibling.nextSibling.style.display = 'none' } } catch(e) {}
-            try { if(quotetop[j].nextSibling.nextSibling.nextSibling.tagName == 'BR') { quotetop[j].nextSibling.nextSibling.nextSibling.style.display = 'none' } } catch(e) {}
-            try { if(quotetop[j].nextSibling.nextSibling.nextSibling.nextSibling.tagName == 'BR') { quotetop[j].nextSibling.nextSibling.nextSibling.nextSibling.style.display = 'none' } } catch(e) {}
-            try { if(quotetop[j].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.tagName == 'BR') { quotetop[j].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.style.display = 'none' } } catch(e) {}
+if(/:\/\/forums\./.test(href)) {
+    var p = new RegExp('^QUOTE\\((' + uname_blist.join('|') + ') @', 'i')
+    var postcolor = $$('.postcolor')
+    for(var i=0, len=postcolor.length; i<len; i++) {
+        var quotetop = $$(postcolor[i], '.quotetop')
+        for(var j=0, len2=quotetop.length; j<len2; j++) {
+            if(p.test(quotetop[j].textContent)) {
+                quotetop[j].style.display = 'none'
+                try { quotetop[j].nextSibling.style.display = 'none' } catch(e) {}
+                try { if(quotetop[j].nextSibling.nextSibling.tagName == 'BR') { quotetop[j].nextSibling.nextSibling.style.display = 'none' } } catch(e) {}
+                try { if(quotetop[j].nextSibling.nextSibling.nextSibling.tagName == 'BR') { quotetop[j].nextSibling.nextSibling.nextSibling.style.display = 'none' } } catch(e) {}
+                try { if(quotetop[j].nextSibling.nextSibling.nextSibling.nextSibling.tagName == 'BR') { quotetop[j].nextSibling.nextSibling.nextSibling.nextSibling.style.display = 'none' } } catch(e) {}
+                try { if(quotetop[j].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.tagName == 'BR') { quotetop[j].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.style.display = 'none' } } catch(e) {}
+            }
         }
     }
 }
 
 // Hide cutie marks
 if(hide_cutie_marks) {
-    var div = $$('DIV[style*="url(http://forums.e-hentai.org/ehgt/cm/"], DIV[style*="url(https://forums.e-hentai.org/ehgt/cm/"]')
-    for(var i=0, len=div.length; i<len; i++) { div[i].style.display = 'none' }
+    if(/:\/\/forums\./.test(href)) {
+        var div = $$('DIV[style*="url(http://forums.e-hentai.org/ehgt/cm/"], DIV[style*="url(https://forums.e-hentai.org/ehgt/cm/"]')
+        for(var i=0, len=div.length; i<len; i++) { div[i].style.display = 'none' }
+    }
 }
 
 // Hide post counts
 if(hide_post_count) {
-    var a = $$('a[onclick^="link_to_post("]')
-    for(var i=0, len=a.length; i<len; i++) { a[i].text = '#' }
+    if(/:\/\/forums\./.test(href)) {
+        var a = $$('a[onclick^="link_to_post("]')
+        for(var i=0, len=a.length; i<len; i++) { a[i].text = '#' }
+    }
 }
 
 // Hide warn levels
 if(hide_warn_levels) {
-    var w = $$('img[src*="style_images/ambience/warn"]')
-    for(var i=0, len=w.length; i<len; i++) {
-        w[i].style.display = 'none'
-        try { w[i].previousSibling.textContent = '' } catch(e) {}
-        try { w[i].previousSibling.previousSibling.textContent = '' } catch(e) {}
-        try { w[i].previousSibling.previousSibling.previousSibling.textContent = '' } catch(e) {}
+    if(/:\/\/forums\./.test(href)) {
+        var w = $$('img[src*="style_images/ambience/warn"]')
+        for(var i=0, len=w.length; i<len; i++) {
+            w[i].style.display = 'none'
+            try { w[i].previousSibling.textContent = '' } catch(e) {}
+            try { w[i].previousSibling.previousSibling.textContent = '' } catch(e) {}
+            try { w[i].previousSibling.previousSibling.previousSibling.textContent = '' } catch(e) {}
 
-        try {
-            var spacer = w[i].parentNode.parentNode.querySelectorAll('img[src*="style_images/ambience/spacer."]')
-            for(var j=0, len2=spacer.length; j<len2; j++) {
-                spacer[j].style.display = 'none'
-            }
-        } catch(e) {}
+            try {
+                var spacer = w[i].parentNode.parentNode.querySelectorAll('img[src*="style_images/ambience/spacer."]')
+                for(var j=0, len2=spacer.length; j<len2; j++) {
+                    spacer[j].style.display = 'none'
+                }
+            } catch(e) {}
+        }
     }
 }
 
 // Hide bottom area
 if(hide_bottom_area) {
-    try { $('.borderwrap .formsubtitle').parentNode.style.display = 'none' } catch(e) {}
-    try { $('.borderwrap .dropdown').parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
-    try { $('.copyright').style.display = 'none' } catch(e) {}
-    try { $$('img[src*="style_images/ambience/expand_main_table."]')[0].parentNode.parentNode.style.display = 'none' } catch(e) {}
-    try { $$('img[src*="style_images/ambience/expand_main_table."]')[1].parentNode.parentNode.style.display = 'none' } catch(e) {}
+    if(/:\/\/forums\./.test(href)) {
+        try { $('.borderwrap .formsubtitle').parentNode.style.display = 'none' } catch(e) {}
+        try { $('.borderwrap .dropdown').parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
+        try { $('.copyright').style.display = 'none' } catch(e) {}
+        try { $$('img[src*="style_images/ambience/expand_main_table."]')[0].parentNode.parentNode.style.display = 'none' } catch(e) {}
+        try { $$('img[src*="style_images/ambience/expand_main_table."]')[1].parentNode.parentNode.style.display = 'none' } catch(e) {}
+    }
 }
 
 // Hide last posts
