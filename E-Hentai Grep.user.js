@@ -91,6 +91,7 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg).*Arctic.*(Redwood|Ebony).*Niflheim/i,
                 /(Peer|Leg).*Fiery.*(Redwood|Ebony).*Surtr/i,
                 /(Peer|Leg).*(Radiant|Mystic|Charged|Frugal).*Phase.*(Freyr|Mjolnir|Niflheim|Surtr)/i,
+                /(Peer|Leg).*Phase.*Freyr/i,
             ], 'orange', ''
         ],
     ]
