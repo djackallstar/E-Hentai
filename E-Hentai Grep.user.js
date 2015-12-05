@@ -78,19 +78,22 @@ if(typeof grep_patterns == 'undefined') {
         [ // Hybrid
             [
                 /Leg.*Dagger/i,
-                /(Peer|Leg).*Waki.*(Nimble|Battlecaster)/i,
+                /(Peer|Leg).*(Ethereal|Hallowed|Tempestuous).*Waki.*(Nimble|Battlecaster)/i,
                 /(Peer|Leg).*Buckler.*(Barrier|Battlecaster)/i,
             ], 'darkblue', ''
         ],
         [ // Elemental
             [
+                /*
                 /(Peer|Leg).*(Tempestuous|Shocking).*Willow.*Destruction/i,
-                /(Peer|Leg).*(Tempestuous|Shocking|Arctic|Fiery).*(Redwood|Ebony).*(Destruction|Elementalist)/i,
+                /(Peer|Leg).*(Tempestuous|Shocking|Arctic|Fiery).*(Redwood|Ebony).*(Destruction|Elementalist|Focus)/i,
                 /(Peer|Leg).*Tempestuous.*(Redwood|Ebony).*Freyr/i,
                 /(Peer|Leg).*Shocking.*(Redwood|Ebony).*Mjolnir/i,
                 /(Peer|Leg).*Arctic.*(Redwood|Ebony).*Niflheim/i,
                 /(Peer|Leg).*Fiery.*(Redwood|Ebony).*Surtr/i,
                 /(Peer|Leg).*(Radiant|Mystic|Charged|Frugal).*Phase.*(Freyr|Mjolnir|Niflheim|Surtr)/i,
+                */
+                /(Peer|Leg).*Tempestuous.*(Willow|Redwood|Ebony).*(Destruction|Elementalist|Focus)/i,
                 /(Peer|Leg).*Phase.*Freyr/i,
             ], 'orange', ''
         ],
