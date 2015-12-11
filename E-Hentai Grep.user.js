@@ -26,40 +26,55 @@ if(typeof grep_patterns == 'undefined') {
     var grep_patterns = [ // Add [[pattern_1, pattern_2, ... , pattern_n], 'color'] to the array by yourself.
         [ // Items
             [
-                // Rare materials
+                // rare mat
                 /(((^|\s)\b)|x)phazon/i,
-                // Bindings for staff
+                
+                // binding for staff
                 ///(((^|\s)\b)|x)binding.*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 ///^\s*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
-                // Bindings for armor
-                /(((^|\s)\b)|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
-                /^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
-                // Graded materials
-                /(((^|\s)\b)|x)(low|mid|high).*grade.*(cloth|wood)/i,
-                /(((^|\s)\b)|x)(lg|mg|hg).?(cloth|wood)/i,
-                /(((^|\s)\b)|x)scrap.*(cloth|wood).*@/i,
-                /(((^|\s)\b)|x)scrap.*(cloth|wood).*\d *c\b/i,
-                /(((^|\s)\b)|x)scrap.*(cloth|wood).*\b\d{2}\b/i,
-                // Catalysts
+                
+                // binding for hybrid
+                /(((^|\s)\b)|x)binding.*(protection|warding|barrier|nimble|heimdall|(\box)|raccoon|turtle|cheetah)/i,
+                /^\s*(protection|warding|barrier|nimble|heimdall|(\box)|raccoon|turtle|cheetah)/i,
+                
+                // binding for cloth armor
+                ///(((^|\s)\b)|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
+                ///^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
+                
+                // graded mat
+                /(((^|\s)\b)|x)(low|mid|high).*grade.*(cloth|wood|metal)/i,
+                /(((^|\s)\b)|x)(lg|mg|hg).?(cloth|wood|metal)/i,
+                /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*@/i,
+                /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*\d *c\b/i,
+                /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*\b\d{2}\b/i,
+                
+                // catalyst
                 /(((^|\s)\b)|x)catalyst/i,
-                // ED & artifact
+                
+                // ed & artifact
                 /(((^|\s)\b)|x)(energy|drink|(artifact|artefact)).*[@0]/i,
                 /(((^|\s)\b)|x)(energy|drink|(artifact|artefact)).*\d *k\b/i,
                 /(((^|\s)\b)|x)(energy|drink|(artifact|artefact)).* *\d+/i,
-                // Shards
+                
+                // amnesia shard
                 /(((^|\s)\b)|x)amnesia/i,
-                // Potions
+                
+                // restorative
                 /(((^|\s)\b)|x)(health|last).*elixir/i,
                 /(((^|\s)\b)|x)(mana|spirit).*(potion|elixir)/i,
                 /(((^|\s)\b)|x)spirit.*draught/i,
-                // Infusions and Scrolls
+                
+                // infusion & scroll
                 /(((^|\s)\b)|x)(infusion|(scroll of))/i,
-                // Trophies
+                
+                // trophy
                 /(((^|\s)\b)|x)noodl/i,
                 ///((^|\s)\b)(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
-                // Monster Foods
+                
+                // food
                 /(((^|\s)\b)|x)(crystals?\b|chow|edible|cuisine|pill)/i,
-                // Misc
+                
+                // misc
                 /(((^|\s)\b)|x)(vase|bubble)/i,
             ], 'purple', ''
         ],
