@@ -14,7 +14,6 @@ if(typeof do_not_hide == 'undefined') {
     var do_not_hide = [ // user IDs
         2328, // atomicpuppy
         409722, // danixxx
-        638489, // Kyoko Hori
         1988471,
     ]
 }
