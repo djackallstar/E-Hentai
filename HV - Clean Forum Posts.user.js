@@ -63,6 +63,7 @@ if(typeof chat_thread_wlist == 'undefined') {
 }
 if(typeof user_blist == 'undefined') {
     var user_blist = [ // user IDs
+        0,
     ]
 }
 if(typeof wnd.uname_blist == 'undefined') {
