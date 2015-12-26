@@ -33,20 +33,16 @@ if(typeof grep_patterns == 'undefined') {
                 ///(((^|\s)\b)|x)binding.*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 ///^\s*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 
-                // binding for hybrid
-                /(((^|\s)\b)|x)binding.*(protection|warding|barrier|nimble|heimdall|(\box)|raccoon|turtle|cheetah)/i,
-                /^\s*(protection|warding|barrier|nimble|heimdall|(\box)|raccoon|turtle|cheetah)/i,
-                
                 // binding for cloth armor
-                ///(((^|\s)\b)|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
-                ///^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
+                /(((^|\s)\b)|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
+                /^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
                 
                 // graded mat
-                /(((^|\s)\b)|x)(low|mid|high).*grade.*(cloth|wood|metal)/i,
-                /(((^|\s)\b)|x)(lg|mg|hg).?(cloth|wood|metal)/i,
-                /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*@/i,
-                /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*\d *c\b/i,
-                /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*\b\d{2}\b/i,
+                /(((^|\s)\b)|x)(low|mid|high).*grade.*(cloth|wood)/i,
+                /(((^|\s)\b)|x)(lg|mg|hg).?(cloth|wood)/i,
+                /(((^|\s)\b)|x)scrap.*(cloth|wood).*@/i,
+                /(((^|\s)\b)|x)scrap.*(cloth|wood).*\d *c\b/i,
+                /(((^|\s)\b)|x)scrap.*(cloth|wood).*\b\d{2}\b/i,
                 
                 // catalyst
                 /(((^|\s)\b)|x)catalyst/i,
@@ -87,31 +83,8 @@ if(typeof grep_patterns == 'undefined') {
         ],
         [ // Cotton
             [
-                /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Elementalist|Curse-weaver)/i,
-                /(Peer|Leg).*Charged.*(Cotton|Gossamer).*Protection/i,
+                /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Curse-weaver)/i,
             ], 'darkgreen', ''
-        ],
-        [ // Hybrid
-            [
-                /Leg.*Dagger/i,
-                /(Peer|Leg).*(Ethereal|Hallowed|Tempestuous).*Waki.*(Nimble|Battlecaster)/i,
-                /(Peer|Leg).*Buckler.*(Barrier|Battlecaster)/i,
-            ], 'darkblue', ''
-        ],
-        [ // Elemental
-            [
-                /*
-                /(Peer|Leg).*(Tempestuous|Shocking).*Willow.*Destruction/i,
-                /(Peer|Leg).*(Tempestuous|Shocking|Arctic|Fiery).*(Redwood|Ebony).*(Destruction|Elementalist|Focus|Curse-weaver)/i,
-                /(Peer|Leg).*Tempestuous.*(Redwood|Ebony).*Freyr/i,
-                /(Peer|Leg).*Shocking.*(Redwood|Ebony).*Mjolnir/i,
-                /(Peer|Leg).*Arctic.*(Redwood|Ebony).*Niflheim/i,
-                /(Peer|Leg).*Fiery.*(Redwood|Ebony).*Surtr/i,
-                /(Peer|Leg).*(Radiant|Mystic|Charged|Frugal).*Phase.*(Freyr|Mjolnir|Niflheim|Surtr)/i,
-                */
-                /(Peer|Leg).*Tempestuous.*(Willow|Redwood|Ebony).*(Destruction|Elementalist|Focus|Curse-weaver)/i,
-                /(Peer|Leg).*Phase.*Freyr/i,
-            ], 'orange', ''
         ],
     ]
 }
