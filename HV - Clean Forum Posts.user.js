@@ -26,6 +26,7 @@ var hide_unread_imgs = true
 var hide_closed_shops = true
 var highlight_auctions = true
 var highlight_shop_owners = true
+var hide_top_area = true
 var hide_bottom_area = true
 var hide_last_posts = true
 if(typeof do_not_hide == 'undefined') {
@@ -164,9 +165,7 @@ if(showforum) {
     else if(showforum == '78') { thread_blist = wtb_thread_blist } // WTB
     if(thread_blist.length) {
         for(var i=0, len=thread_blist.length; i<len; i++) {
-            try {
-                $('#tid-link-'+thread_blist[i]).parentNode.parentNode.parentNode.parentNode.style.display = 'none'
-            } catch(e) {}
+            try { $('#tid-link-'+thread_blist[i]).parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
         }
     }
     else if(thread_wlist.length) {
@@ -175,9 +174,7 @@ if(showforum) {
             if(!/^tid-link-/.test(lnks[i].id)) { continue }
             var tid = parseInt(lnks[i].id.match(/tid-link-(\d+)/)[1])
             if(thread_wlist.indexOf(tid)==-1) {
-                try {
-                    lnks[i].parentNode.parentNode.parentNode.parentNode.style.display = 'none'
-                } catch(e) {}
+                try { lnks[i].parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
             }
         }
     }
@@ -296,13 +293,30 @@ if(hide_warn_levels) {
             try { w[i].previousSibling.textContent = '' } catch(e) {}
             try { w[i].previousSibling.previousSibling.textContent = '' } catch(e) {}
             try { w[i].previousSibling.previousSibling.previousSibling.textContent = '' } catch(e) {}
-
             try {
                 var spacer = w[i].parentNode.parentNode.querySelectorAll('img[src*="style_images/ambience/spacer."]')
                 for(var j=0, len2=spacer.length; j<len2; j++) {
                     spacer[j].style.display = 'none'
                 }
             } catch(e) {}
+        }
+    }
+}
+
+// Hide top area
+if(hide_top_area) {
+    if(/showtopic=/.test(href)) {
+        if(dont_clean.indexOf(parseInt(href.match(/showtopic=(\d+)/)[1])) == -1) {
+            try { $('td[style*="background-image:url(style_images/ambience/header_eh_textbarbg.jpg)"]').parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
+            try { $('table.mainnav').style.display = 'none' } catch(e) {}
+            try { $('img[src$="style_images/ambience/cat_top_ls.gif"]').parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
+            try { $('#userlinks').style.display = 'none' } catch(e) {}
+            try { $('img[src$="style_images/ambience/ls_main_table_bottom.gif"]').parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
+            try { $('#navstrip').parentNode.style.display = 'none' } catch(e) {}
+            try { $('.pagecurrent').parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
+            try { $('img[src$="style_images/ambience/nav_m.gif"]').parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
+            try { $$('img[src$="style_images/ambience/cat_top_ls.gif"]')[1].parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
+            try { $('.subtitle').parentNode.style.display = 'none' } catch(e) {}
         }
     }
 }
