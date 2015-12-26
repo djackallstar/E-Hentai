@@ -14,7 +14,7 @@ var remove_stockout_line = true
 var remove_strike_through_line = true
 var remove_quoted_text = true
 if(typeof result_box_position == 'undefined') {
-    var result_box_position = 'center' // where to show the result box ("left", "center" or "right")
+    var result_box_position = 'left' // where to show the result box ("left", "center" or "right")
 }
 var blacklist = [
     '22234', // Ask the Experts
