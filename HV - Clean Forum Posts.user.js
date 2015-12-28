@@ -313,7 +313,7 @@ if(hide_top_area) {
             try { $('#userlinks').style.display = 'none' } catch(e) {}
             try { $('img[src$="style_images/ambience/ls_main_table_bottom.gif"]').parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
             try { $('#navstrip').parentNode.style.display = 'none' } catch(e) {}
-            try { $('.pagecurrent').parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
+            try { if(!/&st=/.test(href)) { $('.pagecurrent').parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } } catch(e) {}
             try { $('img[src$="style_images/ambience/nav_m.gif"]').parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
             try { $$('img[src$="style_images/ambience/cat_top_ls.gif"]')[1].parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
             try { $('.subtitle').parentNode.style.display = 'none' } catch(e) {}
