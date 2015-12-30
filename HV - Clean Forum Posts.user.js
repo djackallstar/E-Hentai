@@ -307,16 +307,18 @@ if(hide_warn_levels) {
 if(hide_top_area) {
     if(/showtopic=/.test(href)) {
         if(dont_clean.indexOf(parseInt(href.match(/showtopic=(\d+)/)[1])) == -1) {
+            if(!/&st=/.test(href)) {
+                try { $('.pagecurrent').parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
+                try { $$('img[src$="style_images/ambience/cat_top_ls.gif"]')[1].parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
+                try { $('.subtitle').parentNode.style.display = 'none' } catch(e) {}
+            }
             try { $('td[style*="background-image:url(style_images/ambience/header_eh_textbarbg.jpg)"]').parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
             try { $('table.mainnav').style.display = 'none' } catch(e) {}
             try { $('img[src$="style_images/ambience/cat_top_ls.gif"]').parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
             try { $('#userlinks').style.display = 'none' } catch(e) {}
             try { $('img[src$="style_images/ambience/ls_main_table_bottom.gif"]').parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
             try { $('#navstrip').parentNode.style.display = 'none' } catch(e) {}
-            try { if(!/&st=/.test(href)) { $('.pagecurrent').parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } } catch(e) {}
             try { $('img[src$="style_images/ambience/nav_m.gif"]').parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
-            try { $$('img[src$="style_images/ambience/cat_top_ls.gif"]')[1].parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
-            try { $('.subtitle').parentNode.style.display = 'none' } catch(e) {}
         }
     }
 }
