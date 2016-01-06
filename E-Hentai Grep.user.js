@@ -78,7 +78,7 @@ if(typeof grep_patterns == 'undefined') {
             [
                 /(Peer|Leg).*(Hallowed|Astral).*Katalox.*(Destruction|Heimdall|Heaven-sent)/i,
                 /(Peer|Leg).*(Hallowed|Astral).*Oak.*Heimdall/i,
-                /(Peer|Leg).*Radiant.*Heimdall/i,
+                /(Peer|Leg).*(Radiant|Frugal).*Heimdall/i,
             ], 'darkred', ''
         ],
         [ // Cotton
