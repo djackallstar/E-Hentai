@@ -4,7 +4,7 @@
 // @grant       none
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?.*\bshowtopic=.*/
 // @include     /^https?://forums\.e-hentai\.org/index\.php\?.*\bresult_type=posts/
-// @include     /^https?://forums\.e-hentai\.org\/index\.php\?act=([Pp]ost|ST)&/
+// @include     /^https?://forums\.e-hentai\.org\/index\.php\?act=([Pp]ost|ST|Msg)&/
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?showuser=.*/
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?showforum=.*/
 // @include     http://hentaiverse.org/?s=Bazaar&ss=mm*
@@ -209,7 +209,7 @@ if(/act=post/i.test(href)) {
     }
 }
 else if(/:\/\/forums\./.test(href)) {
-    if(/showtopic=\d+/.test(href)) {
+    if(/(showtopic=\d+)|(\bresult_type=posts)/.test(href)) {
         // Hide posts
         var hide_this = true
         if(/showtopic=\d+/.test(href) && (dont_clean.indexOf(parseInt(href.match(/showtopic=(\d+)/)[1])) != -1)) { hide_this = false }
@@ -305,10 +305,18 @@ if(hide_warn_levels) {
 
 // Hide top area
 if(hide_top_area) {
-    if(/showtopic=/.test(href)) {
-        if(dont_clean.indexOf(parseInt(href.match(/showtopic=(\d+)/)[1])) == -1) {
+    if(/(showtopic=\d+)|(\bresult_type=posts)/.test(href) && !/act=Msg/i.test(href)) {
+        var hide_this = true
+        var topic_id = href.match(/showtopic=(\d+)/)
+        if(topic_id) { if(dont_clean.indexOf(parseInt(topic_id[1])) != -1) { hide_this = false } }
+        if(hide_this) {
             if(!/&st=/.test(href)) {
-                try { $('.pagecurrent').parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
+                try {
+                    var e = $('.pagecurrent')
+                    var e2 = e.parentNode.parentNode.parentNode.parentNode.parentNode
+                    if(e2 && e2.className == 'ipbtable') { e2.style.display = 'none' }
+                    else { e.parentNode.style.display = 'none' }
+                } catch(e) {}
                 try { $$('img[src$="style_images/ambience/cat_top_ls.gif"]')[1].parentNode.parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
                 try { $('.subtitle').parentNode.style.display = 'none' } catch(e) {}
             }
@@ -325,7 +333,7 @@ if(hide_top_area) {
 
 // Hide bottom area
 if(hide_bottom_area) {
-    if(/:\/\/forums\./.test(href)) {
+    if(/:\/\/forums\./.test(href) && !/act=Msg/i.test(href)) {
         try { $('.borderwrap .formsubtitle').parentNode.style.display = 'none' } catch(e) {}
         try { $('.borderwrap .dropdown').parentNode.parentNode.parentNode.parentNode.style.display = 'none' } catch(e) {}
         try { $('.copyright').style.display = 'none' } catch(e) {}
