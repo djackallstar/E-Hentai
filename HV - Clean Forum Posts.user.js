@@ -309,6 +309,7 @@ if(hide_top_area) {
         var hide_this = true
         var topic_id = href.match(/showtopic=(\d+)/)
         if(topic_id) { if(dont_clean.indexOf(parseInt(topic_id[1])) != -1) { hide_this = false } }
+        if($('h3')) { hide_this = false }
         if(hide_this) {
             if(!/&st=/.test(href)) {
                 try {
