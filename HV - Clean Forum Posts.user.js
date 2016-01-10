@@ -65,6 +65,17 @@ if(typeof chat_thread_wlist == 'undefined') {
 if(typeof user_blist == 'undefined') {
     var user_blist = [ // user IDs
         0,
+        11328,
+    ]
+}
+if(typeof user_blist_wts == 'undefined') {
+    var user_blist_wts = [ // user IDs
+        0,
+    ]
+}
+if(typeof user_blist_wtb == 'undefined') {
+    var user_blist_wtb = [ // user IDs
+        0,
     ]
 }
 if(typeof wnd.uname_blist == 'undefined') {
@@ -179,7 +190,7 @@ if(showforum) {
         }
     }
 
-    // Hide threads made by specific users
+    // Hide threads made by specific users on any subforums
     if(user_blist.length) {
         var users = $$('td.row2 > a[href*="showuser"]')
         for(var i=0, len=users.length; i<len; i++) {
@@ -190,6 +201,42 @@ if(showforum) {
                         users[i].parentNode.parentNode.style.display = 'none'
                     }
                     break
+                }
+            }
+        }
+    }
+
+    // Hide threads made by specific users on WTS
+    if(user_blist_wts.length) {
+        if(showforum == '77') {
+            var users = $$('td.row2 > a[href*="showuser"]')
+            for(var i=0, len=users.length; i<len; i++) {
+                for(var j=0, len_j=user_blist_wts.length; j<len_j; j++) {
+                    //if((new RegExp('showuser='+user_blist_wts[j]+'\\b').test(users[i].href)) && (users[i].style.color == '')) {
+                    if(new RegExp('showuser='+user_blist_wts[j]+'\\b').test(users[i].href)) {
+                        if(!/\bauction\b/i.test(users[i].parentNode.parentNode.querySelectorAll('.row1')[2].textContent)) {
+                            users[i].parentNode.parentNode.style.display = 'none'
+                        }
+                        break
+                    }
+                }
+            }
+        }
+    }
+
+    // Hide threads made by specific users on WTB
+    if(user_blist_wtb.length) {
+        if(showforum == '77') {
+            var users = $$('td.row2 > a[href*="showuser"]')
+            for(var i=0, len=users.length; i<len; i++) {
+                for(var j=0, len_j=user_blist_wtb.length; j<len_j; j++) {
+                    //if((new RegExp('showuser='+user_blist_wtb[j]+'\\b').test(users[i].href)) && (users[i].style.color == '')) {
+                    if(new RegExp('showuser='+user_blist_wtb[j]+'\\b').test(users[i].href)) {
+                        if(!/\bauction\b/i.test(users[i].parentNode.parentNode.querySelectorAll('.row1')[2].textContent)) {
+                            users[i].parentNode.parentNode.style.display = 'none'
+                        }
+                        break
+                    }
                 }
             }
         }
