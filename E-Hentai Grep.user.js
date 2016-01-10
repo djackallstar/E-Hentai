@@ -116,8 +116,7 @@ if(!/&?\bst=[^0]/.test(href)) {
             // Misc
             /\bnot\s+available\b/i,
             /\bunavailable\b/i,
-            /\bnone\b/i,
-            /\[restocking\]/i,
+            /\b(none|restocking)\b/i,
             /-\*0\s+/i,
             /qty=0/i,
             /_0_/i,
