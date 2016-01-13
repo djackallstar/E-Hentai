@@ -197,9 +197,10 @@ if(showforum) {
             for(var j=0, len_j=user_blist.length; j<len_j; j++) {
                 //if((new RegExp('showuser='+user_blist[j]+'\\b').test(users[i].href)) && (users[i].style.color == '')) {
                 if(new RegExp('showuser='+user_blist[j]+'\\b').test(users[i].href)) {
-                    if(!/\bauction\b/i.test(users[i].parentNode.parentNode.querySelectorAll('.row1')[2].textContent)) {
-                        users[i].parentNode.parentNode.style.display = 'none'
-                    }
+                    //if(!/\bauction\b/i.test(users[i].parentNode.parentNode.querySelectorAll('.row1')[2].textContent)) {
+                        //users[i].parentNode.parentNode.style.display = 'none'
+                    //}
+                    users[i].parentNode.parentNode.style.display = 'none'
                     break
                 }
             }
@@ -259,7 +260,7 @@ else if(/:\/\/forums\./.test(href)) {
     if(/(showtopic=\d+)|(\bresult_type=posts)/.test(href)) {
         // Hide posts
         var hide_this = true
-        if(/showtopic=\d+/.test(href) && (dont_clean.indexOf(parseInt(href.match(/showtopic=(\d+)/)[1])) != -1)) { hide_this = false }
+        //if(/showtopic=\d+/.test(href) && (dont_clean.indexOf(parseInt(href.match(/showtopic=(\d+)/)[1])) != -1)) { hide_this = false }
         if(hide_this) {
             var borderwrap = $$('.borderwrap')
             for(var i=0, len=borderwrap.length; i<len; i++) {
@@ -270,8 +271,26 @@ else if(/:\/\/forums\./.test(href)) {
                         uid = parseInt(uid.href.match(/\?showuser=(\d+)/)[1])
                         if(uid_blist.indexOf(uid) != -1) {
                             borderwrap[i].style.display = 'none'
-                            try { borderwrap[i].previousSibling.previousSibling.style.display = 'none' } catch(e) {}
-                            try { borderwrap[i].nextSibling.nextSibling.style.display = 'none' } catch(e) {}
+                            try {
+                                if(/(BR|TABLE)/.test(borderwrap[i].previousSibling.previousSibling.tagName)) {
+                                    borderwrap[i].previousSibling.previousSibling.style.display = 'none'
+                                }
+                            } catch(e) {}
+                            try {
+                                if(borderwrap[i].previousSibling.previousSibling.previousSibling.tagName == 'BR') {
+                                    borderwrap[i].previousSibling.previousSibling.previousSibling.style.display = 'none'
+                                }
+                            } catch(e) {}
+                            try {
+                                if(/(BR|TABLE)/.test(borderwrap[i].nextSibling.nextSibling.tagName)) {
+                                    borderwrap[i].nextSibling.nextSibling.style.display = 'none'
+                                }
+                            } catch(e) {}
+                            try {
+                                if(borderwrap[i].nextSibling.nextSibling.nextSibling.tagName == 'BR') {
+                                    borderwrap[i].nextSibling.nextSibling.nextSibling.style.display = 'none'
+                                }
+                            } catch(e) {}
                         }
                     }
                 }
