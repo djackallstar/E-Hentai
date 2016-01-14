@@ -65,7 +65,6 @@ if(typeof chat_thread_wlist == 'undefined') {
 if(typeof user_blist == 'undefined') {
     var user_blist = [ // user IDs
         0,
-        11328,
     ]
 }
 if(typeof user_blist_wts == 'undefined') {
@@ -227,7 +226,7 @@ if(showforum) {
 
     // Hide threads made by specific users on WTB
     if(user_blist_wtb.length) {
-        if(showforum == '77') {
+        if(showforum == '78') {
             var users = $$('td.row2 > a[href*="showuser"]')
             for(var i=0, len=users.length; i<len; i++) {
                 for(var j=0, len_j=user_blist_wtb.length; j<len_j; j++) {
@@ -413,14 +412,21 @@ if(hide_bottom_area) {
 if(hide_last_posts) {
     if(/showforum=/.test(href)) {
         var f_hide_last_posts = function() {
-            var a = $$('span.lastaction a[href^="http://forums.e-hentai.org/index.php?showuser="], span.lastaction a[href^="https://forums.e-hentai.org/index.php?showuser="]')
-            for(var i=0, len=a.length; i<len; i++) { a[i].style.display = 'none' }
+            //var a = $$('span.lastaction a[href^="http://forums.e-hentai.org/index.php?showuser="], span.lastaction a[href^="https://forums.e-hentai.org/index.php?showuser="]')
+            var a = $$('span.lastaction a[href$="&view=getlastpost"]')
+            for(var i=0, len=a.length; i<len; i++) {
+                var e = doc.createElement('a')
+                e.text = 'Last'
+                e.href = a[i].href
+                a[i].parentNode.parentNode.appendChild(e)
+                a[i].parentNode.parentNode.removeChild(a[i].parentNode)
+            }
         }
         f_hide_last_posts()
-        setTimeout(f_hide_last_posts, 1000)
-        setTimeout(f_hide_last_posts, 2000)
-        setTimeout(f_hide_last_posts, 3000)
-        setTimeout(f_hide_last_posts, 4000)
-        setTimeout(f_hide_last_posts, 5000)
+        //setTimeout(f_hide_last_posts, 1000)
+        //setTimeout(f_hide_last_posts, 2000)
+        //setTimeout(f_hide_last_posts, 3000)
+        //setTimeout(f_hide_last_posts, 4000)
+        //setTimeout(f_hide_last_posts, 5000)
     }
 }
