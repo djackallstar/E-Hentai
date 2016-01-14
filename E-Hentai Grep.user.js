@@ -64,7 +64,7 @@ if(typeof grep_patterns == 'undefined') {
                 /(((^|\s)\b)|x)(infusion|(scroll of))/i,
                 
                 // trophy
-                /(((^|\s)\b)|x|\u200c)noodl/i,
+                /(((^|\s)\b)|x)noodl/i,
                 ///((^|\s)\b)(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
                 
                 // food
@@ -158,7 +158,7 @@ if(!/&?\bst=[^0]/.test(href)) {
         s = s.replace(/<br\s*[^>]*>/g, '\n').replace(/<\/li>/g, '\n').replace(/<ul>/g, '\n').replace(/<\/?blockquote>/g, '\n')
         s = s.replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '')
         s = s.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
-        s = s.replace(/[ \t]+/g, ' ')
+        s = s.replace(/[ \t\u200c]+/g, ' ')
         //console.log('='.repeat(150)); console.log(s)
         return s
     }
