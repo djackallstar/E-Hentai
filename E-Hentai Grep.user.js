@@ -158,7 +158,7 @@ if(!/&?\bst=[^0]/.test(href)) {
         s = s.replace(/<br\s*[^>]*>/g, '\n').replace(/<\/li>/g, '\n').replace(/<ul>/g, '\n').replace(/<\/?blockquote>/g, '\n')
         s = s.replace(/<[^>]+>/g, '').replace(/\[(\w+)[^\]]*](.*?)\[\/\1]/g, '')
         s = s.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
-        s = s.replace(/[ \t\u200c]+/g, ' ')
+        s = s.replace(/[\t\u200c]+/g, ' ')
         //console.log('='.repeat(150)); console.log(s)
         return s
     }
