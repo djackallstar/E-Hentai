@@ -84,6 +84,11 @@ if(typeof wnd.uname_blist == 'undefined') {
 } else { var uname_blist = wnd.uname_blist }
 
 // For posts
+var hide_emotes = [
+    /\bstyle_emoticons\//,
+    /\/folder_post_icons\//,
+    /\/ehgt\/cm\//,
+]
 var hide_cutie_marks = true
 var hide_post_count = true
 var hide_warn_levels = true
@@ -259,7 +264,7 @@ else if(/:\/\/forums\./.test(href)) {
     if(/(showtopic=\d+)|(\bresult_type=posts)/.test(href)) {
         // Hide posts
         var hide_this = true
-        //if(/showtopic=\d+/.test(href) && (dont_clean.indexOf(parseInt(href.match(/showtopic=(\d+)/)[1])) != -1)) { hide_this = false }
+        if(/showtopic=\d+/.test(href) && (dont_clean.indexOf(parseInt(href.match(/showtopic=(\d+)/)[1])) != -1)) { hide_this = false }
         if(hide_this) {
             var borderwrap = $$('.borderwrap')
             for(var i=0, len=borderwrap.length; i<len; i++) {
@@ -328,6 +333,19 @@ if(/:\/\/forums\./.test(href)) {
                 try { if(quotetop[j].nextSibling.nextSibling.nextSibling.tagName == 'BR') { quotetop[j].nextSibling.nextSibling.nextSibling.style.display = 'none' } } catch(e) {}
                 try { if(quotetop[j].nextSibling.nextSibling.nextSibling.nextSibling.tagName == 'BR') { quotetop[j].nextSibling.nextSibling.nextSibling.nextSibling.style.display = 'none' } } catch(e) {}
                 try { if(quotetop[j].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.tagName == 'BR') { quotetop[j].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.style.display = 'none' } } catch(e) {}
+            }
+        }
+    }
+}
+
+// Hide emotes
+if(hide_emotes.length >= 1) {
+    var imgs = $$('IMG')
+    for(var i=imgs.length-1; i>=0; i--) {
+        for(var a=0, len=hide_emotes.length; a<len; a++) {
+            if(hide_emotes[a].test(imgs[i].src)) {
+                imgs[i].style.display = 'none'
+                break
             }
         }
     }
