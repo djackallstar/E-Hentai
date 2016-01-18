@@ -38,11 +38,11 @@ if(typeof grep_patterns == 'undefined') {
                 /^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
                 
                 // graded mat
-                /(((^|\s)\b)|x)(low|mid|high).*grade.*(cloth|wood)/i,
-                /(((^|\s)\b)|x)(lg|mg|hg).?(cloth|wood)/i,
-                /(((^|\s)\b)|x)scrap.*(cloth|wood).*@/i,
-                /(((^|\s)\b)|x)scrap.*(cloth|wood).*\d *c\b/i,
-                /(((^|\s)\b)|x)scrap.*(cloth|wood).*\b\d{2}\b/i,
+                /(((^|\s)\b)|x)(low|mid|high).*grade.*(cloth|wood|metal)/i,
+                /(((^|\s)\b)|x)(lg|mg|hg).?(cloth|wood|metal)/i,
+                /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*@/i,
+                /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*\d *c\b/i,
+                /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*\b\d{2}\b/i,
                 
                 // catalyst
                 /(((^|\s)\b)|x)catalyst/i,
