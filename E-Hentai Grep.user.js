@@ -34,18 +34,18 @@ if(typeof grep_patterns == 'undefined') {
                 ///^\s*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 
                 // binding for cloth armor
-                /(((^|\s)\b)|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
-                /^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
+                ///(((^|\s)\b)|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
+                ///^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|dampening|cheetah|raccoon|fox|owl|heaven-sent)/i,
                 
                 // graded mat
-                /(((^|\s)\b)|x)(low|mid|high).*grade.*(cloth|wood|metal)/i,
-                /(((^|\s)\b)|x)(lg|mg|hg).?(cloth|wood|metal)/i,
+                /(((^|\s)\b)|x)(high).*grade.*(cloth)/i,
+                /(((^|\s)\b)|x)(hg).?(cloth)/i,
                 /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*@/i,
                 /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*\d *c\b/i,
                 /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*\b\d{2}\b/i,
                 
                 // catalyst
-                /(((^|\s)\b)|x)catalyst/i,
+                ///(((^|\s)\b)|x)catalyst/i,
                 
                 // ed & artifact
                 /(((^|\s)\b)|x)(energy|drink|(artifact|artefact)).*[@0]/i,
@@ -56,12 +56,13 @@ if(typeof grep_patterns == 'undefined') {
                 /(((^|\s)\b)|x)amnesia/i,
                 
                 // restorative
-                /(((^|\s)\b)|x)(health|last).*elixir/i,
-                /(((^|\s)\b)|x)(mana|spirit).*(potion|elixir)/i,
-                /(((^|\s)\b)|x)spirit.*draught/i,
+                /(((^|\s)\b)|x)health.*elixir/i,
+                /(((^|\s)\b)|x)mana.*(potion|elixir)/i,
+                /(((^|\s)\b)|x)spirit.*(draught|potion|elixir)/i,
+                /(((^|\s)\b)|x)last.*elixir/i,
                 
                 // infusion & scroll
-                /(((^|\s)\b)|x)(infusion|(scroll of))/i,
+                ///(((^|\s)\b)|x)(infusion|(scroll of))/i,
                 
                 // trophy
                 /(((^|\s)\b)|x)noodl/i,
@@ -79,12 +80,8 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg).*(Hallowed|Astral).*Katalox.*(Destruction|Heimdall|Heaven-sent)/i,
                 /(Peer|Leg).*(Hallowed|Astral).*Oak.*Heimdall/i,
                 /(Peer|Leg).*(Radiant|Frugal).*Heimdall/i,
+                /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*Heaven-sent/i,
             ], 'darkred', ''
-        ],
-        [ // Cotton
-            [
-                /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*(Heaven-sent|Curse-weaver)/i,
-            ], 'darkgreen', ''
         ],
     ]
 }
