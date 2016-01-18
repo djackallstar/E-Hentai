@@ -69,7 +69,7 @@ if(typeof grep_patterns == 'undefined') {
                 ///((^|\s)\b)(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
                 
                 // food
-                /(((^|\s)\b)|x)(crystals?\b|chow|edible|cuisine|pill)/i,
+                /(((^|\s)\b)|x)(packs?\b|chow|edible|cuisine|pill)/i,
                 
                 // misc
                 /(((^|\s)\b)|x)(vase|bubble)/i,
