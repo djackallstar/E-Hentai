@@ -31,8 +31,6 @@ var hide_bottom_area = true
 var hide_last_posts = true
 if(typeof do_not_hide == 'undefined') {
     var do_not_hide = [ // user IDs
-        2328, // atomicpuppy
-        409722, // danixxx
         1988471,
     ]
 }
@@ -48,8 +46,7 @@ if(typeof wtb_shop_owners_to_highlight == 'undefined') {
 }
 if(typeof wts_thread_blist == 'undefined') {
     var wts_thread_blist = [ // thread IDs
-        163637, // The Shared Free Shop
-        183055,
+        0,
     ]
 }
 if(typeof wtb_thread_blist == 'undefined') {
