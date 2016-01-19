@@ -53,7 +53,7 @@ if(typeof grep_patterns == 'undefined') {
                 /(((^|\s)\b)|x)(energy|drink|(artifact|artefact)).* *\d+/i,
                 
                 // amnesia shard
-                /(((^|\s)\b)|x)amnesia/i,
+                /(((^|\s)\b)|x)(amnesia|aether|ether)/i,
                 
                 // restorative
                 /(((^|\s)\b)|x)health.*elixir/i,
