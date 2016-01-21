@@ -386,7 +386,7 @@ if(hide_warn_levels) {
 
 // Duplicate last edit time to the top of a post
 if(dup_edit_time) {
-    if(/showtopic=\d+/.test(href)) {
+    if(/showtopic=\d+/.test(href) && !/&st=/.test(href)) {
         var posts = $$('*[id^="post-main-"]')
         for(var i=0, len=posts.length; i<len; i++) {
             var edit = $(posts[i], '.edit')
