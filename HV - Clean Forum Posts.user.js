@@ -89,6 +89,7 @@ var hide_emotes = [
 var hide_cutie_marks = true
 var hide_post_count = true
 var hide_warn_levels = true
+var dup_edit_time = true
 if(typeof wnd.uid_blist == 'undefined') {
     var uid_blist = [ // hide posts by uid (integer)
         0,
@@ -379,6 +380,20 @@ if(hide_warn_levels) {
                     spacer[j].style.display = 'none'
                 }
             } catch(e) {}
+        }
+    }
+}
+
+// Duplicate last edit time to the top of a post
+if(dup_edit_time) {
+    if(/showtopic=\d+/.test(href)) {
+        var posts = $$('*[id^="post-main-"]')
+        for(var i=0, len=posts.length; i<len; i++) {
+            var edit = $(posts[i], '.edit')
+            if(edit) {
+                var last_edit_time = edit.textContent.match(/^This post has been edited by .*: (.*)/)[1]
+                posts[i].innerHTML = '<p>Last Edited: ' + last_edit_time + '</p><br>' + posts[i].innerHTML
+            }
         }
     }
 }
