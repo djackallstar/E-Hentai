@@ -77,11 +77,16 @@ if(typeof grep_patterns == 'undefined') {
         ],
         [ // Holy
             [
-                /(Peer|Leg).*(Hallowed|Astral).*Katalox.*(Destruction|Heimdall|Heaven-sent)/i,
-                /(Peer|Leg).*(Hallowed|Astral).*Oak.*Heimdall/i,
-                /(Peer|Leg).*(Radiant|Frugal).*Heimdall/i,
-                /(Peer|Leg).*(Charged|Frugal).*(Cotton|Gossamer).*Heaven-sent/i,
+                /(Peer|Leg).*Frugal.*Heimdall/i,
+                /(Peer|Leg).*Frugal.*Heaven-sent/i,
             ], 'darkred', ''
+        ],
+        [ // Elemental
+            [
+                /(Peer|Leg).*(Tempestuous|Shocking|Arctic|Fiery).*Willow/i,
+                /(Peer|Leg).*Frugal.*(Freyr|Mjolnir|Niflheim|Surtr)/i,
+                /(Peer|Leg).*Frugal.*(Elementalist|Curse-weaver)/i,
+            ], 'darkgreen', ''
         ],
     ]
 }
