@@ -81,14 +81,6 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg).*Frugal.*Heaven-sent/i,
             ], 'darkred', ''
         ],
-        [ // Elemental
-            [
-                /(Peer|Leg).*(Tempestuous|Shocking|Arctic|Fiery).*Willow/i,
-                /(Peer|Leg).*(Tempestuous|Shocking|Arctic|Fiery).*Redwood.*(Destruction|Focus)/i,
-                /(Peer|Leg).*Frugal.*(Freyr|Mjolnir|Niflheim|Surtr)/i,
-                /(Peer|Leg).*Frugal.*(Elementalist|Curse-weaver)/i,
-            ], 'darkgreen', ''
-        ],
     ]
 }
 
