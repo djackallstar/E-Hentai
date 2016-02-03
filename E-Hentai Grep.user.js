@@ -78,7 +78,7 @@ if(typeof grep_patterns == 'undefined') {
         [ // Holy
             [
                 /(Peer|Leg).*Frugal.*Heimdall/i,
-                /(Peer|Leg).*Frugal.*Heaven-sent/i,
+                /(Peer|Leg).*Frugal.*(Heaven-sent|Curse-weaver)/i,
             ], 'darkred', ''
         ],
     ]
