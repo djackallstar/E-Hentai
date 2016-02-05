@@ -65,7 +65,7 @@ if(typeof grep_patterns == 'undefined') {
                 ///(((^|\s)\b)|x)(infusion|(scroll of))/i,
                 
                 // trophy
-                /(((^|\s)\b)|x)noodl/i,
+                /(((^|\s)\b)|x|\{)noodl/i,
                 ///((^|\s)\b)(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
                 
                 // food
