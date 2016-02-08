@@ -34,8 +34,8 @@ if(typeof grep_patterns == 'undefined') {
                 ///^\s*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 
                 // binding for staff (selected stats)
-                /(((^|\s)\b)|x)binding.*(destruction|heimdall|heaven-sent|fox|owl)/i,
-                /^\s*(destruction|heimdall|heaven-sent|fox|owl)/i,
+                /(((^|\s)\b)|x)binding.*destruction/i,
+                /^\s*destruction/i,
                 
                 // binding for cloth armor
                 ///(((^|\s)\b)|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|heaven-sent|dampening|cheetah|raccoon|fox|owl)/i,
@@ -46,8 +46,8 @@ if(typeof grep_patterns == 'undefined') {
                 /^\s*(protection|fleet|heaven-sent|cheetah|owl)/i,
                 
                 // graded mat
-                /(((^|\s)\b)|x)(high).*grade.*(cloth|wood)/i,
-                /(((^|\s)\b)|x)(hg).?(cloth|wood)/i,
+                /(((^|\s)\b)|x)(high).*grade.*cloth/i,
+                /(((^|\s)\b)|x)(hg).?cloth/i,
                 /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*@/i,
                 /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*\d *c\b/i,
                 /(((^|\s)\b)|x)scrap.*(cloth|wood|metal).*\b\d{2}\b/i,
