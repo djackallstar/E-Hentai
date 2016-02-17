@@ -8,6 +8,7 @@
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?showuser=.*/
 // @include     /^https?://forums\.e-hentai\.org\/index\.php\?showforum=.*/
 // @include     http://hentaiverse.org/?s=Bazaar&ss=mm*
+// @include     http://g.e-hentai.org/bounty.php?bid=*
 // ==/UserScript==
 
 var wnd = window
@@ -100,6 +101,11 @@ if(typeof wnd.dont_clean == 'undefined') {
         0,
     ]
 } else { var dont_clean = wnd.dont_clean }
+if(typeof wnd.uname_blist_bounty == 'undefined') {
+    var uname_blist_bounty = [ // username
+        '',
+    ]
+} else { var uname_blist_bounty = wnd.uname_blist_bounty }
 
 /*** End of Settings ***/
 
@@ -315,6 +321,14 @@ else if(/&ss=mm$/.test(href) || /&filter=inbox/.test(href)) {
     for(var i=0, len=letters.length; i<len; i++) {
         if(uname_blist.indexOf(letters[i].querySelector('td').textContent) != -1) {
             letters[i].style.display = 'none'
+        }
+    }
+}
+else if(/\/bounty\.php\?bid=/.test(href)) {
+    var unames = $$('.brw a')
+    for(var i=0, len=unames.length; i<len; i++) {
+        if(uname_blist_bounty.indexOf(unames[i].textContent) != -1) {
+            unames[i].parentNode.parentNode.style.display = 'none'
         }
     }
 }
