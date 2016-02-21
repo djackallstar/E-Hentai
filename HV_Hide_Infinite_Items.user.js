@@ -8,9 +8,6 @@
 if(typeof wlist == 'undefined') {
     var wlist = [ // Infinite items on the list are NOT hidden. Edit it to suit your own needs.
         /Soul Fragment/i,
-        /Scrap (Cloth|Wood)/i,
-        /Energy Cell/i,
-        /(Regular|Robust|Vibrant|Coruscating) Catalyst/i,
     ]
 }
 
