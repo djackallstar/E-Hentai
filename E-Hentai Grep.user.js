@@ -117,6 +117,8 @@ if(!/&?\bst=[^0]/.test(href)) {
             /This post has been edited by/i,
 
             // Misc
+            /infinite/i,
+            /∞/i,
             /\bnot\s+available\b/i,
             /\bunavailable\b/i,
             /\b(none|restocking)\b/i,
