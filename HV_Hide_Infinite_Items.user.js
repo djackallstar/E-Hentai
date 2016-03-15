@@ -18,7 +18,9 @@ if(typeof blist == 'undefined') {
         /Scroll of (Swiftness|Shadows|Absorption|Life|(the Gods))/i,
         /(Low|Mid)-Grade/i,
         /High-Grade (Metals|Leather)/i,
+        /Binding.*(Focus|Friendship|Elementalist|Heaven-sent|Demon-fiend|Curse-weaver|Earth-walker|Surtr|Niflheim|Mjolnir|Freyr|Heimdall|Fenrir|Stone-skin|Deflection|Fire-eater|Frost-born|Thunder-child|Wind-waker|Thrice-blessed|Spirit-ward)/i,
         /Voidseeker|Aether|Featherweight/i,
+        /Figurine/i,
     ]
 }
 
