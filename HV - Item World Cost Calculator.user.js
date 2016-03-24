@@ -60,6 +60,7 @@ if(m) {
 
         // Number of rounds in one run
         var round = Math.ceil(75 * Math.pow(q, 3))
+        if(round < 10) { round = 10 }
         if(round > 100) { round = 100 }
         console.log('Number of rounds in one run = ' + round)
 
