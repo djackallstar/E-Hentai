@@ -21,7 +21,8 @@ if(/&mid=/.test(href)) {
         var cod = m.children[2].textContent.match(/CoD:\s*([0-9,]+)\s*credits/i)
         if(cod) { cod = parseInt(cod[1].replace(/,/g, '')) } else { cod = 0 }
         var avg_price = cod/cnt
-        $('#leftpane').children[1].innerHTML += '<HR>Status: Not Taken<BR>Name: ' + name + '<BR>Count: ' + cnt + '<BR>CoD: ' + cod + '<BR>Average Price: ' + avg_price
+        //$('#leftpane').children[1].innerHTML += '<HR>Status: Not Taken<BR>Name: ' + name + '<BR>Count: ' + cnt + '<BR>CoD: ' + cod + '<BR>Average Price: ' + avg_price
+        $('#leftpane').children[1].innerHTML += '<HR>' + cnt + 'x ' + name + ' @' + avg_price + '<BR>CoD = ' + cod + '<BR>Not Taken Yet'
     }
     else {
         var body_section = $('#leftpane').children[1]
@@ -33,7 +34,8 @@ if(/&mid=/.test(href)) {
             var name = m[2].replace(/^ +| +$/g, '')
             var cod = parseInt(m[3])
             var avg_price = cod/cnt
-            body_section.innerHTML = body_section.innerHTML + '<HR>Status: Taken<BR>Name: ' + name + '<BR>Count: ' + cnt + '<BR>CoD: ' + cod + '<BR>Average Price: ' + avg_price
+            //body_section.innerHTML = body_section.innerHTML + '<HR>Status: Taken<BR>Name: ' + name + '<BR>Count: ' + cnt + '<BR>CoD: ' + cod + '<BR>Average Price: ' + avg_price
+            body_section.innerHTML += '<HR>' + cnt + 'x ' + name + ' @' + avg_price + '<BR>CoD = ' + cod + '<BR>Already Taken'
         }
     }
 }
