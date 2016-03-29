@@ -15,10 +15,10 @@ var $$ = function(e, css) { if(!css) { css=e; e=doc }; return e.querySelectorAll
 
 if(/&mid=/.test(href)) {
     var normalize_price = function(p) {
-        if(p.toString().length <= 3) { return p+'' }
-        p /= 1000; if(p.toString().length <= 3) { return p+'k' }
-        p /= 1000; if(p.toString().length <= 3) { return p+'m' }
-        p /= 1000; if(p.toString().length <= 3) { return p+'b' }
+        if(p.toString().replace(/\..*/, '').length <= 3) { return p+'' }
+        p /= 1000; if(p.toString().replace(/\..*/, '').length <= 3) { return p+'k' }
+        p /= 1000; if(p.toString().replace(/\..*/, '').length <= 3) { return p+'m' }
+        p /= 1000; if(p.toString().replace(/\..*/, '').length <= 3) { return p+'b' }
         p /= 1000; return p+'t'
     }
     var m = $('#leftpane').nextSibling.nextSibling.nextSibling
