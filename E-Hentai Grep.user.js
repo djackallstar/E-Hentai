@@ -89,6 +89,13 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg).*Frugal.*(Heaven-sent|Curse-weaver)/i,
             ], 'darkred', ''
         ],
+        [ // Wind
+            [
+                /(Peer|Leg).*Tempestuous.*Willow.*Destruction/i,
+                /(Peer|Leg).*Charged.*Phase.*Freyr/i,
+                /(Peer|Leg).*Charged.*Cotton.*Elementalist/i,
+            ], 'darkgreen', ''
+        ],
     ]
 }
 
