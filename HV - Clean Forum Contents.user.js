@@ -405,11 +405,10 @@ if(dup_edit_time) {
     if(/showtopic=\d+/.test(href) && !/&st=/.test(href)) {
         var posts = $$('*[id^="post-main-"]')
         for(var i=0, len=posts.length; i<len; i++) {
+            var last_edit_time = 'N/A'
             var edit = $(posts[i], '.edit')
-            if(edit) {
-                var last_edit_time = edit.textContent.match(/^This post has been edited by .*: (.*)/)[1]
-                posts[i].innerHTML = '<p>Last Edited: ' + last_edit_time + '</p><br>' + posts[i].innerHTML
-            }
+            if(edit) { last_edit_time = edit.textContent.match(/^This post has been edited by .*: (.*)/)[1] }
+            posts[i].innerHTML = '<p>Last Edited: ' + last_edit_time + '</p><br>' + posts[i].innerHTML
         }
     }
 }
