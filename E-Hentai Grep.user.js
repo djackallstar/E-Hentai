@@ -83,16 +83,18 @@ if(typeof grep_patterns == 'undefined') {
                 /(((^|\s)\b)|x)(vase|bubble)/i,
             ], 'purple', ''
         ],
-        [ // Holy
+        [ // Divine
             [
                 /(Peer|Leg).*Hallowed.*Katalox.*Destruction/i,
                 /(Peer|Leg).*(Charged|Frugal).*(Heimdall|Heaven-sent)/i,
             ], 'darkred', ''
         ],
-        [ // Wind
+        [ // Elemental
             [
-                /(Peer|Leg).*Tempestuous.*Willow.*Destruction/i,
-                /(Peer|Leg).*(Charged|Frugal).*(Freyr|Elementalist|Curse-weaver)/i,
+                /Peer.*(Tempestuous|Shocking|Arctic|Fiery).*(Willow|Redwood)/i,
+                /Leg.*(Tempestuous|Shocking).*Willow.*(Destruction|Focus)/i,
+                /Leg.*(Arctic|Fiery).*Redwood.*(Destruction|Focus)/i,
+                /(Peer|Leg).*Frugal.*(Freyr|Mjolnir|Niflheim|Surtr|Elementalist|Curse-weaver)/i,
             ], 'darkgreen', ''
         ],
     ]
