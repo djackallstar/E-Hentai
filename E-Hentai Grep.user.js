@@ -137,7 +137,7 @@ if(!/&?\bst=[^0]/.test(href)) {
             /∞/i,
             /\bnot\s+available\b/i,
             /\bunavailable\b/i,
-            /\bN\/\bA/i,
+            /\bN\/A\b/i,
             /\bout of stock\b/i,
             /\b(none|restocking)\b/i,
         ]
