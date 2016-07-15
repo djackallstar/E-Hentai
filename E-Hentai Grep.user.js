@@ -121,7 +121,6 @@ if(!/&?\bst=[^0]/.test(href)) {
             /(^|\D)[-0×\/]+\s*[@×:）】\]\)\|]/i,
             /(^|[^,])\b0+\s*[x×]/i,
             /(^|\s+)0+\s+/i,
-            /out of stock/i,
             /This post has been edited by/i,
 
             // Misc
@@ -129,6 +128,8 @@ if(!/&?\bst=[^0]/.test(href)) {
             /∞/i,
             /\bnot\s+available\b/i,
             /\bunavailable\b/i,
+            /N\/A/i,
+            /out of stock/i,
             /\b(none|restocking)\b/i,
             /-\*0\s+/i,
             /qty=0/i,
