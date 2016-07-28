@@ -65,8 +65,7 @@ if(typeof grep_patterns == 'undefined') {
                 
                 // restoratives
                 /(((^|\s)\b)|x)health.*elixir/i,
-                /(((^|\s)\b)|x)mana.*(potion|elixir)/i,
-                /(((^|\s)\b)|x)spirit.*(draught|potion|elixir)/i,
+                /(((^|\s)\b)|x)spirit.*(potion|elixir)/i,
                 /(((^|\s)\b)|x)last.*elixir/i,
                 
                 // powerups
