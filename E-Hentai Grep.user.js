@@ -27,30 +27,30 @@ if(typeof grep_patterns == 'undefined') {
         [ // Items
             [
                 // rare mat
-                /(((^|\s)\b)|x)phazon/i,
+                ///(((^|\s)\b)|x)phazon/i,
                 
                 // binding for staff
                 ///(((^|\s)\b)|x)binding.*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 ///^\s*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 
                 // binding for staff (selected stats)
-                /(((^|\s)\b)|x)binding.*destruction/i,
-                /^\s*destruction/i,
+                ///(((^|\s)\b)|x)binding.*destruction/i,
+                ///^\s*destruction/i,
                 
                 // binding for cloth armor
                 ///(((^|\s)\b)|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|heaven-sent|dampening|cheetah|raccoon|fox|owl)/i,
                 ///^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|heaven-sent|dampening|cheetah|raccoon|fox|owl)/i,
                 
                 // binding for cloth armor (selected stats)
-                /(((^|\s)\b)|x)binding.*(protection|fleet|heaven-sent|cheetah|owl)/i,
-                /^\s*(protection|fleet|heaven-sent|cheetah|owl)/i,
+                ///(((^|\s)\b)|x)binding.*(protection|fleet|heaven-sent|cheetah|fox|owl)/i,
+                ///^\s*(protection|fleet|heaven-sent|cheetah|fox|owl)/i,
                 
                 // graded mat
-                /(((^|\s)\b)|x)(high)[-\s]*grade\s*(cloth|wood)/i,
-                /(((^|\s)\b)|x)(hg)[-\s]?(cloth|wood)/i,
-                /(((^|\s)\b)|x)scrap\s*(cloth|wood|metal).*@/i,
-                /(((^|\s)\b)|x)scrap\s*(cloth|wood|metal).*\d *c\b/i,
-                /(((^|\s)\b)|x)scrap\s*(cloth|wood|metal).*\b\d{2}\b/i,
+                ///(((^|\s)\b)|x)(high)[-\s]*grade\s*(cloth|wood)/i,
+                ///(((^|\s)\b)|x)(hg)[-\s]?(cloth|wood)/i,
+                /(((^|\s)\b)|x)scrap\s*(cloth|wood).*@/i,
+                /(((^|\s)\b)|x)scrap\s*(cloth|wood).*\d *c\b/i,
+                /(((^|\s)\b)|x)scrap\s*(cloth|wood).*\b\d{2}\b/i,
                 
                 // catalyst
                 ///(((^|\s)\b)|x)catalyst/i,
@@ -61,7 +61,7 @@ if(typeof grep_patterns == 'undefined') {
                 /(((^|\s)\b)|x)(energy|drink|(artifact|artefact)).* *\d+/i,
                 
                 // amnesia shard
-                /(((^|\s)\b)|x)(amnesia|aether|ether)\b/i,
+                ///(((^|\s)\b)|x)(amnesia|aether|ether)\b/i,
                 
                 // restorative
                 /(((^|\s)\b)|x)health.*elixir/i,
