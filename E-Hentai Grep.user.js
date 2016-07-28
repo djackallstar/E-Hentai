@@ -26,75 +26,75 @@ if(typeof grep_patterns == 'undefined') {
     var grep_patterns = [ // Add [[pattern_1, pattern_2, ... , pattern_n], 'color'] to the array by yourself.
         [ // Items
             [
-                // rare mat
+                // rare mats
                 ///(((^|\s)\b)|x)phazon/i,
                 
-                // binding for staff
+                // bindings for staff
                 ///(((^|\s)\b)|x)binding.*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 ///^\s*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 
-                // binding for staff (selected stats)
+                // bindings for staff (selected stats)
                 ///(((^|\s)\b)|x)binding.*destruction/i,
                 ///^\s*destruction/i,
                 
-                // binding for cloth armor
+                // bindings for cloth armor
                 ///(((^|\s)\b)|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|heaven-sent|dampening|cheetah|raccoon|fox|owl)/i,
                 ///^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|heaven-sent|dampening|cheetah|raccoon|fox|owl)/i,
                 
-                // binding for cloth armor (selected stats)
+                // bindings for cloth armor (selected stats)
                 ///(((^|\s)\b)|x)binding.*(protection|fleet|heaven-sent|cheetah|fox|owl)/i,
                 ///^\s*(protection|fleet|heaven-sent|cheetah|fox|owl)/i,
                 
-                // graded mat
+                // graded mats
                 ///(((^|\s)\b)|x)(high)[-\s]*grade\s*(cloth|wood)/i,
                 ///(((^|\s)\b)|x)(hg)[-\s]?(cloth|wood)/i,
                 /(((^|\s)\b)|x)scrap\s*(cloth|wood).*@/i,
                 /(((^|\s)\b)|x)scrap\s*(cloth|wood).*\d *c\b/i,
                 /(((^|\s)\b)|x)scrap\s*(cloth|wood).*\b\d{2}\b/i,
                 
-                // catalyst
+                // catalysts
                 ///(((^|\s)\b)|x)catalyst/i,
+                
+                // shards
+                ///(((^|\s)\b)|x)(amnesia|aether|ether)\b/i,
                 
                 // ed & artifact
                 /(((^|\s)\b)|x)(energy|drink|(artifact|artefact)).*[@0]/i,
                 /(((^|\s)\b)|x)(energy|drink|(artifact|artefact)).*\d *k\b/i,
                 /(((^|\s)\b)|x)(energy|drink|(artifact|artefact)).* *\d+/i,
                 
-                // amnesia shard
-                ///(((^|\s)\b)|x)(amnesia|aether|ether)\b/i,
-                
-                // restorative
+                // restoratives
                 /(((^|\s)\b)|x)health.*elixir/i,
                 /(((^|\s)\b)|x)mana.*(potion|elixir)/i,
                 /(((^|\s)\b)|x)spirit.*(draught|potion|elixir)/i,
                 /(((^|\s)\b)|x)last.*elixir/i,
                 
-                // infusion & scroll
+                // powerups
+                /(((^|\s)\b)|x)(vase|bubble)/i,
+                
+                // infusions & scrolls
                 ///(((^|\s)\b)|x)(infusion|(scroll of))/i,
                 
-                // trophy
-                /(((^|\s)\b)|x|\{)noodl/i,
-                ///((^|\s)\b)(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
-                
-                // food
+                // foods
                 /(((^|\s)\b)|x)(packs?\b|chow|edible|cuisine|pill)/i,
                 
-                // misc
-                /(((^|\s)\b)|x)(vase|bubble)/i,
+                // trophies
+                /(((^|\s)\b)|x|\{)noodl/i,
+                ///((^|\s)\b)(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
             ], 'purple', ''
         ],
         [ // Divine
             [
                 /(Peer|Leg).*Hallowed.*Katalox.*Destruction/i,
-                /(Peer|Leg).*(Charged|Frugal).*(Heimdall|Heaven-sent)/i,
+                /(Peer|Leg).*(Charged|Frugal).*Heaven-sent/i,
             ], 'darkred', ''
         ],
         [ // Elemental
             [
                 /Peer.*(Tempestuous|Shocking|Arctic|Fiery).*(Willow|Redwood)/i,
                 /Leg.*(Tempestuous|Shocking).*Willow.*(Destruction|Focus)/i,
-                /Leg.*(Arctic|Fiery).*Redwood.*(Destruction|Focus)/i,
-                /(Peer|Leg).*Frugal.*(Freyr|Mjolnir|Niflheim|Surtr|Elementalist|Curse-weaver)/i,
+                /Leg.*(Arctic|Fiery).*Redwood.*Destruction/i,
+                /(Peer|Leg).*(Charged|Frugal).*(Freyr|Mjolnir|Niflheim|Surtr|Elementalist|Curse-weaver)/i,
             ], 'darkgreen', ''
         ],
     ]
