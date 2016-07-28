@@ -79,7 +79,7 @@ if(typeof grep_patterns == 'undefined') {
                 /(((^|\s)\b)|x)(packs?\b|chow|edible|cuisine|pill)/i,
                 
                 // trophies
-                /(((^|\s)\b)|x|\{)noodl/i,
+                ///(((^|\s)\b)|x|\{)noodl/i,
                 ///((^|\s)\b)(troph|manbearpig|antioch|mithra|dalek|lock|costume|hinamatsuri|broken|sapling|shirt|unicorn|noodl)/i,
             ], 'purple', ''
         ],
