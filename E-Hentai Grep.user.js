@@ -96,6 +96,12 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg).*(Charged|Frugal).*(Freyr|Mjolnir|Niflheim|Surtr|Elementalist|Curse-weaver)/i,
             ], 'darkgreen', ''
         ],
+        [ // Toys
+            [
+                /(Peer|Leg).*Buckler.*(Barrier|Battlecaster)/i,
+                /(Peer|Leg).*(Ethereal|Hallowed).*Waki.*(Nimble|Battlecaster)/i,
+            ], 'darkblue', ''
+        ],
     ]
 }
 
