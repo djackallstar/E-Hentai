@@ -34,8 +34,8 @@ if(typeof grep_patterns == 'undefined') {
                 ///^\s*(slaughter|destruction|focus|friendship|heimdall|fenrir|heaven-sent|demon-fiend|curse-weaver|earth-walker|fox|owl)/i,
                 
                 // bindings for staff (selected stats)
-                ///(((^|\s)\b)|x)binding.*destruction/i,
-                ///^\s*destruction/i,
+                /(((^|\s)\b)|x)binding.*destruction/i,
+                /^\s*destruction/i,
                 
                 // bindings for cloth armor
                 ///(((^|\s)\b)|x)binding.*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|heaven-sent|dampening|cheetah|raccoon|fox|owl)/i,
