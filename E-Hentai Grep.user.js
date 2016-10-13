@@ -84,7 +84,7 @@ if(typeof grep_patterns == 'undefined') {
         ],
         [ // Divine
             [
-                /(Peer|Leg).*Hallowed.*Katalox.*Destruction/i,
+                /(Peer|Leg).*Hallowed.*Katalox.*(Destruction|Heaven-sent)/i,
                 /(Peer|Leg).*(Charged|Frugal).*Heaven-sent/i,
             ], 'darkred', ''
         ],
