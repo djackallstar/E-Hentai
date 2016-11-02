@@ -46,11 +46,11 @@ if(typeof grep_patterns == 'undefined') {
                 ///^\s*(protection|fleet|heaven-sent|raccoon|cheetah|fox|owl)/i,
                 
                 // graded mats
-                ///(((^|\s)\b)|x)(high)[-\s]*grade\s*(cloth|wood)/i,
-                ///(((^|\s)\b)|x)(hg)[-\s]?(cloth|wood)/i,
-                /(((^|\s)\b)|x)scrap\s*(cloth|wood).*@/i,
-                /(((^|\s)\b)|x)scrap\s*(cloth|wood).*\d *c\b/i,
-                /(((^|\s)\b)|x)scrap\s*(cloth|wood).*\b\d{2}\b/i,
+                ///(((^|\s)\b)|x)(high)[-\s]*grade\s*(cloth)/i,
+                ///(((^|\s)\b)|x)(hg)[-\s]?(cloth)/i,
+                /(((^|\s)\b)|x)scrap\s*(cloth).*@/i,
+                /(((^|\s)\b)|x)scrap\s*(cloth).*\d *c\b/i,
+                /(((^|\s)\b)|x)scrap\s*(cloth).*\b\d{2}\b/i,
                 
                 // catalysts
                 ///(((^|\s)\b)|x)catalyst/i,
@@ -102,6 +102,7 @@ if(typeof grep_patterns == 'undefined') {
                 /(Peer|Leg).*Buckler.*(Barrier|Battlecaster)/i,
                 /(Peer|Leg).*(Ethereal|Hallowed|Tempestuous|Shocking|Arctic|Fiery).*Waki.*(Nimble|Battlecaster)/i,
                 /(Peer|Leg).*Gossamer/i,
+                /Peerless/i,
             ], 'darkblue', ''
         ],
     ]
