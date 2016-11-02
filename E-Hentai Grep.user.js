@@ -42,8 +42,8 @@ if(typeof grep_patterns == 'undefined') {
                 ///^\s*(destruction|balance|focus|protection|warding|fleet|negation|heimdall|heaven-sent|dampening|cheetah|raccoon|fox|owl)/i,
                 
                 // bindings for cloth armor (selected stats)
-                /(((^|\s)\b)|x)binding.*(protection|fleet|heaven-sent|raccoon|cheetah|fox|owl)/i,
-                /^\s*(protection|fleet|heaven-sent|raccoon|cheetah|fox|owl)/i,
+                ///(((^|\s)\b)|x)binding.*(protection|fleet|heaven-sent|raccoon|cheetah|fox|owl)/i,
+                ///^\s*(protection|fleet|heaven-sent|raccoon|cheetah|fox|owl)/i,
                 
                 // graded mats
                 ///(((^|\s)\b)|x)(high)[-\s]*grade\s*(cloth|wood)/i,
