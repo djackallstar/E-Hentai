@@ -199,7 +199,13 @@ if(!/&?\bst=[^0]/.test(href)) {
                 if(stockout(line)) { continue }
                 for(var k=0, len3=grep_patterns.length; k<len3; k++) {
                     for(var m=0, len4=grep_patterns[k][0].length; m<len4; m++) {
-                        if(grep_patterns[k][0][m].test(line)) { out = out + line.substring(0, max_length) + '\n'; break }
+                        var grepped = false
+                        if(grep_patterns[k][0][m].test(line)) {
+                            grepped = true
+                            out = out + line.substring(0, max_length) + '\n'
+                            break
+                        }
+                        if(grepped) { break }
                     }
                 }
             }
@@ -313,7 +319,6 @@ if(!/&?\bst=[^0]/.test(href)) {
                         lnks[j].style.color = 'white'
                         lnks[j].style.backgroundColor = grep_patterns[k][1]
                         if(grep_patterns[k][2] != '') { lnks[j].style.cssText = grep_patterns[k][2] }
-
                         break
                     }
                 } if(highlighted) { break }
