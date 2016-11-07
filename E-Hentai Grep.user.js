@@ -205,8 +205,8 @@ if(!/&?\bst=[^0]/.test(href)) {
                             out = out + line.substring(0, max_length) + '\n'
                             break
                         }
-                        if(grepped) { break }
                     }
+                    if(grepped) { break }
                 }
             }
             if(out) {
