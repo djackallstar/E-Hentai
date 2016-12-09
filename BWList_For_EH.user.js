@@ -76,10 +76,10 @@ if(showforum) {
         if(showforum == '77' || showforum == '78') {
             var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
             //var closed_patterns = /\b(close|closed|complete|(delete|del\b)|done|end|none|nothing|shut|sorry)/i
-            var closed_patterns = /\b(close|closed|complete|(delete|del\b)|done|end|none|nothing|shut|sorry|auction|lottery|lotto)/i
+            var closed_patterns = /\b(close|closed|complete|(delete|del\b)|done|end|none|nothing|shut|sorry|auction|lottery|lotto|event)/i
             for(var i=0, len=lnks.length; i<len; i++) {
                 if((!/&st=/.test(href)) || (/&st=0/.test(href))) { // (probably) on the first page
-                    if(/\b(auction|lottery|lotto)\b/i.test(lnks[i].textContent)) { continue }
+                    if(/\b(auction|lottery|lotto|event)\b/i.test(lnks[i].textContent)) { continue }
                 }
                 var owner = $(lnks[i].parentNode.parentNode.parentNode.parentNode, 'td.row2 > a[href*="showuser"]')
                 if(do_not_hide.indexOf(parseInt(owner.href.match(/showuser=(\d+)/)[1])) != -1){ continue }
@@ -101,7 +101,7 @@ if(showforum) {
         if(showforum == '77') {
             var lnks = $$('td.row1 > div > span > a[id^="tid-link-"]')
             for(var i=0, len=lnks.length; i<len; i++) {
-                if(/\b(auction|lottery|lotto)\b/i.test(lnks[i].textContent)) {
+                if(/\b(auction|lottery|lotto|event)\b/i.test(lnks[i].textContent)) {
                     var owner = $(lnks[i].parentNode.parentNode.parentNode.parentNode, 'td.row2 > a[href*="showuser"]')
                     if(owner.style.color == '') { owner.style.color = 'blue'}
                 }
