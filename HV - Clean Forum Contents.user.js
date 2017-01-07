@@ -476,7 +476,7 @@ if(hide_last_posts) {
     }
 }
 
-// Hide links in the "fo_fid" div
+// Hide user links in the "fo_fid" div
 if(/showforum=/.test(href)) {
     var fid = ''
     try { var fid = href.match(/showforum=(\d+)/)[1] } catch(e) {}
@@ -484,21 +484,11 @@ if(/showforum=/.test(href)) {
     if(e) {
         var a = $$(e, 'a[href*="showuser="]')
         for(var i=0, len=a.length; i<len; i++) {
-            var uid = a[i].href.match(/showuser=(\d+)/)[1]
-            if((uname_blist.indexOf(a[i].text)!=-1) || (user_blist.indexOf(uid)!=-1)) {
-                a[i].style.display = 'none'
-            }
-        }
-    }
-    var f_hide_last_posts = function() {
-        //var a = $$('span.lastaction a[href^="http://forums.e-hentai.org/index.php?showuser="], span.lastaction a[href^="https://forums.e-hentai.org/index.php?showuser="]')
-        var a = $$('span.lastaction a[href$="&view=getlastpost"]')
-        for(var i=0, len=a.length; i<len; i++) {
-            var e = doc.createElement('a')
-            e.text = 'Last'
-            e.href = a[i].href
-            a[i].parentNode.parentNode.appendChild(e)
-            a[i].parentNode.parentNode.removeChild(a[i].parentNode)
+            a[i].style.display = 'none'
+            //var uid = a[i].href.match(/showuser=(\d+)/)[1]
+            //if((uname_blist.indexOf(a[i].text)!=-1) || (user_blist.indexOf(uid)!=-1)) {
+                //a[i].style.display = 'none'
+            //}
         }
     }
 }
